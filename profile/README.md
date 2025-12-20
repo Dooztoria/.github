@@ -1,4 +1,3 @@
-![Pixel Ocean](assets/oceans.svg)
 
 <div align="center">
   <img src="assets/te.svg" width="400">

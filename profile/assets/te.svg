@@ -38,6 +38,6 @@
     <rect x="440" y="80" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
 
     <text x="250" y="45" text-anchor="middle" class="title">REPOSITORY ARCHIVE</text>
-    <text x="250" y="70" text-anchor="middle" class="subtitle">Exploring Codes, Arts & Tools</text>
+    <text x="250" y="70" text-anchor="middle" class="subtitle">Exploring Codes, Arts and Tools</text>
   </g>
 </svg>

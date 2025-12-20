@@ -3,6 +3,6 @@
   
   <img src="assets/oceans.svg" width="100%" style="display: block; margin-bottom: -1px;" alt="Ocean Section">
   
-  <img src="assets/underr.svg" width="100%" style="display: block;" alt="Underground Section">
+  <img src="assets/underrr.svg" width="100%" style="display: block;" alt="Underground Section">
 
 </div>

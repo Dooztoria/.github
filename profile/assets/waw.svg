@@ -2,13 +2,14 @@
 <svg width="800" height="120" viewBox="0 0 800 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      /* --- FONT & WARNA --- */
+      /* <![CDATA[ */
+      
+      /* --- FONT AND COLORS --- */
       .font-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 700; fill: #ffffff; font-size: 16px; letter-spacing: 0.5px; }
       .font-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; fill: #a2d2ff; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
       .font-mono { font-family: "Courier New", monospace; fill: #48dbfb; font-size: 11px; }
 
-      /* --- EFEK GLOW & PULSE (HOVER SIMULATION) --- */
-      /* Membuat tombol Play berdenyut seolah minta diklik */
+      /* --- EFEK GLOW AND PULSE --- */
       @keyframes pulse {
         0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(72, 219, 251, 0)); }
         50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(72, 219, 251, 0.6)); }
@@ -33,6 +34,8 @@
       /* Variasi Bar */
       .v1 { animation-duration: 0.8s; } .v2 { animation-duration: 1.2s; } .v3 { animation-duration: 1.0s; }
       .v4 { animation-duration: 1.4s; } .v5 { animation-duration: 0.9s; }
+      
+      /* ]]> */
     </style>
   </defs>
 

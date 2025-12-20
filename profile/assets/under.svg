@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 800 300" width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* <![CDATA[ */
+      .pixel-art { shape-rendering: crispEdges; }
+      
+      /* Animasi Pijar Pohon (Glow) */
+      @keyframes treeGlow {
+        0%, 100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.3)); opacity: 0.8; }
+        50% { filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)); opacity: 1; }
+      }
+
+      /* Animasi Partikel Jatuh (Spora/Daun Cahaya) */
+      @keyframes sporeFall {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateY(100px) translateX(20px); opacity: 0; }
+      }
+
+      /* Animasi Akar Bergetar Halus */
+      @keyframes rootHum {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+
+      .tree-core { animation: treeGlow 4s ease-in-out infinite; }
+      .spore { animation: sporeFall 6s linear infinite; }
+      .roots { animation: rootHum 5s ease-in-out infinite; transform-origin: center bottom; }
+      /* ]]> */
+    </style>
+
+    <rect id="p-gold" width="2" height="2" fill="#FFD700" />
+    <rect id="p-blue" width="2" height="2" fill="#48dbfb" />
+    <rect id="p-red" width="2" height="2" fill="#FF5252" />
+    <rect id="p-white" width="2" height="2" fill="#FFFFFF" />
+  </defs>
+
+  <rect width="100%" height="100%" fill="#050505" />
+
+  <ellipse cx="400" cy="260" rx="150" ry="20" fill="#ffffff" fill-opacity="0.05" />
+
+  <g class="tree-core">
+    <rect x="396" y="180" width="8" height="80" fill="#1a1a1a" class="pixel-art" />
+    
+    <g transform="translate(400, 160)">
+      <rect x="-30" y="-40" width="4" height="4" fill="#48dbfb" />
+      <rect x="-50" y="-20" width="4" height="4" fill="#00d2ff" />
+      <rect x="20" y="-60" width="4" height="4" fill="#48dbfb" />
+      
+      <rect x="10" y="-30" width="4" height="4" fill="#FF5252" />
+      <rect x="40" y="-10" width="4" height="4" fill="#ff4757" />
+      <rect x="-15" y="-70" width="4" height="4" fill="#FF5252" />
+      
+      <rect x="-10" y="-100" width="4" height="4" fill="#FFD700" />
+      <rect x="25" y="-85" width="4" height="4" fill="#ffa502" />
+      <rect x="-45" y="-55" width="4" height="4" fill="#FFD700" />
+      
+      <rect x="-5" y="-50" width="6" height="6" fill="#FFFFFF" />
+      <rect x="15" y="-15" width="4" height="4" fill="#f1f2f6" />
+      
+      <use href="#p-gold" x="12" y="-95" />
+      <use href="#p-blue" x="-35" y="-75" />
+      <use href="#p-red" x="55" y="-45" />
+      <use href="#p-white" x="-60" y="-30" />
+      <use href="#p-gold" x="30" y="-110" />
+    </g>
+  </g>
+
+  <g class="roots" opacity="0.4">
+    <path d="M400 260 L350 280 M400 260 L450 285 M400 260 L400 295" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="350" cy="280" r="2" fill="#48dbfb" />
+    <circle cx="450" cy="285" r="2" fill="#FF5252" />
+  </g>
+
+  <g class="spore" style="animation-delay: 0s;"><use href="#p-white" x="380" y="100" /></g>
+  <g class="spore" style="animation-delay: 2s;"><use href="#p-gold" x="420" y="120" /></g>
+  <g class="spore" style="animation-delay: 4s;"><use href="#p-blue" x="450" y="80" /></g>
+  <g class="spore" style="animation-delay: 1s;"><use href="#p-red" x="350" y="140" /></g>
+
+  <text x="400" y="290" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#444" letter-spacing="3">THE HEART OF DOZTORIA</text>
+
+</svg>

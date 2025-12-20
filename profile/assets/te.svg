@@ -1,8 +1,5 @@
-<svg fill="none" viewBox="0 0 500 100" width="500" height="100" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="0" height="0" style="display:none">
-    <div xmlns="http://www.w3.org/1999/xhtml"></div>
-  </foreignObject>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="100" viewBox="0 0 500 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .title { 
@@ -12,25 +9,22 @@
         font-size: 20px;
         letter-spacing: 1px;
       }
-      
       .subtitle {
         font-family: "Courier New", Courier, monospace; 
         fill: #48dbfb;
         font-size: 14px;
       }
-
       @keyframes float {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
       }
-
       .container { animation: float 3s ease-in-out infinite; }
       .pixel-shape { shape-rendering: crispEdges; }
     </style>
   </defs>
 
   <g class="container">
-    <rect x="50" y="10" width="400" height="80" fill="rgba(15, 52, 96, 0.9)" stroke="#ffffff" stroke-width="2" class="pixel-shape" />
+    <rect x="50" y="10" width="400" height="80" fill="#0f3460" fill-opacity="0.9" stroke="#ffffff" stroke-width="2" class="pixel-shape" />
     
     <rect x="56" y="16" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
     <rect x="440" y="16" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
@@ -38,6 +32,7 @@
     <rect x="440" y="80" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
 
     <text x="250" y="45" text-anchor="middle" class="title">REPOSITORY ARCHIVE</text>
-    <text x="250" y="70" text-anchor="middle" class="subtitle">Exploring Codes, Arts and Tools</text>
+    
+    <text x="250" y="70" text-anchor="middle" class="subtitle">Exploring Codes, Arts &amp; Tools</text>
   </g>
 </svg>

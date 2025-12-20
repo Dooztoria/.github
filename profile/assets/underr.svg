@@ -11,61 +11,76 @@
         white-space: pre;
       }
       
-      /* Animasi Flicker Neon */
+      /* Animasi Utama */
       @keyframes neonFlicker {
         0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
-        80% { opacity: 1; }
-        82% { opacity: 0.6; }
-        86% { opacity: 0.3; }
-        88% { opacity: 1; }
+        80% { opacity: 1; } 82% { opacity: 0.6; } 86% { opacity: 0.3; } 88% { opacity: 1; }
       }
 
-      /* Animasi Debu Gua yang lebih hidup */
       @keyframes dustFlow {
         0% { transform: translate(0, 0); opacity: 0; }
-        20% { opacity: 0.4; }
-        80% { opacity: 0.4; }
-        100% { transform: translate(40px, -60px); opacity: 0; }
+        50% { opacity: 0.3; }
+        100% { transform: translate(60px, -80px); opacity: 0; }
       }
 
-      /* Animasi Kristal Melayang (Orb) */
-      @keyframes orbFloat {
-        0%, 100% { transform: translateY(0) scale(1); filter: brightness(1) drop-shadow(0 0 3px #FFD700); }
-        50% { transform: translateY(-10px) scale(1.1); filter: brightness(1.3) drop-shadow(0 0 10px #FFD700); }
+      @keyframes sigilFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 5px #FFD700); }
+        50% { transform: translateY(-15px) rotate(180deg); filter: drop-shadow(0 0 15px #FF5252); }
+      }
+
+      @keyframes fogDrift {
+        0%, 100% { transform: translateX(-10px); opacity: 0.2; }
+        50% { transform: translateX(10px); opacity: 0.4; }
+      }
+
+      @keyframes rayBeam {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.25; }
       }
 
       .flicker { animation: neonFlicker 6s infinite; }
-      .dust-particle { animation: dustFlow 12s linear infinite; fill: #ffffff; }
-      .ancient-orb { animation: orbFloat 4s ease-in-out infinite; }
+      .dust { animation: dustFlow 15s linear infinite; fill: #ffffff; }
+      .sigil { animation: sigilFloat 5s ease-in-out infinite; transform-origin: center; }
+      .fog { animation: fogDrift 8s ease-in-out infinite; }
+      .light-ray { animation: rayBeam 4s ease-in-out infinite; fill: #ffffff; }
       
-      .c1 { fill: #FFFFFF; } /* White core */
-      .c2 { fill: #FF5252; } /* Red accent */
-      .c3 { fill: #48dbfb; } /* Blue accent */
-      .c4 { fill: #FFD700; } /* Gold accent */
+      .c1 { fill: #FFFFFF; } .c2 { fill: #FF5252; } .c3 { fill: #48dbfb; } .c4 { fill: #FFD700; }
       /* ]]> */
     </style>
+
+    <linearGradient id="rayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    
+    <radialGradient id="baseGlow" cx="50%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#48dbfb" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
   <rect width="100%" height="100%" fill="#050505" />
   
-  <radialGradient id="caveGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="60%" stop-color="#050505" stop-opacity="0"/>
-    <stop offset="100%" stop-color="#000000" stop-opacity="0.8"/>
-  </radialGradient>
-  <rect width="800" height="200" fill="url(#caveGlow)" />
+  <path d="M100 0 L150 200 L120 200 L80 0 Z" fill="url(#rayGrad)" class="light-ray" style="animation-delay: 0s" />
+  <path d="M600 0 L680 200 L640 200 L580 0 Z" fill="url(#rayGrad)" class="light-ray" style="animation-delay: 1s" />
 
-  <rect width="800" height="3" fill="#0f3460" opacity="0.8" />
-  <rect y="3" width="800" height="1" fill="#1a1a1a" />
+  <rect y="120" width="800" height="80" fill="url(#baseGlow)" class="fog" />
 
-  <path d="M50 0 L60 25 L70 0 Z M200 0 L215 40 L230 0 Z M550 0 L560 20 L570 0 Z M700 0 L720 35 L740 0 Z" fill="#111" />
+  <path d="M0 0 L40 50 L80 0 M250 0 L280 60 L310 0 M600 0 L630 40 L660 0" fill="#111" opacity="0.5" />
 
-  <circle cx="150" cy="150" r="1" class="dust-particle" style="animation-delay: 0s"/>
-  <circle cx="450" cy="180" r="1.5" class="dust-particle" style="animation-delay: 3s"/>
-  <circle cx="650" cy="120" r="0.8" class="dust-particle" style="animation-delay: 6s"/>
-  <circle cx="250" cy="100" r="1.2" class="dust-particle" style="animation-delay: 1s"/>
-  <circle cx="50" cy="170" r="0.7" class="dust-particle" style="animation-delay: 8s"/>
-  <circle cx="750" cy="50" r="1" class="dust-particle" style="animation-delay: 4s"/>
+  <circle cx="200" cy="140" r="1" class="dust" style="animation-delay: 0s"/>
+  <circle cx="500" cy="170" r="1.5" class="dust" style="animation-delay: 4s"/>
+  <circle cx="100" cy="80" r="0.7" class="dust" style="animation-delay: 8s"/>
+  <circle cx="700" cy="110" r="1.2" class="dust" style="animation-delay: 2s"/>
 
+  <g transform="translate(242, 22)" opacity="0.3"><text x="0" y="0" class="ascii" fill="#000">
+      <tspan x="0" dy="1.1em">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em">⠀⠤⠦⢀⣠⡀⠀⠀⠀⠀⢀⠈⠉⠁⡀⠀⠀⠈⢲⣿⠺⠂⠀⠀⠀⠀⠀⣴⣿⠉⠉</tspan>
+      <tspan x="0" dy="1.1em">⠀⠀⠀⠀⠈⠉⠁⠒⠒⠀⠺⡄⠀⠀⠈⢀⣂⡀⢈⠾⣧⡄⠀⠀⠀⠀⠀⠀⠀⡿</tspan>
+      <tspan x="0" dy="1.1em">⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠹.⠀⠀⠈⢩⣷⡟⠀⠬⢁⢠⠀⢀⠀⣀⣀⣼⠁</tspan>
+      <tspan x="0" dy="1.1em">⠀⠀⠀⠤⠀⠠⡇⠀⠀⠀⠀⠒⠭⣄⢀⠀⢨⠟⢅⡀⣀⣼⣿⡿⠿⠿⠟⠛⠁</tspan>
+  </text></g>
+  
   <g class="flicker" transform="translate(240, 20)">
     <text x="0" y="0" class="ascii">
       <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
@@ -85,10 +100,18 @@
     </text>
   </g>
 
-  <g class="ancient-orb">
-    <rect x="340" y="65" width="6" height="6" fill="#FFD700" class="pixel-art" />
-    <rect x="485" y="55" width="5" height="5" fill="#FF5252" class="pixel-art" style="animation-delay: 1s"/>
-    <rect x="280" y="110" width="4" height="4" fill="#48dbfb" class="pixel-art" style="animation-delay: 2s"/>
+  <g class="sigil" style="animation-delay: 0s;">
+    <rect x="340" y="60" width="8" height="8" stroke="#FFD700" stroke-width="1" class="pixel-art" />
+    <rect x="342" y="62" width="4" height="4" fill="#FFD700" />
   </g>
+  <g class="sigil" style="animation-delay: 2s;">
+    <rect x="490" y="40" width="6" height="6" stroke="#FF5252" stroke-width="1" class="pixel-art" />
+  </g>
+  <g class="sigil" style="animation-delay: 1s;">
+    <rect x="250" y="100" width="10" height="2" fill="#48dbfb" class="pixel-art" />
+  </g>
+
+  <path d="M0 150 L60 200 L0 200 Z M800 130 L720 200 L800 200 Z" fill="#000" />
+  <path d="M0 0 L120 40 L180 0 Z M800 0 L700 60 L620 0 Z" fill="#000" />
 
 </svg>

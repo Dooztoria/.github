@@ -3,85 +3,53 @@
     <style>
       .pixel-art { shape-rendering: crispEdges; }
       
-      /* --- ANIMASI IKAN (Sama seperti sebelumnya) --- */
+      /* --- ANIMASI IKAN --- */
       @keyframes swimLeft { 0% { transform: translateX(850px); } 100% { transform: translateX(-150px); } }
       @keyframes swimRight { 0% { transform: translateX(-150px) scaleX(-1); } 100% { transform: translateX(850px) scaleX(-1); } }
       @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-      /* --- ANIMASI BARU: Sinar Matahari (Shimmer) --- */
+      /* --- ANIMASI SINAR MATAHARI --- */
       @keyframes shimmer {
-        0%, 100% { opacity: 0.05; transform: skewX(-20deg) translateX(0); }
-        50% { opacity: 0.15; transform: skewX(-20deg) translateX(10px); }
+        0%, 100% { transform: skewX(-20deg) translateX(0); }
+        50% { transform: skewX(-20deg) translateX(10px); }
       }
 
-      /* --- ANIMASI BARU: Ombak Atas (Wave Scroll) --- */
-      @keyframes waveScroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-40px); } /* Sesuai lebar pola */
-      }
+      /* --- ANIMASI OMBAK ATAS --- */
+      @keyframes waveScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-40px); } }
 
-      /* --- ANIMASI BARU: Rumput Laut (Sway) --- */
-      @keyframes sway {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(5deg); }
-      }
+      /* --- ANIMASI RUMPUT LAUT --- */
+      @keyframes sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(5deg); } }
 
-      /* --- ANIMASI BARU: Plankton (Drift) --- */
-      @keyframes drift {
-        0% { transform: translateY(0) translateX(0); opacity: 0; }
-        20% { opacity: 0.6; }
-        80% { opacity: 0.6; }
-        100% { transform: translateY(-100px) translateX(-20px); opacity: 0; }
-      }
+      /* --- ANIMASI PLANKTON --- */
+      @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 20% { opacity: 0.8; } 80% { opacity: 0.8; } 100% { transform: translateY(-100px) translateX(-20px); opacity: 0; } }
 
-      @keyframes bubbleRise {
-        0% { transform: translateY(200px); opacity: 0; }
-        30% { opacity: 0.8; }
-        100% { transform: translateY(-50px); opacity: 0; }
-      }
+      @keyframes bubbleRise { 0% { transform: translateY(200px); opacity: 0; } 30% { opacity: 0.8; } 100% { transform: translateY(-50px); opacity: 0; } }
 
       /* Classes */
       .fish-container-1 { animation: swimLeft 12s linear infinite; }
       .fish-container-2 { animation: swimRight 14s linear infinite; }
       .fish-container-3 { animation: swimLeft 10s linear infinite; }
-      .fish-container-4 { animation: swimRight 18s linear infinite; } /* Ikan tambahan */
-      
+      .fish-container-4 { animation: swimRight 18s linear infinite; }
       .fish-bob { animation: bob 2s ease-in-out infinite; }
       
-      .ray { fill: #fff; animation: shimmer 4s ease-in-out infinite alternate; }
+      /* PERBAIKAN: Class ray hanya untuk animasi, warna fill ditambahkan langsung di elemen */
+      .ray { animation: shimmer 4s ease-in-out infinite alternate; }
+      
       .seaweed { transform-origin: bottom center; animation: sway 3s ease-in-out infinite; }
       .wave-pattern { fill: rgba(255,255,255,0.2); animation: waveScroll 1s linear infinite; }
-      
       .particle { fill: #fff; animation: drift 10s linear infinite; }
     </style>
 
-    <g id="fish-orange" class="pixel-art">
-      <path fill="#FF9F43" d="M20 0 h24 v4 h-24 z M12 4 h40 v8 h-40 z M4 12 h48 v8 h-48 z M12 20 h40 v8 h-40 z M20 28 h24 v4 h-24 z"/>
-      <path fill="#E67E22" d="M52 4 h8 v8 h-8 z M52 20 h8 v8 h-8 z M60 0 h8 v12 h-8 z M60 20 h8 v12 h-8 z"/>
-      <path fill="#333" d="M16 8 h4 v4 h-4 z"/> <path fill="#FFF" d="M16 8 h2 v2 h-2 z"/>
-      <path fill="#FFD32A" d="M28 12 h12 v8 h-12 z"/>
-    </g>
-
-    <g id="fish-cyan" class="pixel-art">
-      <path fill="#48dbfb" d="M16 4 h20 v4 h-20 z M8 8 h36 v8 h-36 z M4 16 h44 v8 h-44 z M8 24 h36 v8 h-36 z M16 32 h20 v4 h-20 z"/>
-      <path fill="#0abde3" d="M44 8 h8 v8 h-8 z M44 24 h8 v8 h-8 z M52 4 h8 v12 h-8 z M52 24 h8 v12 h-8 z"/>
-      <path fill="#333" d="M12 12 h4 v4 h-4 z"/> <path fill="#FFF" d="M12 12 h2 v2 h-2 z"/>
-    </g>
-
-    <g id="weed-asset" class="pixel-art">
-       <rect x="4" y="0" width="4" height="4" fill="#2ecc71"/>
-       <rect x="0" y="4" width="4" height="4" fill="#2ecc71"/>
-       <rect x="4" y="8" width="4" height="12" fill="#2ecc71"/>
-       <rect x="8" y="20" width="4" height="4" fill="#2ecc71"/>
-       <rect x="4" y="24" width="4" height="16" fill="#2ecc71"/>
-    </g>
+    <g id="fish-orange" class="pixel-art"><path fill="#FF9F43" d="M20 0 h24 v4 h-24 z M12 4 h40 v8 h-40 z M4 12 h48 v8 h-48 z M12 20 h40 v8 h-40 z M20 28 h24 v4 h-24 z"/><path fill="#E67E22" d="M52 4 h8 v8 h-8 z M52 20 h8 v8 h-8 z M60 0 h8 v12 h-8 z M60 20 h8 v12 h-8 z"/><path fill="#333" d="M16 8 h4 v4 h-4 z"/> <path fill="#FFF" d="M16 8 h2 v2 h-2 z"/><path fill="#FFD32A" d="M28 12 h12 v8 h-12 z"/></g>
+    <g id="fish-cyan" class="pixel-art"><path fill="#48dbfb" d="M16 4 h20 v4 h-20 z M8 8 h36 v8 h-36 z M4 16 h44 v8 h-44 z M8 24 h36 v8 h-36 z M16 32 h20 v4 h-20 z"/><path fill="#0abde3" d="M44 8 h8 v8 h-8 z M44 24 h8 v8 h-8 z M52 4 h8 v12 h-8 z M52 24 h8 v12 h-8 z"/><path fill="#333" d="M12 12 h4 v4 h-4 z"/> <path fill="#FFF" d="M12 12 h2 v2 h-2 z"/></g>
+    <g id="weed-asset" class="pixel-art"><rect x="4" y="0" width="4" height="4" fill="#2ecc71"/><rect x="0" y="4" width="4" height="4" fill="#2ecc71"/><rect x="4" y="8" width="4" height="12" fill="#2ecc71"/><rect x="8" y="20" width="4" height="4" fill="#2ecc71"/><rect x="4" y="24" width="4" height="16" fill="#2ecc71"/></g>
   </defs>
 
   <rect width="100%" height="100%" fill="#0f3460" />
 
-  <rect x="100" y="-20" width="60" height="300" class="ray" style="animation-delay: 0s" />
-  <rect x="300" y="-20" width="100" height="300" class="ray" style="animation-delay: 1s" />
-  <rect x="600" y="-20" width="40" height="300" class="ray" style="animation-delay: 2s" />
+  <rect x="100" y="-20" width="60" height="300" fill="#ffffff" opacity="0.15" class="ray" style="animation-delay: 0s" />
+  <rect x="300" y="-20" width="100" height="300" fill="#ffffff" opacity="0.1" class="ray" style="animation-delay: 1s" />
+  <rect x="600" y="-20" width="40" height="300" fill="#ffffff" opacity="0.15" class="ray" style="animation-delay: 2s" />
   
   <pattern id="wavePattern" x="0" y="0" width="40" height="10" patternUnits="userSpaceOnUse">
       <path d="M0 10 h10 v-4 h10 v-4 h10 v4 h10 v4 z" fill="#89c2d9" opacity="0.3"/>

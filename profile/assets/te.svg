@@ -1,85 +1,43 @@
-<svg fill="none" viewBox="0 0 500 120" width="500" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 500 100" width="500" height="100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      /* Font Pixel Style (Menggunakan Monospace agar aman di GitHub) */
-      .pixel-text { 
+      /* Font Monospace agar terlihat seperti coding/pixel tapi rapi */
+      .title { 
         font-family: "Courier New", Courier, monospace; 
         font-weight: bold; 
         fill: #ffffff; 
-        font-size: 16px;
+        font-size: 20px;
         letter-spacing: 1px;
       }
       
-      .sub-text {
+      .subtitle {
         font-family: "Courier New", Courier, monospace; 
-        fill: #a2d2ff;
+        fill: #48dbfb; /* Warna Cyan cerah */
         font-size: 14px;
       }
 
-      /* Animasi Berkedip untuk Kursor */
-      @keyframes blink { 
-        0%, 100% { opacity: 1; } 
-        50% { opacity: 0; } 
-      }
-      .cursor { animation: blink 1s step-end infinite; }
-
-      /* Animasi Muncul (Pop Up) */
-      @keyframes popUp {
-        0% { transform: scale(0); opacity: 0; }
-        80% { transform: scale(1.05); opacity: 1; }
-        100% { transform: scale(1); opacity: 1; }
-      }
-      
-      /* Animasi Mengetik Sederhana (Revealing Text) */
-      @keyframes typeLine1 {
-        0% { width: 0; }
-        100% { width: 100%; }
-      }
-      
-      /* Container Utama */
-      .dialog-box {
-        transform-origin: center;
-        animation: popUp 0.5s ease-out forwards;
+      /* Animasi Mengapung Santai (Bobbing) */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
 
-      /* Masking untuk efek mengetik */
-      .mask-1 { stroke-dasharray: 400; stroke-dashoffset: 400; animation: dash 3s steps(30, end) forwards; animation-delay: 0.5s; }
-      .mask-2 { stroke-dasharray: 400; stroke-dashoffset: 400; animation: dash 3s steps(30, end) forwards; animation-delay: 2s; }
+      .container { animation: float 3s ease-in-out infinite; }
       
-      @keyframes dash { to { stroke-dashoffset: 0; } }
-      
-      /* Pixel Borders using crisp edges */
+      /* Agar garis kotak terlihat tajam (Pixelated) */
       .pixel-shape { shape-rendering: crispEdges; }
     </style>
-    
-    <filter id="shadow">
-      <feDropShadow dx="2" dy="2" stdDeviation="0" flood-color="#000" flood-opacity="0.5"/>
-    </filter>
   </defs>
 
-  <g class="dialog-box">
-    <rect x="14" y="14" width="472" height="92" fill="#000000" opacity="0.3" rx="4" />
+  <g class="container">
+    <rect x="50" y="10" width="400" height="80" fill="#0f3460" fill-opacity="0.9" stroke="#ffffff" stroke-width="2" class="pixel-shape" />
     
-    <rect x="10" y="10" width="480" height="100" fill="#16213e" stroke="#ffffff" stroke-width="4" rx="4" class="pixel-shape" />
-    
-    <rect x="10" y="10" width="8" height="8" fill="#ffffff" />
-    <rect x="482" y="10" width="8" height="8" fill="#ffffff" />
-    <rect x="10" y="102" width="8" height="8" fill="#ffffff" />
-    <rect x="482" y="102" width="8" height="8" fill="#ffffff" />
-    
-    <rect x="20" y="90" width="460" height="2" fill="#118EEA" opacity="0.5" class="pixel-shape"/>
-  </g>
+    <rect x="56" y="16" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
+    <rect x="440" y="16" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
+    <rect x="56" y="80" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
+    <rect x="440" y="80" width="4" height="4" fill="#48dbfb" class="pixel-shape"/>
 
-  <g filter="url(#shadow)" transform="translate(30, 45)">
-    <text class="pixel-text" x="0" y="0" style="opacity:0; animation: blink 0.1s forwards 0.8s;">> SYSTEM DETECTED:</text>
-    <text class="pixel-text" x="170" y="0" fill="#7ED321" style="opacity:0; animation: blink 0.1s forwards 1.2s;">COLLECTION OF WARES</text>
-    
-    <text class="sub-text" x="0" y="25" style="opacity:0; animation: blink 0.1s forwards 2.0s;">> CONTENTS:</text>
-    <text class="sub-text" x="110" y="25" fill="#48dbfb" style="opacity:0; animation: blink 0.1s forwards 2.5s;">SOFTWARE, TOOLS, & ARTWORKS</text>
-    
-    <text class="sub-text" x="0" y="50" style="font-style: italic; opacity:0; animation: blink 0.1s forwards 3.5s;">"Feel free to peek around..."</text>
-    
-    <rect x="250" y="40" width="10" height="2" fill="#7ED321" class="cursor" />
+    <text x="250" y="45" text-anchor="middle" class="title">REPOSITORY ARCHIVE</text>
+    <text x="250" y="70" text-anchor="middle" class="subtitle">Exploring Codes, Arts & Tools</text>
   </g>
-
 </svg>

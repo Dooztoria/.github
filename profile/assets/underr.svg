@@ -4,83 +4,76 @@
     <style>
       /* <![CDATA[ */
       .pixel-art { shape-rendering: crispEdges; }
-      .ascii { 
-        font-family: 'Courier New', monospace; 
-        font-size: 11px; 
-        font-weight: 900;
-        white-space: pre;
-      }
+      .ascii { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 900; white-space: pre; }
       
-      /* Animasi Utama */
+      /* Animasi Inti: Flicker & Aura */
       @keyframes neonFlicker {
-        0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
-        80% { opacity: 1; } 82% { opacity: 0.6; } 86% { opacity: 0.3; } 88% { opacity: 1; }
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px rgba(255,255,255,0.5)); }
+        85% { opacity: 1; } 87% { opacity: 0.4; } 90% { opacity: 0.8; } 92% { opacity: 0.2; } 95% { opacity: 1; }
       }
 
-      @keyframes dustFlow {
-        0% { transform: translate(0, 0); opacity: 0; }
-        50% { opacity: 0.3; }
-        100% { transform: translate(60px, -80px); opacity: 0; }
+      /* Partikel Spora yang melayang secara acak */
+      @keyframes sporaDrift {
+        0% { transform: translate(0,0); opacity: 0; }
+        20% { opacity: 0.5; }
+        80% { opacity: 0.5; }
+        100% { transform: translate(100px, -100px); opacity: 0; }
       }
 
-      @keyframes sigilFloat {
-        0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 5px #FFD700); }
-        50% { transform: translateY(-15px) rotate(180deg); filter: drop-shadow(0 0 15px #FF5252); }
+      /* Monolith Melayang (Plot Twist Golden Apple) */
+      @keyframes monolith {
+        0%, 100% { transform: translateY(0) rotate(45deg); filter: brightness(1) drop-shadow(0 0 5px #FFD700); }
+        50% { transform: translateY(-20px) rotate(225deg); filter: brightness(1.5) drop-shadow(0 0 15px #FF5252); }
       }
 
-      @keyframes fogDrift {
-        0%, 100% { transform: translateX(-10px); opacity: 0.2; }
-        50% { transform: translateX(10px); opacity: 0.4; }
+      /* Sinar Cahaya Berdenyut */
+      @keyframes beamPulse {
+        0%, 100% { opacity: 0.05; transform: scaleX(1); }
+        50% { opacity: 0.2; transform: scaleX(1.2); }
       }
 
-      @keyframes rayBeam {
-        0%, 100% { opacity: 0.1; }
-        50% { opacity: 0.25; }
-      }
-
-      .flicker { animation: neonFlicker 6s infinite; }
-      .dust { animation: dustFlow 15s linear infinite; fill: #ffffff; }
-      .sigil { animation: sigilFloat 5s ease-in-out infinite; transform-origin: center; }
-      .fog { animation: fogDrift 8s ease-in-out infinite; }
-      .light-ray { animation: rayBeam 4s ease-in-out infinite; fill: #ffffff; }
+      .flicker { animation: neonFlicker 7s infinite; }
+      .spora { animation: sporaDrift 15s linear infinite; fill: #ffffff; }
+      .monolith { animation: monolith 8s ease-in-out infinite; transform-origin: center; }
+      .light-beam { animation: beamPulse 5s ease-in-out infinite; fill: #ffffff; }
       
       .c1 { fill: #FFFFFF; } .c2 { fill: #FF5252; } .c3 { fill: #48dbfb; } .c4 { fill: #FFD700; }
       /* ]]> */
     </style>
 
-    <linearGradient id="rayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
-    
-    <radialGradient id="baseGlow" cx="50%" cy="100%" r="50%">
-      <stop offset="0%" stop-color="#48dbfb" stop-opacity="0.2"/>
+
+    <radialGradient id="abyssGlow" cx="50%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="#FF5252" stop-opacity="0.1"/>
       <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
   <rect width="100%" height="100%" fill="#050505" />
+  <rect y="50" width="800" height="150" fill="url(#abyssGlow)" opacity="0.5" />
   
-  <path d="M100 0 L150 200 L120 200 L80 0 Z" fill="url(#rayGrad)" class="light-ray" style="animation-delay: 0s" />
-  <path d="M600 0 L680 200 L640 200 L580 0 Z" fill="url(#rayGrad)" class="light-ray" style="animation-delay: 1s" />
+  <path d="M120 0 L180 200 L140 200 L100 0 Z" fill="url(#beamGrad)" class="light-beam" style="animation-delay: 0s"/>
+  <path d="M550 0 L650 200 L600 200 L500 0 Z" fill="url(#beamGrad)" class="light-beam" style="animation-delay: 2s"/>
 
-  <rect y="120" width="800" height="80" fill="url(#baseGlow)" class="fog" />
+  <circle cx="100" cy="150" r="1" class="spora" style="animation-delay: 0s"/>
+  <circle cx="400" cy="180" r="1.5" class="spora" style="animation-delay: 4s"/>
+  <circle cx="700" cy="120" r="0.8" class="spora" style="animation-delay: 2s"/>
+  <circle cx="250" cy="90" r="1.2" class="spora" style="animation-delay: 7s"/>
+  <circle cx="550" cy="50" r="1" class="spora" style="animation-delay: 10s"/>
 
-  <path d="M0 0 L40 50 L80 0 M250 0 L280 60 L310 0 M600 0 L630 40 L660 0" fill="#111" opacity="0.5" />
+  <path d="M0 0 L50 60 L100 0 M200 0 L250 80 L300 0 M650 0 L700 70 L750 0" fill="#0c0c0c" />
 
-  <circle cx="200" cy="140" r="1" class="dust" style="animation-delay: 0s"/>
-  <circle cx="500" cy="170" r="1.5" class="dust" style="animation-delay: 4s"/>
-  <circle cx="100" cy="80" r="0.7" class="dust" style="animation-delay: 8s"/>
-  <circle cx="700" cy="110" r="1.2" class="dust" style="animation-delay: 2s"/>
-
-  <g transform="translate(242, 22)" opacity="0.3"><text x="0" y="0" class="ascii" fill="#000">
+  <g transform="translate(243, 23)" opacity="0.2" class="flicker">
+    <text x="0" y="0" class="ascii" fill="#FFD700">
       <tspan x="0" dy="1.1em">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
       <tspan x="0" dy="1.1em">⠀⠤⠦⢀⣠⡀⠀⠀⠀⠀⢀⠈⠉⠁⡀⠀⠀⠈⢲⣿⠺⠂⠀⠀⠀⠀⠀⣴⣿⠉⠉</tspan>
       <tspan x="0" dy="1.1em">⠀⠀⠀⠀⠈⠉⠁⠒⠒⠀⠺⡄⠀⠀⠈⢀⣂⡀⢈⠾⣧⡄⠀⠀⠀⠀⠀⠀⠀⡿</tspan>
-      <tspan x="0" dy="1.1em">⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠹.⠀⠀⠈⢩⣷⡟⠀⠬⢁⢠⠀⢀⠀⣀⣀⣼⠁</tspan>
-      <tspan x="0" dy="1.1em">⠀⠀⠀⠤⠀⠠⡇⠀⠀⠀⠀⠒⠭⣄⢀⠀⢨⠟⢅⡀⣀⣼⣿⡿⠿⠿⠟⠛⠁</tspan>
-  </text></g>
-  
+    </text>
+  </g>
+
   <g class="flicker" transform="translate(240, 20)">
     <text x="0" y="0" class="ascii">
       <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
@@ -100,18 +93,20 @@
     </text>
   </g>
 
-  <g class="sigil" style="animation-delay: 0s;">
-    <rect x="340" y="60" width="8" height="8" stroke="#FFD700" stroke-width="1" class="pixel-art" />
-    <rect x="342" y="62" width="4" height="4" fill="#FFD700" />
+  <g class="monolith" style="animation-delay: 0s;">
+    <rect x="340" y="70" width="10" height="10" fill="#FFD700" class="pixel-art" />
+    <rect x="343" y="73" width="4" height="4" fill="#050505" />
   </g>
-  <g class="sigil" style="animation-delay: 2s;">
-    <rect x="490" y="40" width="6" height="6" stroke="#FF5252" stroke-width="1" class="pixel-art" />
+  <g class="monolith" style="animation-delay: 3s;">
+    <rect x="490" y="50" width="8" height="8" fill="#FF5252" class="pixel-art" />
   </g>
-  <g class="sigil" style="animation-delay: 1s;">
-    <rect x="250" y="100" width="10" height="2" fill="#48dbfb" class="pixel-art" />
+  <g class="monolith" style="animation-delay: 1.5s;">
+    <rect x="260" y="110" width="6" height="6" fill="#48dbfb" class="pixel-art" />
   </g>
 
-  <path d="M0 150 L60 200 L0 200 Z M800 130 L720 200 L800 200 Z" fill="#000" />
-  <path d="M0 0 L120 40 L180 0 Z M800 0 L700 60 L620 0 Z" fill="#000" />
+  <path d="M0 0 L150 40 L250 0 Z M800 0 L700 50 L600 0 Z" fill="#000" />
+  <path d="M0 160 L100 200 L0 200 Z M800 140 L700 200 L800 200 Z" fill="#000" />
+  
+  <rect y="198" width="800" height="2" fill="#FFD700" opacity="0.1" />
 
 </svg>

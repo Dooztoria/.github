@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 800 200" width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* <![CDATA[ */
+      .pixel-art { shape-rendering: crispEdges; }
+      
+      /* Animasi Burung */
+      @keyframes flyLeft { 0% { transform: translateX(850px); } 100% { transform: translateX(-150px); } }
+      @keyframes flyRight { 0% { transform: translateX(-150px) scaleX(-1); } 100% { transform: translateX(850px) scaleX(-1); } }
+      @keyframes glide { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+      
+      /* Animasi Atmosfer */
+      @keyframes sunPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.8; } }
+      @keyframes shimmerSky { 0%, 100% { transform: skewX(-15deg) translateX(0); opacity: 0.1; } 50% { transform: skewX(-15deg) translateX(20px); opacity: 0.25; } }
+      @keyframes floatBalloon { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+      @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+      /* Classes */
+      .bird-container-1 { animation: flyLeft 14s linear infinite; }
+      .bird-container-2 { animation: flyRight 22s linear infinite; }
+      .bird-glide { animation: glide 3s ease-in-out infinite; }
+      .sun-glow-box { animation: sunPulse 4s ease-in-out infinite; }
+      .sun-ray { animation: shimmerSky 5s ease-in-out infinite alternate; fill: #ffffff; }
+      .balloon-float { animation: floatBalloon 7s ease-in-out infinite; transform-origin: center; }
+      .sparkle { animation: twinkle 2s infinite; fill: #ffffff; }
+      /* ]]> */
+    </style>
+
+    <radialGradient id="sunGlowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF176" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFF176" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="bird-red" class="pixel-art">
+      <path fill="#FF5252" d="M12 4h12v4h-12zM8 8h20v8h-20zM12 16h12v4h-12z"/>
+      <path fill="#D32F2F" d="M12 0h4v4h-4zM20 0h4v4h-4zM12 20h4v4h-4zM20 20h4v4h-4z"/>
+      <path fill="#000" d="M10 10h2v2h-2z"/> <path fill="#FFD740" d="M0 12h4v4h-4z"/>
+    </g>
+
+    <g id="cloud-pixel" class="pixel-art">
+      <rect x="8" y="0" width="24" height="4" fill="#fff"/>
+      <rect x="4" y="4" width="32" height="8" fill="#fff"/>
+      <rect x="0" y="8" width="40" height="4" fill="#fff"/>
+    </g>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#81D4FA" />
+
+  <g transform="translate(400, 0)">
+    <rect x="-150" y="-150" width="300" height="300" fill="url(#sunGlowGrad)" class="sun-glow-box"/>
+    <path d="M-50 0 A 50 50 0 0 1 50 0 L -50 0 Z" fill="#FFFF00" class="pixel-art" />
+  </g>
+
+  <rect x="150" y="-20" width="40" height="300" class="sun-ray" />
+  <rect x="350" y="-20" width="100" height="300" class="sun-ray" style="animation-delay: 2s" />
+  <rect x="600" y="-20" width="50" height="300" class="sun-ray" style="animation-delay: 1s" />
+
+  <rect x="200" y="50" width="2" height="2" class="sparkle" />
+  <rect x="580" y="30" width="3" height="3" class="sparkle" style="animation-delay: 1s" />
+  <use href="#cloud-pixel" x="80" y="40" opacity="0.6"/>
+  <use href="#cloud-pixel" x="650" y="30" opacity="0.5" transform="scale(0.8)"/>
+  <use href="#cloud-pixel" x="200" y="80" opacity="0.3" transform="scale(1.2)"/>
+  <use href="#cloud-pixel" x="550" y="100" opacity="0.4"/>
+
+  <g class="balloon-float" style="transform: translate(620px, 60px) scale(0.8);">
+    <rect x="4" y="0" width="16" height="16" fill="#FF5252" class="pixel-art"/>
+    <rect x="10" y="16" width="4" height="4" fill="#6d4c41" class="pixel-art"/>
+    <rect x="8" y="20" width="8" height="4" fill="#3e2723" class="pixel-art"/>
+  </g>
+
+  <rect x="0" y="175" width="800" height="25" fill="#118EEA" />
+  <rect x="0" y="185" width="800" height="25" fill="#0f3460" />
+
+  <use href="#cloud-pixel" x="30" y="165" transform="scale(1.2)" opacity="0.9"/>
+  <use href="#cloud-pixel" x="380" y="170" transform="scale(1.5)" opacity="0.6"/>
+  <use href="#cloud-pixel" x="680" y="160" transform="scale(1.1)" opacity="0.7"/>
+
+  <g class="bird-container-1"><g class="bird-glide"><use href="#bird-red" x="0" y="60" /></g></g>
+  <g class="bird-container-2" style="animation-duration: 22s;"><g class="bird-glide" style="animation-delay: 1s;"><use href="#bird-red" x="0" y="120" transform="scale(0.7)" /></g></g>
+</svg>

@@ -1,1 +1,1 @@
-![Pixel Ocean](assets/ocesn.svg)
+![Pixel Ocean](assets/ocean.svg)

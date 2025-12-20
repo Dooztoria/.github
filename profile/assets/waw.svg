@@ -1,85 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="800" height="120" viewBox="0 0 800 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="100" viewBox="0 0 800 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       /* <![CDATA[ */
+      .font-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 800; fill: #ffffff; font-size: 24px; letter-spacing: 1px; }
+      .font-date { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; fill: #ffffff; font-size: 16px; letter-spacing: 0.5px; opacity: 0.9; }
+      .font-label { font-family: "Courier New", monospace; fill: #a2d2ff; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+      .font-mono { font-family: "Courier New", monospace; fill: #48dbfb; font-size: 14px; font-weight: bold; }
+
+      /* Animasi Berkedip (Blinking) untuk titik dua waktu */
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
       
-      /* --- FONT AND COLORS --- */
-      .font-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 700; fill: #ffffff; font-size: 16px; letter-spacing: 0.5px; }
-      .font-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; fill: #a2d2ff; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
-      .font-mono { font-family: "Courier New", monospace; fill: #48dbfb; font-size: 11px; }
-
-      /* --- EFEK GLOW AND PULSE --- */
-      @keyframes pulse {
-        0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(72, 219, 251, 0)); }
-        50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(72, 219, 251, 0.6)); }
-        100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(72, 219, 251, 0)); }
+      /* Animasi Garis Scanner (Agar terlihat aktif) */
+      @keyframes scan {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
       }
 
-      /* Animasi Equalizer */
-      @keyframes equalizer {
-        0% { height: 5px; }
-        50% { height: 25px; }
-        100% { height: 5px; }
-      }
-
-      /* Animasi Progress Bar */
-      @keyframes load { from { width: 0; } to { width: 560px; } }
-
-      /* --- CLASS SETUP --- */
+      .blinker { animation: blink 1s step-end infinite; }
+      .scanner { fill: url(#grad-scan); opacity: 0.3; animation: scan 4s linear infinite; }
       .crisp { shape-rendering: crispEdges; }
-      .play-btn { transform-origin: center; animation: pulse 2s infinite ease-in-out; cursor: pointer; }
-      .bar { fill: #ffffff; rx: 2; animation: equalizer 1s ease-in-out infinite; }
-      
-      /* Variasi Bar */
-      .v1 { animation-duration: 0.8s; } .v2 { animation-duration: 1.2s; } .v3 { animation-duration: 1.0s; }
-      .v4 { animation-duration: 1.4s; } .v5 { animation-duration: 0.9s; }
-      
       /* ]]> */
     </style>
+    
+    <linearGradient id="grad-scan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f3460" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#48dbfb" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0f3460" stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
-  <rect x="0.5" y="0.5" width="799" height="119" rx="10" fill="#0f3460" fill-opacity="0.95" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="0.5" y="0.5" width="799" height="99" rx="10" fill="#0f3460" fill-opacity="0.95" stroke="rgba(255,255,255,0.1)"/>
   
-  <rect x="20" y="0" width="760" height="2" fill="#48dbfb" fill-opacity="0.5"/>
+  <rect x="0" y="0" width="800" height="100" rx="10" class="scanner" clip-path="inset(0 0 0 0 round 10px)"/>
 
-  <g transform="translate(30, 30)">
-    <rect width="60" height="60" rx="4" fill="#ffffff" fill-opacity="0.1"/>
-    <path d="M20 15V45C20 47 18 49 16 49C14 49 12 47 12 45C12 43 14 41 16 41C17 41 18 41.5 18 42V15H40V45C40 47 38 49 36 49C34 49 32 47 32 45C32 43 34 41 36 41C37 41 38 41.5 38 42V20H20V15Z" fill="#ffffff"/>
+  <g transform="translate(40, 30)">
+    <text x="0" y="0" class="font-label">CURRENT DAY</text>
+    <text x="0" y="30" class="font-main">SATURDAY</text>
     
-    <text x="80" y="25" class="font-sub">Now Playing from Repository</text>
-    <text x="80" y="45" class="font-main">MASTERPIECE COLLECTION.FLAC</text> 
-    
-    <rect x="80" y="52" width="60" height="14" rx="2" fill="#48dbfb" fill-opacity="0.2"/>
-    <text x="85" y="62" class="font-mono">HIGH-RES</text>
+    <rect x="0" y="42" width="14" height="14" rx="2" stroke="#48dbfb" stroke-width="1.5" fill="none"/>
+    <rect x="3" y="45" width="8" height="8" fill="#48dbfb" opacity="0.5"/>
+    <text x="20" y="54" class="font-mono">WEEK 51</text>
   </g>
 
-  <g transform="translate(450, 60) scale(1,-1)">
-     <rect x="0" y="0" width="6" height="20" class="bar v1"/>
-     <rect x="10" y="0" width="6" height="20" class="bar v3"/>
-     <rect x="20" y="0" width="6" height="20" class="bar v5"/>
-     <rect x="30" y="0" width="6" height="20" class="bar v2"/>
-     <rect x="40" y="0" width="6" height="20" class="bar v4"/>
-     <rect x="50" y="0" width="6" height="20" class="bar v1"/>
-     <rect x="60" y="0" width="6" height="20" class="bar v3"/>
-     <rect x="70" y="0" width="6" height="20" class="bar v5"/>
-     <rect x="80" y="0" width="6" height="20" class="bar v2"/>
-     <rect x="90" y="0" width="6" height="20" class="bar v4"/>
-     <rect x="100" y="0" width="6" height="20" class="bar v1"/>
-     <rect x="110" y="0" width="6" height="20" class="bar v3"/>
-  </g>
+  <line x1="250" y1="20" x2="250" y2="80" stroke="#ffffff" stroke-opacity="0.1"/>
 
-  <g transform="translate(720, 60)" class="play-btn">
-    <circle r="25" fill="#48dbfb"/>
-    <path d="M-5 -10 L15 0 L-5 10 Z" fill="#0f3460"/>
-  </g>
-
-  <g transform="translate(120, 100)">
-    <rect width="560" height="4" rx="2" fill="#ffffff" fill-opacity="0.1"/>
-    <rect width="200" height="4" rx="2" fill="#48dbfb" style="animation: load 60s linear infinite"/>
+  <g transform="translate(290, 30)">
+    <text x="0" y="0" class="font-label">DATE LOG</text>
     
-    <text x="-40" y="6" class="font-mono" fill="#ffffff">0:00</text>
-    <text x="570" y="6" class="font-mono" fill="#ffffff">-4:20</text>
+    <text x="0" y="30" class="font-main">20 DEC 2025</text>
+    
+    <text x="0" y="54" class="font-date">Q4 / WINTER SEASON</text>
+  </g>
+
+  <line x1="550" y1="20" x2="550" y2="80" stroke="#ffffff" stroke-opacity="0.1"/>
+
+  <g transform="translate(590, 30)">
+    <text x="0" y="0" class="font-label">SYSTEM TIME (WIB)</text>
+    
+    <text x="0" y="30" class="font-main">
+      10<tspan class="blinker">:</tspan>00<tspan class="blinker">:</tspan>00
+    </text>
+    
+    <circle cx="5" cy="50" r="3" fill="#7ED321">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="15" y="54" class="font-mono" style="font-size:12px; fill:#7ED321">ONLINE</text>
   </g>
 
 </svg>

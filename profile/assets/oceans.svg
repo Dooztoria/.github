@@ -1,82 +1,304 @@
-<svg fill="none" viewBox="0 0 800 200" width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 800 400" width="800" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .pixel-art { shape-rendering: crispEdges; }
-      
-      /* --- ANIMASI IKAN --- */
-      @keyframes swimLeft { 0% { transform: translateX(850px); } 100% { transform: translateX(-150px); } }
-      @keyframes swimRight { 0% { transform: translateX(-150px) scaleX(-1); } 100% { transform: translateX(850px) scaleX(-1); } }
-      @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-
-      /* --- ANIMASI SINAR MATAHARI --- */
-      @keyframes shimmer {
-        0%, 100% { transform: skewX(-20deg) translateX(0); }
-        50% { transform: skewX(-20deg) translateX(10px); }
+      /* Jellyfish Float */
+      @keyframes jellyFloat1 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25%  { transform: translate(8px, -15px) rotate(2deg); }
+        50%  { transform: translate(-5px, -25px) rotate(-1deg); }
+        75%  { transform: translate(10px, -10px) rotate(1deg); }
+      }
+      @keyframes jellyFloat2 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25%  { transform: translate(-10px, -20px) rotate(-2deg); }
+        50%  { transform: translate(5px, -30px) rotate(1.5deg); }
+        75%  { transform: translate(-8px, -12px) rotate(-1deg); }
+      }
+      @keyframes jellyPulse {
+        0%, 100% { transform: scaleX(1) scaleY(1); }
+        50%      { transform: scaleX(1.08) scaleY(0.92); }
+      }
+      @keyframes tentacleWave {
+        0%, 100% { d: path("M0,0 Q5,15 -3,30 Q-8,45 2,60"); }
+        50%      { d: path("M0,0 Q-5,15 3,30 Q8,45 -2,60"); }
       }
 
-      /* --- ANIMASI OMBAK ATAS --- */
-      @keyframes waveScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-40px); } }
+      /* Fish Swim */
+      @keyframes swimLeft  { 0% { transform: translateX(900px); } 100% { transform: translateX(-150px); } }
+      @keyframes swimRight { 0% { transform: translateX(-150px) scaleX(-1); } 100% { transform: translateX(900px) scaleX(-1); } }
+      @keyframes fishBob   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
-      /* --- ANIMASI RUMPUT LAUT --- */
-      @keyframes sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(5deg); } }
+      /* Particles / Bioluminescence */
+      @keyframes particleFloat {
+        0%   { transform: translateY(0) translateX(0); opacity: 0; }
+        15%  { opacity: 0.8; }
+        85%  { opacity: 0.6; }
+        100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.2; r: 2; }
+        50%      { opacity: 0.8; r: 3.5; }
+      }
 
-      /* --- ANIMASI PLANKTON --- */
-      @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 20% { opacity: 0.8; } 80% { opacity: 0.8; } 100% { transform: translateY(-100px) translateX(-20px); opacity: 0; } }
+      /* Bubble Rise */
+      @keyframes bubbleUp {
+        0%   { transform: translateY(0); opacity: 0; }
+        10%  { opacity: 0.5; }
+        90%  { opacity: 0.3; }
+        100% { transform: translateY(-420px); opacity: 0; }
+      }
 
-      @keyframes bubbleRise { 0% { transform: translateY(200px); opacity: 0; } 30% { opacity: 0.8; } 100% { transform: translateY(-50px); opacity: 0; } }
+      /* Light Rays */
+      @keyframes rayShimmer {
+        0%, 100% { opacity: 0.04; transform: skewX(-15deg) translateX(0); }
+        50%      { opacity: 0.1; transform: skewX(-15deg) translateX(15px); }
+      }
 
-      /* Classes */
-      .fish-container-1 { animation: swimLeft 12s linear infinite; }
-      .fish-container-2 { animation: swimRight 14s linear infinite; }
-      .fish-container-3 { animation: swimLeft 10s linear infinite; }
-      .fish-container-4 { animation: swimRight 18s linear infinite; }
-      .fish-bob { animation: bob 2s ease-in-out infinite; }
-      
-      /* PERBAIKAN: Class ray hanya untuk animasi, warna fill ditambahkan langsung di elemen */
-      .ray { animation: shimmer 4s ease-in-out infinite alternate; }
-      
-      .seaweed { transform-origin: bottom center; animation: sway 3s ease-in-out infinite; }
-      .wave-pattern { fill: rgba(255,255,255,0.2); animation: waveScroll 1s linear infinite; }
-      .particle { fill: #fff; animation: drift 10s linear infinite; }
+      /* Seaweed Sway */
+      @keyframes swayLeft {
+        0%, 100% { transform: rotate(0deg); }
+        50%      { transform: rotate(-6deg); }
+      }
+      @keyframes swayRight {
+        0%, 100% { transform: rotate(0deg); }
+        50%      { transform: rotate(6deg); }
+      }
+
+      /* Wave Surface */
+      @keyframes waveSurface {
+        0%   { d: path("M0,15 Q50,5 100,15 Q150,25 200,15 Q250,5 300,15 Q350,25 400,15 Q450,5 500,15 Q550,25 600,15 Q650,5 700,15 Q750,25 800,15 L800,0 L0,0 Z"); }
+        50%  { d: path("M0,15 Q50,25 100,15 Q150,5 200,15 Q250,25 300,15 Q350,5 400,15 Q450,25 500,15 Q550,5 600,15 Q650,25 700,15 Q750,5 800,15 L800,0 L0,0 Z"); }
+        100% { d: path("M0,15 Q50,5 100,15 Q150,25 200,15 Q250,5 300,15 Q350,25 400,15 Q450,5 500,15 Q550,25 600,15 Q650,5 700,15 Q750,25 800,15 L800,0 L0,0 Z"); }
+      }
+
+      /* Whale Silhouette */
+      @keyframes whaleSwim {
+        0%   { transform: translateX(900px); }
+        100% { transform: translateX(-300px); }
+      }
+
+      .jelly1 { animation: jellyFloat1 8s ease-in-out infinite; }
+      .jelly2 { animation: jellyFloat2 10s ease-in-out infinite; }
+      .jelly-pulse { animation: jellyPulse 3s ease-in-out infinite; transform-origin: center top; }
+      .tentacle { animation: tentacleWave 4s ease-in-out infinite; }
+
+      .fish-l1 { animation: swimLeft 14s linear infinite; }
+      .fish-r1 { animation: swimRight 18s linear infinite; }
+      .fish-l2 { animation: swimLeft 20s linear infinite; animation-delay: -8s; }
+      .fish-r2 { animation: swimRight 12s linear infinite; animation-delay: -4s; }
+      .fish-bob { animation: fishBob 3s ease-in-out infinite; }
+
+      .bio-particle { animation: particleFloat 12s linear infinite; }
+      .glow-dot { animation: glowPulse 4s ease-in-out infinite; }
+
+      .bubble { animation: bubbleUp 8s linear infinite; }
+      .ray { animation: rayShimmer 6s ease-in-out infinite alternate; }
+
+      .weed-l { animation: swayLeft 4s ease-in-out infinite; transform-origin: bottom center; }
+      .weed-r { animation: swayRight 5s ease-in-out infinite; transform-origin: bottom center; }
+
+      .wave-top { animation: waveSurface 4s ease-in-out infinite; }
+      .whale { animation: whaleSwim 35s linear infinite; }
     </style>
 
-    <g id="fish-orange" class="pixel-art"><path fill="#FF9F43" d="M20 0 h24 v4 h-24 z M12 4 h40 v8 h-40 z M4 12 h48 v8 h-48 z M12 20 h40 v8 h-40 z M20 28 h24 v4 h-24 z"/><path fill="#E67E22" d="M52 4 h8 v8 h-8 z M52 20 h8 v8 h-8 z M60 0 h8 v12 h-8 z M60 20 h8 v12 h-8 z"/><path fill="#333" d="M16 8 h4 v4 h-4 z"/> <path fill="#FFF" d="M16 8 h2 v2 h-2 z"/><path fill="#FFD32A" d="M28 12 h12 v8 h-12 z"/></g>
-    <g id="fish-cyan" class="pixel-art"><path fill="#48dbfb" d="M16 4 h20 v4 h-20 z M8 8 h36 v8 h-36 z M4 16 h44 v8 h-44 z M8 24 h36 v8 h-36 z M16 32 h20 v4 h-20 z"/><path fill="#0abde3" d="M44 8 h8 v8 h-8 z M44 24 h8 v8 h-8 z M52 4 h8 v12 h-8 z M52 24 h8 v12 h-8 z"/><path fill="#333" d="M12 12 h4 v4 h-4 z"/> <path fill="#FFF" d="M12 12 h2 v2 h-2 z"/></g>
-    <g id="weed-asset" class="pixel-art"><rect x="4" y="0" width="4" height="4" fill="#2ecc71"/><rect x="0" y="4" width="4" height="4" fill="#2ecc71"/><rect x="4" y="8" width="4" height="12" fill="#2ecc71"/><rect x="8" y="20" width="4" height="4" fill="#2ecc71"/><rect x="4" y="24" width="4" height="16" fill="#2ecc71"/></g>
+    <!-- Gradients -->
+    <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0f3460"/>
+      <stop offset="30%"  stop-color="#0a2647"/>
+      <stop offset="60%"  stop-color="#071e3d"/>
+      <stop offset="100%" stop-color="#040d21"/>
+    </linearGradient>
+
+    <radialGradient id="jellyGlow1" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#ff6eb4" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff6eb4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="jellyGlow2" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#60efff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#60efff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="jellyGlow3" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#7b2ff7" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#7b2ff7" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="coralGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2647"/>
+      <stop offset="100%" stop-color="#020b1a"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="tinyGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
-  <rect width="100%" height="100%" fill="#0f3460" />
+  <!-- Ocean Background -->
+  <rect width="800" height="400" fill="url(#oceanGrad)"/>
 
-  <rect x="100" y="-20" width="60" height="300" fill="#ffffff" opacity="0.15" class="ray" style="animation-delay: 0s" />
-  <rect x="300" y="-20" width="100" height="300" fill="#ffffff" opacity="0.1" class="ray" style="animation-delay: 1s" />
-  <rect x="600" y="-20" width="40" height="300" fill="#ffffff" opacity="0.15" class="ray" style="animation-delay: 2s" />
-  
-  <pattern id="wavePattern" x="0" y="0" width="40" height="10" patternUnits="userSpaceOnUse">
-      <path d="M0 10 h10 v-4 h10 v-4 h10 v4 h10 v4 z" fill="#89c2d9" opacity="0.3"/>
-  </pattern>
-  <rect width="120%" height="10" fill="url(#wavePattern)" class="wave-pattern" />
+  <!-- Animated wave surface -->
+  <path d="M0,15 Q50,5 100,15 Q150,25 200,15 Q250,5 300,15 Q350,25 400,15 Q450,5 500,15 Q550,25 600,15 Q650,5 700,15 Q750,25 800,15 L800,0 L0,0 Z" 
+        fill="#0f3460" opacity="0.5" class="wave-top"/>
 
-  <use href="#weed-asset" x="50" y="160" transform="scale(1.5)" class="seaweed" style="animation-delay: 0s" />
-  <use href="#weed-asset" x="150" y="170" transform="scale(1.2)" class="seaweed" style="animation-delay: 1s" />
-  <use href="#weed-asset" x="650" y="160" transform="scale(1.6)" class="seaweed" style="animation-delay: 2s" />
-  <use href="#weed-asset" x="750" y="170" transform="scale(1)" class="seaweed" style="animation-delay: 0.5s" />
+  <!-- Light Rays from surface -->
+  <rect x="80"  y="-20" width="60"  height="420" fill="#fff" opacity="0.04" class="ray"/>
+  <rect x="250" y="-20" width="100" height="420" fill="#fff" opacity="0.03" class="ray" style="animation-delay:2s"/>
+  <rect x="500" y="-20" width="45"  height="420" fill="#fff" opacity="0.05" class="ray" style="animation-delay:1s"/>
+  <rect x="650" y="-20" width="80"  height="420" fill="#fff" opacity="0.03" class="ray" style="animation-delay:3s"/>
 
-  <circle cx="100" cy="100" r="1.5" class="particle" style="animation-duration: 7s; animation-delay:0s"/>
-  <circle cx="300" cy="150" r="2" class="particle" style="animation-duration: 9s; animation-delay:2s"/>
-  <circle cx="500" cy="50" r="1" class="particle" style="animation-duration: 11s; animation-delay:1s"/>
-  <circle cx="700" cy="120" r="2" class="particle" style="animation-duration: 8s; animation-delay:4s"/>
-  <circle cx="200" cy="180" r="1.5" class="particle" style="animation-duration: 12s; animation-delay:3s"/>
+  <!-- Bioluminescent Particles -->
+  <circle cx="100" cy="300" r="2" fill="#60efff" class="bio-particle" style="animation-delay:0s" filter="url(#tinyGlow)"/>
+  <circle cx="200" cy="250" r="1.5" fill="#ff6eb4" class="bio-particle" style="animation-delay:3s" filter="url(#tinyGlow)"/>
+  <circle cx="350" cy="320" r="2.5" fill="#00ff87" class="bio-particle" style="animation-delay:1s" filter="url(#tinyGlow)"/>
+  <circle cx="500" cy="280" r="1.8" fill="#60efff" class="bio-particle" style="animation-delay:5s" filter="url(#tinyGlow)"/>
+  <circle cx="620" cy="310" r="2" fill="#7b2ff7" class="bio-particle" style="animation-delay:2s" filter="url(#tinyGlow)"/>
+  <circle cx="740" cy="270" r="1.5" fill="#ff6eb4" class="bio-particle" style="animation-delay:7s" filter="url(#tinyGlow)"/>
+  <circle cx="450" cy="350" r="2" fill="#00ff87" class="bio-particle" style="animation-delay:4s" filter="url(#tinyGlow)"/>
 
-  <g fill="rgba(255, 255, 255, 0.4)" class="pixel-art">
-      <rect x="120" y="0" width="4" height="4" style="animation: bubbleRise 4s linear infinite; animation-delay: 0s"/>
-      <rect x="450" y="0" width="6" height="6" style="animation: bubbleRise 6s linear infinite; animation-delay: 2s"/>
-      <rect x="680" y="0" width="4" height="4" style="animation: bubbleRise 5s linear infinite; animation-delay: 1s"/>
-      <rect x="250" y="0" width="8" height="8" style="animation: bubbleRise 7s linear infinite; animation-delay: 4s"/>
+  <!-- Glow Dots (ambient) -->
+  <circle cx="60"  cy="100" r="2" fill="#60efff" class="glow-dot" style="animation-delay:0s"/>
+  <circle cx="180" cy="160" r="1.5" fill="#ff6eb4" class="glow-dot" style="animation-delay:1s"/>
+  <circle cx="320" cy="80"  r="2" fill="#00ff87" class="glow-dot" style="animation-delay:2s"/>
+  <circle cx="480" cy="200" r="1.8" fill="#7b2ff7" class="glow-dot" style="animation-delay:0.5s"/>
+  <circle cx="600" cy="130" r="2.2" fill="#60efff" class="glow-dot" style="animation-delay:1.5s"/>
+  <circle cx="720" cy="180" r="1.5" fill="#ff6eb4" class="glow-dot" style="animation-delay:3s"/>
+  <circle cx="400" cy="240" r="1.8" fill="#00ff87" class="glow-dot" style="animation-delay:2.5s"/>
+  <circle cx="150" cy="300" r="2" fill="#60efff" class="glow-dot" style="animation-delay:3.5s"/>
+  <circle cx="550" cy="330" r="1.5" fill="#7b2ff7" class="glow-dot" style="animation-delay:1.2s"/>
+
+  <!-- Whale Silhouette (far background) -->
+  <g class="whale" opacity="0.08">
+    <ellipse cx="100" cy="160" rx="80" ry="25" fill="#fff"/>
+    <path d="M180,160 Q200,140 210,155 Q200,170 180,160 Z" fill="#fff"/>
+    <ellipse cx="30" cy="155" rx="25" ry="18" fill="#fff"/>
+    <path d="M-10,155 Q-20,135 -30,150 Q-20,170 -10,160 Z" fill="#fff"/>
   </g>
 
-  <g class="fish-container-1"><g class="fish-bob" style="animation-duration: 2s;"><use href="#fish-orange" x="0" y="40" /></g></g>
-  <g class="fish-container-2"><g class="fish-bob" style="animation-duration: 3s; animation-delay: 1s;"><use href="#fish-cyan" x="0" y="100" /></g></g>
-  <g class="fish-container-3"><g class="fish-bob" style="animation-duration: 1.5s;"><use href="#fish-orange" x="0" y="150" transform="scale(0.8)" /></g></g>
-  <g class="fish-container-4" style="opacity: 0.8"><g class="fish-bob" style="animation-duration: 2.5s;"><use href="#fish-cyan" x="0" y="20" transform="scale(0.6)" /></g></g>
+  <!-- Jellyfish 1 (Pink, large) -->
+  <g class="jelly1" transform="translate(180, 80)">
+    <!-- Glow -->
+    <circle cx="0" cy="-10" r="40" fill="url(#jellyGlow1)" filter="url(#softGlow)"/>
+    <!-- Bell -->
+    <g class="jelly-pulse">
+      <ellipse cx="0" cy="0" rx="22" ry="16" fill="#ff6eb4" opacity="0.6" filter="url(#glow)"/>
+      <ellipse cx="0" cy="-2" rx="16" ry="10" fill="#ff8ec7" opacity="0.4"/>
+      <ellipse cx="0" cy="-5" rx="8" ry="5" fill="#fff" opacity="0.3"/>
+    </g>
+    <!-- Tentacles -->
+    <path d="M-12,14 Q-17,35 -8,55 Q-3,70 -10,85" stroke="#ff6eb4" stroke-width="1.5" fill="none" opacity="0.5" class="tentacle"/>
+    <path d="M0,16 Q5,38 -2,58 Q-6,75 2,90" stroke="#ff6eb4" stroke-width="1.5" fill="none" opacity="0.4" class="tentacle" style="animation-delay:0.5s"/>
+    <path d="M12,14 Q17,32 10,52 Q5,68 12,82" stroke="#ff6eb4" stroke-width="1.5" fill="none" opacity="0.5" class="tentacle" style="animation-delay:1s"/>
+    <path d="M-6,15 Q-10,40 -3,60" stroke="#ff8ec7" stroke-width="1" fill="none" opacity="0.3" class="tentacle" style="animation-delay:0.3s"/>
+    <path d="M6,15 Q10,40 3,60" stroke="#ff8ec7" stroke-width="1" fill="none" opacity="0.3" class="tentacle" style="animation-delay:0.8s"/>
+  </g>
 
+  <!-- Jellyfish 2 (Cyan, medium) -->
+  <g class="jelly2" transform="translate(580, 50)" style="animation-delay: -3s">
+    <circle cx="0" cy="-8" r="30" fill="url(#jellyGlow2)" filter="url(#softGlow)"/>
+    <g class="jelly-pulse" style="animation-delay: 1s">
+      <ellipse cx="0" cy="0" rx="16" ry="12" fill="#60efff" opacity="0.5" filter="url(#glow)"/>
+      <ellipse cx="0" cy="-2" rx="11" ry="7" fill="#8af0ff" opacity="0.35"/>
+      <ellipse cx="0" cy="-4" rx="5" ry="3" fill="#fff" opacity="0.25"/>
+    </g>
+    <path d="M-9,10 Q-13,28 -6,45 Q-1,58 -8,68" stroke="#60efff" stroke-width="1.2" fill="none" opacity="0.45" class="tentacle" style="animation-delay:0.2s"/>
+    <path d="M0,12 Q4,30 -1,48 Q-4,60 2,72" stroke="#60efff" stroke-width="1.2" fill="none" opacity="0.35" class="tentacle" style="animation-delay:0.7s"/>
+    <path d="M9,10 Q13,26 8,42 Q4,55 10,65" stroke="#60efff" stroke-width="1.2" fill="none" opacity="0.45" class="tentacle" style="animation-delay:1.2s"/>
+  </g>
+
+  <!-- Jellyfish 3 (Purple, small, background) -->
+  <g class="jelly1" transform="translate(400, 180)" opacity="0.5" style="animation-delay: -5s">
+    <circle cx="0" cy="-6" r="20" fill="url(#jellyGlow3)" filter="url(#softGlow)"/>
+    <g class="jelly-pulse" style="animation-delay: 2s">
+      <ellipse cx="0" cy="0" rx="10" ry="8" fill="#7b2ff7" opacity="0.5" filter="url(#glow)"/>
+      <ellipse cx="0" cy="-2" rx="6" ry="4" fill="#a855f7" opacity="0.3"/>
+    </g>
+    <path d="M-6,7 Q-8,20 -3,32" stroke="#7b2ff7" stroke-width="1" fill="none" opacity="0.4" class="tentacle"/>
+    <path d="M0,8 Q2,22 -1,34" stroke="#7b2ff7" stroke-width="1" fill="none" opacity="0.3" class="tentacle" style="animation-delay:0.5s"/>
+    <path d="M6,7 Q8,18 4,30" stroke="#7b2ff7" stroke-width="1" fill="none" opacity="0.4" class="tentacle" style="animation-delay:1s"/>
+  </g>
+
+  <!-- Fish Schools -->
+  <!-- Neon fish left -->
+  <g class="fish-l1">
+    <g class="fish-bob">
+      <g transform="translate(0, 120)">
+        <ellipse cx="20" cy="8" rx="14" ry="6" fill="#ff6eb4" opacity="0.7" filter="url(#tinyGlow)"/>
+        <path d="M34,8 L42,2 L42,14 Z" fill="#ff6eb4" opacity="0.5"/>
+        <circle cx="12" cy="6" r="1.5" fill="#fff" opacity="0.9"/>
+      </g>
+    </g>
+  </g>
+  <g class="fish-r1">
+    <g class="fish-bob" style="animation-delay:1s">
+      <g transform="translate(0, 220)">
+        <ellipse cx="20" cy="8" rx="12" ry="5" fill="#60efff" opacity="0.6" filter="url(#tinyGlow)"/>
+        <path d="M32,8 L39,3 L39,13 Z" fill="#60efff" opacity="0.4"/>
+        <circle cx="12" cy="6" r="1.2" fill="#fff" opacity="0.9"/>
+      </g>
+    </g>
+  </g>
+  <!-- Small school -->
+  <g class="fish-l2" opacity="0.5">
+    <g class="fish-bob" style="animation-delay:0.5s">
+      <g transform="translate(0, 280)">
+        <ellipse cx="10" cy="4" rx="7" ry="3" fill="#00ff87" opacity="0.6"/>
+        <ellipse cx="25" cy="8" rx="7" ry="3" fill="#00ff87" opacity="0.5"/>
+        <ellipse cx="15" cy="12" rx="7" ry="3" fill="#00ff87" opacity="0.55"/>
+      </g>
+    </g>
+  </g>
+  <g class="fish-r2" opacity="0.4">
+    <g class="fish-bob" style="animation-delay:2s">
+      <g transform="translate(0, 60)">
+        <ellipse cx="8" cy="3" rx="5" ry="2" fill="#ff6eb4" opacity="0.5"/>
+        <ellipse cx="20" cy="6" rx="5" ry="2" fill="#ff6eb4" opacity="0.4"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bubbles -->
+  <circle cx="150" cy="400" r="3" fill="#fff" opacity="0.15" class="bubble" style="animation-delay:0s"/>
+  <circle cx="300" cy="400" r="4" fill="#fff" opacity="0.1" class="bubble" style="animation-delay:2s; animation-duration:10s"/>
+  <circle cx="500" cy="400" r="2.5" fill="#fff" opacity="0.12" class="bubble" style="animation-delay:1s; animation-duration:7s"/>
+  <circle cx="650" cy="400" r="3.5" fill="#fff" opacity="0.08" class="bubble" style="animation-delay:4s; animation-duration:9s"/>
+  <circle cx="400" cy="400" r="2" fill="#fff" opacity="0.15" class="bubble" style="animation-delay:3s; animation-duration:6s"/>
+  <circle cx="220" cy="400" r="3" fill="#fff" opacity="0.1" class="bubble" style="animation-delay:5s; animation-duration:11s"/>
+
+  <!-- Coral & Seaweed Silhouettes at bottom -->
+  <!-- Left coral cluster -->
+  <g transform="translate(40, 340)">
+    <path d="M0,60 Q-5,40 5,25 Q10,15 8,0" stroke="#0e4d6e" stroke-width="3" fill="none" class="weed-l" style="animation-delay:0s"/>
+    <path d="M15,60 Q20,35 12,15 Q8,5 15,-5" stroke="#0d3b5a" stroke-width="2.5" fill="none" class="weed-r" style="animation-delay:1s"/>
+    <path d="M30,60 Q25,42 30,25 Q35,10 28,0" stroke="#0e4d6e" stroke-width="2" fill="none" class="weed-l" style="animation-delay:0.5s"/>
+    <circle cx="8" cy="0" r="3" fill="#ff6eb4" opacity="0.2" filter="url(#tinyGlow)"/>
+    <circle cx="15" cy="-5" r="2" fill="#60efff" opacity="0.15" filter="url(#tinyGlow)"/>
+  </g>
+
+  <!-- Center coral -->
+  <g transform="translate(350, 355)">
+    <path d="M0,45 Q8,25 0,10 Q-5,0 5,-10" stroke="#0d3b5a" stroke-width="3" fill="none" class="weed-r" style="animation-delay:2s"/>
+    <path d="M20,45 Q15,30 22,15 Q28,5 20,0" stroke="#0e4d6e" stroke-width="2.5" fill="none" class="weed-l" style="animation-delay:0.8s"/>
+    <circle cx="5" cy="-10" r="2.5" fill="#7b2ff7" opacity="0.2" filter="url(#tinyGlow)"/>
+  </g>
+
+  <!-- Right coral cluster -->
+  <g transform="translate(680, 345)">
+    <path d="M0,55 Q-8,35 3,18 Q10,5 5,-5" stroke="#0e4d6e" stroke-width="3" fill="none" class="weed-r" style="animation-delay:1.5s"/>
+    <path d="M20,55 Q25,30 18,12 Q12,0 20,-8" stroke="#0d3b5a" stroke-width="2.5" fill="none" class="weed-l" style="animation-delay:0.3s"/>
+    <path d="M-15,55 Q-20,40 -12,25 Q-5,15 -10,5" stroke="#0e4d6e" stroke-width="2" fill="none" class="weed-r" style="animation-delay:2.5s"/>
+    <circle cx="5" cy="-5" r="3" fill="#00ff87" opacity="0.2" filter="url(#tinyGlow)"/>
+    <circle cx="20" cy="-8" r="2" fill="#ff6eb4" opacity="0.15" filter="url(#tinyGlow)"/>
+  </g>
+
+  <!-- Sea Floor -->
+  <path d="M0,380 Q100,370 200,375 Q300,385 400,378 Q500,370 600,380 Q700,375 800,370 L800,400 L0,400 Z" fill="#020b1a"/>
+  <path d="M0,390 Q100,385 200,388 Q300,395 400,390 Q500,383 600,392 Q700,388 800,385 L800,400 L0,400 Z" fill="#010815"/>
 </svg>

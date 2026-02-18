@@ -9,10 +9,7 @@
       /* Snow */
       @keyframes snowF { 0%{ transform:translateY(-16px); opacity:0 } 8%{ opacity:.8 } 92%{ opacity:.35 } 100%{ transform:translateY(300px); opacity:0 } }
 
-      /* Tree flicker */
-      @keyframes neonFlicker {
-        0%,100% { opacity:1 } 85%{ opacity:1 } 90%{ opacity:.35 } 95%{ opacity:1 }
-      }
+      /* Tree flicker — enhanced with glow pulse */
 
       /* Apple float */
       @keyframes appleF1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
@@ -36,8 +33,40 @@
       /* Star twinkle (barely visible in day) */
       @keyframes twk { 0%,100%{ opacity:0 } 50%{ opacity:.15 } }
 
+      /* Divine light beam */
+      @keyframes divineBeam { 0%,100%{ opacity:.04 } 50%{ opacity:.12 } }
+
+      /* Spirit particles rising from tree */
+      @keyframes spiritRise { 0%{ transform:translateY(0) translateX(0); opacity:0 } 12%{ opacity:.7 } 70%{ opacity:.3 } 100%{ transform:translateY(-80px) translateX(8px); opacity:0 } }
+      @keyframes spiritRiseB { 0%{ transform:translateY(0) translateX(0); opacity:0 } 15%{ opacity:.5 } 65%{ opacity:.2 } 100%{ transform:translateY(-70px) translateX(-6px); opacity:0 } }
+
+      /* Sacred aura pulse behind tree */
+      @keyframes auraPulse { 0%,100%{ opacity:.03 } 50%{ opacity:.1 } }
+      @keyframes auraRing  { 0%,100%{ opacity:.02; transform:scale(1) } 50%{ opacity:.07; transform:scale(1.04) } }
+
+      /* Sakura petals drift */
+      @keyframes petalDrift1 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.7 } 90%{ opacity:.3 } 100%{ transform:translate(40px,60px) rotate(180deg); opacity:0 } }
+      @keyframes petalDrift2 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.6 } 90%{ opacity:.2 } 100%{ transform:translate(-35px,55px) rotate(-160deg); opacity:0 } }
+
+      /* Tree color cycle — subtle hue shift on the tree flicker */
+      @keyframes treeGlow {
+        0%,100% { opacity:1 }
+        85% { opacity:1 } 88% { opacity:.8 } 90% { opacity:.3 } 93% { opacity:.9 } 95% { opacity:1 }
+      }
+
+      /* Ground energy pulse */
+      @keyframes groundPulse { 0%,100%{ opacity:.03 } 50%{ opacity:.1 } }
+
       .sf   { animation:snowF 5s linear infinite }
-      .fl   { animation:neonFlicker 7s infinite }
+      .fl   { animation:treeGlow 7s infinite }
+      .dvB  { animation:divineBeam 5s ease-in-out infinite }
+      .spR  { animation:spiritRise 6s linear infinite }
+      .spRB { animation:spiritRiseB 7s linear infinite }
+      .auP  { animation:auraPulse 4s ease-in-out infinite }
+      .auR  { animation:auraRing 5s ease-in-out infinite; transform-origin:center }
+      .ptl1 { animation:petalDrift1 8s linear infinite }
+      .ptl2 { animation:petalDrift2 9s linear infinite }
+      .grP  { animation:groundPulse 4s ease-in-out infinite }
       .ap1  { animation:appleF1 5s ease-in-out infinite }
       .ap2  { animation:appleF2 6s ease-in-out infinite; animation-delay:1.5s }
       .apG  { animation:appleGlow 3s ease-in-out infinite }
@@ -238,6 +267,68 @@
   </g>
 
   <!-- ============================================ -->
+  <!-- ===    DIVINE LIGHT BEAM (from sky)       === -->
+  <!-- ============================================ -->
+  <!-- Main beam — wide trapezoid of light hitting the tree area -->
+  <g class="px">
+    <polygon points="370,0 430,0 480,225 320,225" fill="#fffde0" opacity=".04" class="dvB"/>
+    <polygon points="382,0 418,0 460,225 340,225" fill="#fff" opacity=".025" class="dvB" style="animation-delay:1.5s"/>
+    <!-- Pixel beam sparkles inside the light -->
+    <rect x="388" y="30"  width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:.5s"/>
+    <rect x="400" y="60"  width="3" height="3" fill="#fff" opacity=".08" class="dvB" style="animation-delay:1s"/>
+    <rect x="378" y="90"  width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:2s"/>
+    <rect x="412" y="110" width="3" height="3" fill="#fff" opacity=".08" class="dvB" style="animation-delay:1.5s"/>
+    <rect x="394" y="145" width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:.8s"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===     SACRED AURA (behind tree)         === -->
+  <!-- ============================================ -->
+  <!-- Outer aura ring (pixel diamond shape) -->
+  <g transform="translate(400, 155)" class="px auR">
+    <!-- Diamond ring — large -->
+    <rect x="-64" y="-4"  width="8" height="8" fill="#FFD700" opacity=".04"/>
+    <rect x="56"  y="-4"  width="8" height="8" fill="#FFD700" opacity=".04"/>
+    <rect x="-4"  y="-64" width="8" height="8" fill="#FFD700" opacity=".04"/>
+    <rect x="-4"  y="56"  width="8" height="8" fill="#FFD700" opacity=".04"/>
+    <!-- Diagonal corners -->
+    <rect x="-48" y="-48" width="4" height="4" fill="#FFD700" opacity=".03"/>
+    <rect x="44"  y="-48" width="4" height="4" fill="#FFD700" opacity=".03"/>
+    <rect x="-48" y="44"  width="4" height="4" fill="#FFD700" opacity=".03"/>
+    <rect x="44"  y="44"  width="4" height="4" fill="#FFD700" opacity=".03"/>
+  </g>
+  <!-- Inner aura glow (soft pixel rect) -->
+  <g class="px auP">
+    <rect x="330" y="100" width="140" height="120" fill="#FFD700" opacity=".03"/>
+    <rect x="350" y="110" width="100" height="100" fill="#fffde0" opacity=".03"/>
+  </g>
+  <!-- Sacred circle dots -->
+  <g transform="translate(400, 155)" class="px auR" style="animation-delay:2s">
+    <rect x="-50" y="-2" width="3" height="3" fill="#48dbfb" opacity=".06"/>
+    <rect x="48"  y="-2" width="3" height="3" fill="#48dbfb" opacity=".06"/>
+    <rect x="-2"  y="-50" width="3" height="3" fill="#FF5252" opacity=".06"/>
+    <rect x="-2"  y="48"  width="3" height="3" fill="#FF5252" opacity=".06"/>
+    <rect x="-38" y="-34" width="3" height="3" fill="#FFD700" opacity=".05"/>
+    <rect x="36"  y="-34" width="3" height="3" fill="#FFD700" opacity=".05"/>
+    <rect x="-38" y="32"  width="3" height="3" fill="#FFD700" opacity=".05"/>
+    <rect x="36"  y="32"  width="3" height="3" fill="#FFD700" opacity=".05"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===   GROUND ENERGY LINES (from tree base)=== -->
+  <!-- ============================================ -->
+  <g class="px">
+    <!-- Left energy line -->
+    <rect x="340" y="222" width="28" height="2" fill="#FFD700" class="grP"/>
+    <rect x="310" y="224" width="20" height="2" fill="#FFD700" class="grP" style="animation-delay:1s"/>
+    <rect x="288" y="226" width="12" height="2" fill="#FFD700" class="grP" style="animation-delay:2s"/>
+    <!-- Right energy line -->
+    <rect x="432" y="222" width="28" height="2" fill="#FFD700" class="grP" style="animation-delay:.5s"/>
+    <rect x="470" y="224" width="20" height="2" fill="#FFD700" class="grP" style="animation-delay:1.5s"/>
+    <rect x="498" y="226" width="12" height="2" fill="#FFD700" class="grP" style="animation-delay:2.5s"/>
+  </g>
+
+  <!-- ============================================ -->
   <!-- ===   SACRED ASCII TREE (centered)        === -->
   <!-- ============================================ -->
   <g class="fl" transform="translate(268, 88)">
@@ -254,6 +345,39 @@
       <tspan x="0" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⠀⠀⠀⠹⣆⢸⠟⢀⣿⠈⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
       <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⢀⣿⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
     </text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===   SPIRIT PARTICLES (rising from tree) === -->
+  <!-- ============================================ -->
+  <!-- Golden spirits -->
+  <rect x="380" y="180" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:0s"/>
+  <rect x="405" y="190" width="4" height="4" fill="#FFD700" class="spRB px" style="animation-delay:2s"/>
+  <rect x="418" y="175" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:4s"/>
+  <rect x="392" y="185" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:1s"/>
+  <rect x="370" y="195" width="4" height="4" fill="#ffe870" class="spR px" style="animation-delay:3s"/>
+  <rect x="428" y="182" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:5s"/>
+  <!-- Cyan spirits -->
+  <rect x="400" y="170" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:1.5s"/>
+  <rect x="386" y="188" width="3" height="3" fill="#48dbfb" class="spRB px" style="animation-delay:3.5s"/>
+  <rect x="412" y="178" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:5.5s"/>
+  <!-- White spirits (brighter, rarer) -->
+  <rect x="396" y="165" width="3" height="3" fill="#fff" class="spR px" style="animation-delay:2.5s; animation-duration:8s"/>
+  <rect x="410" y="192" width="3" height="3" fill="#fff" class="spRB px" style="animation-delay:4.5s; animation-duration:9s"/>
+
+  <!-- ============================================ -->
+  <!-- ===   SAKURA PETALS (floating near tree)  === -->
+  <!-- ============================================ -->
+  <!-- Pink petals -->
+  <g class="px">
+    <rect x="350" y="100" width="4" height="3" fill="#ffb0c0" class="ptl1" style="animation-delay:0s"/>
+    <rect x="420" y="95"  width="3" height="4" fill="#ffa0b0" class="ptl2" style="animation-delay:2s"/>
+    <rect x="380" y="88"  width="4" height="3" fill="#ffb8c8" class="ptl1" style="animation-delay:4s; animation-duration:9s"/>
+    <rect x="440" y="105" width="3" height="4" fill="#ffb0c0" class="ptl2" style="animation-delay:1s; animation-duration:10s"/>
+    <rect x="330" y="110" width="4" height="3" fill="#ffa0b0" class="ptl1" style="animation-delay:3s; animation-duration:7s"/>
+    <rect x="460" y="92"  width="3" height="4" fill="#ffb8c8" class="ptl2" style="animation-delay:5s"/>
+    <rect x="395" y="82"  width="4" height="3" fill="#ffb0c0" class="ptl1" style="animation-delay:6s; animation-duration:8s"/>
+    <rect x="365" y="115" width="3" height="3" fill="#ffc0d0" class="ptl2" style="animation-delay:3.5s; animation-duration:11s"/>
   </g>
 
   <!-- ============================================ -->

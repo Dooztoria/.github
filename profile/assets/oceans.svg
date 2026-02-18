@@ -3,152 +3,280 @@
   <defs>
     <style>
       /* <![CDATA[ */
-      /* Jellyfish */
-      @keyframes jFloat1 { 0%,100%{ transform:translate(0,0) } 25%{ transform:translate(6px,-12px) } 50%{ transform:translate(-4px,-20px) } 75%{ transform:translate(8px,-8px) } }
-      @keyframes jFloat2 { 0%,100%{ transform:translate(0,0) } 25%{ transform:translate(-8px,-16px) } 50%{ transform:translate(4px,-24px) } 75%{ transform:translate(-6px,-10px) } }
-      @keyframes jPulse  { 0%,100%{ transform:scaleX(1) scaleY(1) } 50%{ transform:scaleX(1.06) scaleY(.94) } }
+      .px { shape-rendering: crispEdges; }
 
-      /* Fish */
-      @keyframes swimL { 0%{ transform:translateX(860px) } 100%{ transform:translateX(-140px) } }
-      @keyframes swimR { 0%{ transform:translateX(-140px) scaleX(-1) } 100%{ transform:translateX(860px) scaleX(-1) } }
-      @keyframes bob   { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
+      @keyframes snowF   { 0%{ transform:translateY(-16px); opacity:0 } 10%{ opacity:.75 } 90%{ opacity:.35 } 100%{ transform:translateY(420px); opacity:0 } }
+      @keyframes lanternG{ 0%,100%{ opacity:.4 } 50%{ opacity:.8 } }
+      @keyframes lanternF{ 0%,100%{ opacity:.6 } 85%{ opacity:.65 } 88%{ opacity:.3 } 92%{ opacity:.7 } 95%{ opacity:.4 } 97%{ opacity:.65 } }
+      @keyframes waterS  { 0%,100%{ opacity:.04 } 50%{ opacity:.1 } }
+      @keyframes smokeR  { 0%{ transform:translateY(0); opacity:0 } 20%{ opacity:.15 } 80%{ opacity:.04 } 100%{ transform:translateY(-40px); opacity:0 } }
+      @keyframes koiSw   { 0%{ transform:translateX(-20px) } 100%{ transform:translateX(140px) } }
 
-      /* Particles */
-      @keyframes pFloat { 0%{ transform:translateY(0); opacity:0 } 15%{ opacity:.7 } 85%{ opacity:.4 } 100%{ transform:translateY(-100px); opacity:0 } }
-      @keyframes gPulse { 0%,100%{ opacity:.15 } 50%{ opacity:.7 } }
-
-      /* Bubbles */
-      @keyframes bUp { 0%{ transform:translateY(0); opacity:0 } 10%{ opacity:.4 } 90%{ opacity:.2 } 100%{ transform:translateY(-420px); opacity:0 } }
-
-      /* Rays */
-      @keyframes rShim { 0%,100%{ opacity:.03; transform:skewX(-18deg) } 50%{ opacity:.08; transform:skewX(-18deg) translateX(12px) } }
-
-      /* Seaweed */
-      @keyframes swayL { 0%,100%{ transform:rotate(0deg) } 50%{ transform:rotate(-5deg) } }
-      @keyframes swayR { 0%,100%{ transform:rotate(0deg) } 50%{ transform:rotate(5deg) } }
-
-      /* Whale */
-      @keyframes whale { 0%{ transform:translateX(900px) } 100%{ transform:translateX(-300px) } }
-
-      .jf1    { animation:jFloat1 8s ease-in-out infinite }
-      .jf2    { animation:jFloat2 10s ease-in-out infinite }
-      .jp     { animation:jPulse 3s ease-in-out infinite; transform-origin:center top }
-      .fl     { animation:swimL 14s linear infinite }
-      .fr     { animation:swimR 18s linear infinite }
-      .fl2    { animation:swimL 22s linear infinite; animation-delay:-10s }
-      .fr2    { animation:swimR 13s linear infinite; animation-delay:-5s }
-      .fb     { animation:bob 3s ease-in-out infinite }
-      .pf     { animation:pFloat 12s linear infinite }
-      .gp     { animation:gPulse 4s ease-in-out infinite }
-      .bu     { animation:bUp 8s linear infinite }
-      .rs     { animation:rShim 7s ease-in-out infinite alternate }
-      .wl     { animation:swayL 4s ease-in-out infinite; transform-origin:bottom center }
-      .wr     { animation:swayR 5s ease-in-out infinite; transform-origin:bottom center }
-      .wh     { animation:whale 40s linear infinite }
+      .sf  { animation:snowF 6s linear infinite }
+      .lg  { animation:lanternG 3s ease-in-out infinite }
+      .lf  { animation:lanternF 5s infinite }
+      .ws  { animation:waterS 4s ease-in-out infinite }
+      .sm  { animation:smokeR 5s linear infinite }
+      .koi { animation:koiSw 14s linear infinite }
       /* ]]> */
     </style>
-    <linearGradient id="og" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0f3460"/><stop offset="30%" stop-color="#0a2647"/>
-      <stop offset="60%" stop-color="#071e3d"/><stop offset="100%" stop-color="#040d21"/>
-    </linearGradient>
   </defs>
 
-  <rect width="800" height="400" fill="url(#og)"/>
+  <!-- === BACKGROUND === -->
+  <rect width="800" height="400" fill="#1a2238" class="px"/>
 
-  <!-- Light Rays -->
-  <rect x="80" y="-20" width="55" height="420" fill="#fff" class="rs"/>
-  <rect x="280" y="-20" width="90" height="420" fill="#fff" class="rs" style="animation-delay:2s"/>
-  <rect x="520" y="-20" width="40" height="420" fill="#fff" class="rs" style="animation-delay:1s"/>
-  <rect x="660" y="-20" width="70" height="420" fill="#fff" class="rs" style="animation-delay:3s"/>
+  <!-- === WATER / RIVER === -->
+  <rect x="0" y="305" width="800" height="95" fill="#10192e" class="px"/>
+  <rect x="0" y="310" width="800" height="90" fill="#0c1424" class="px"/>
+  <!-- Water pixel reflections -->
+  <rect x="80"  y="330" width="40" height="2" fill="#3a4a6a" class="ws px"/>
+  <rect x="240" y="345" width="56" height="2" fill="#3a4a6a" class="ws px" style="animation-delay:1s"/>
+  <rect x="440" y="335" width="36" height="2" fill="#3a4a6a" class="ws px" style="animation-delay:2s"/>
+  <rect x="600" y="350" width="48" height="2" fill="#3a4a6a" class="ws px" style="animation-delay:1.5s"/>
+  <rect x="340" y="360" width="60" height="2" fill="#3a4a6a" class="ws px" style="animation-delay:3s"/>
+  <!-- Torii reflection -->
+  <rect x="386" y="315" width="4" height="24" fill="#6a1a1a" opacity=".1" class="px"/>
+  <rect x="438" y="315" width="4" height="24" fill="#6a1a1a" opacity=".1" class="px"/>
 
-  <!-- Whale Silhouette -->
-  <g class="wh" opacity=".06">
-    <ellipse cx="100" cy="155" rx="75" ry="22" fill="#fff"/>
-    <path d="M175,155 Q195,138 205,150 Q195,165 175,155Z" fill="#fff"/>
-    <ellipse cx="35" cy="150" rx="22" ry="16" fill="#fff"/>
+  <!-- Pixel koi -->
+  <g class="koi" opacity=".25">
+    <rect x="300" y="340" width="8" height="4" fill="#e25822" class="px"/>
+    <rect x="308" y="340" width="4" height="4" fill="#d04818" class="px"/>
+    <rect x="296" y="340" width="4" height="4" fill="#cc6030" class="px"/>
+    <rect x="304" y="336" width="4" height="4" fill="#fff" opacity=".5" class="px"/>
   </g>
 
-  <!-- Glow Dots -->
-  <circle cx="55" cy="95" r="1.8" fill="#60efff" class="gp"/><circle cx="175" cy="155" r="1.3" fill="#ff6eb4" class="gp" style="animation-delay:1s"/>
-  <circle cx="315" cy="75" r="1.8" fill="#00ff87" class="gp" style="animation-delay:2s"/><circle cx="475" cy="195" r="1.5" fill="#7b2ff7" class="gp" style="animation-delay:.5s"/>
-  <circle cx="595" cy="125" r="2" fill="#60efff" class="gp" style="animation-delay:1.5s"/><circle cx="715" cy="175" r="1.3" fill="#ff6eb4" class="gp" style="animation-delay:3s"/>
-  <circle cx="395" cy="235" r="1.5" fill="#00ff87" class="gp" style="animation-delay:2.5s"/><circle cx="145" cy="295" r="1.8" fill="#60efff" class="gp" style="animation-delay:3.5s"/>
-  <circle cx="545" cy="325" r="1.3" fill="#7b2ff7" class="gp" style="animation-delay:1.2s"/>
-
-  <!-- Jellyfish 1 — Pink, large -->
-  <g class="jf1" transform="translate(180,80)">
-    <circle cx="0" cy="-8" r="30" fill="#ff6eb4" opacity=".08"/>
-    <g class="jp">
-      <ellipse cx="0" cy="0" rx="20" ry="14" fill="#ff6eb4" opacity=".5"/>
-      <ellipse cx="0" cy="-2" rx="14" ry="9" fill="#ff8ec7" opacity=".3"/>
-      <ellipse cx="0" cy="-4" rx="7" ry="4" fill="#fff" opacity=".2"/>
-    </g>
-    <path d="M-10,12 Q-14,30 -6,48 Q-1,60 -8,72" stroke="#ff6eb4" stroke-width="1.3" fill="none" opacity=".35"/>
-    <path d="M0,14 Q4,32 -2,50 Q-5,62 2,74" stroke="#ff6eb4" stroke-width="1.3" fill="none" opacity=".25"/>
-    <path d="M10,12 Q14,28 8,44 Q4,56 10,66" stroke="#ff6eb4" stroke-width="1.3" fill="none" opacity=".35"/>
-    <path d="M-5,13 Q-8,34 -2,50" stroke="#ff8ec7" stroke-width=".8" fill="none" opacity=".2"/>
-    <path d="M5,13 Q8,34 2,50" stroke="#ff8ec7" stroke-width=".8" fill="none" opacity=".2"/>
+  <!-- === SNOW GROUND === -->
+  <g class="px">
+    <rect x="0"   y="280" width="800" height="28" fill="#c8c0b4"/>
+    <rect x="0"   y="276" width="200" height="4"  fill="#d4ccc0"/>
+    <rect x="200" y="280" width="120" height="4"  fill="#d8d0c4"/>
+    <rect x="400" y="274" width="180" height="4"  fill="#d4ccc0"/>
+    <rect x="600" y="278" width="200" height="4"  fill="#d0c8bc"/>
+    <!-- Snow sparkle pixels -->
+    <rect x="50"  y="282" width="2" height="2" fill="#fff" opacity=".4"/>
+    <rect x="160" y="286" width="2" height="2" fill="#fff" opacity=".3"/>
+    <rect x="350" y="280" width="2" height="2" fill="#fff" opacity=".35"/>
+    <rect x="500" y="284" width="2" height="2" fill="#fff" opacity=".4"/>
+    <rect x="650" y="282" width="2" height="2" fill="#fff" opacity=".3"/>
+    <rect x="750" y="286" width="2" height="2" fill="#fff" opacity=".35"/>
   </g>
 
-  <!-- Jellyfish 2 — Cyan -->
-  <g class="jf2" transform="translate(580,55)" style="animation-delay:-3s">
-    <circle cx="0" cy="-6" r="22" fill="#60efff" opacity=".06"/>
-    <g class="jp" style="animation-delay:1s">
-      <ellipse cx="0" cy="0" rx="14" ry="10" fill="#60efff" opacity=".4"/>
-      <ellipse cx="0" cy="-2" rx="9" ry="6" fill="#8af0ff" opacity=".25"/>
-      <ellipse cx="0" cy="-3" rx="4" ry="2.5" fill="#fff" opacity=".18"/>
-    </g>
-    <path d="M-8,9 Q-11,24 -5,38 Q-1,48 -7,56" stroke="#60efff" stroke-width="1" fill="none" opacity=".3"/>
-    <path d="M0,10 Q3,25 -1,40 Q-3,50 2,58" stroke="#60efff" stroke-width="1" fill="none" opacity=".22"/>
-    <path d="M8,9 Q11,22 6,36 Q3,46 8,54" stroke="#60efff" stroke-width="1" fill="none" opacity=".3"/>
+  <!-- === STONE PATH (pixel) === -->
+  <g class="px" fill="#7a7068" opacity=".5">
+    <rect x="390" y="288" width="12" height="4" rx="0"/>
+    <rect x="392" y="294" width="10" height="4" rx="0"/>
+    <rect x="394" y="300" width="8"  height="4" rx="0"/>
   </g>
 
-  <!-- Jellyfish 3 — Purple, small bg -->
-  <g class="jf1" transform="translate(400,185)" opacity=".45" style="animation-delay:-5s">
-    <circle cx="0" cy="-5" r="15" fill="#7b2ff7" opacity=".06"/>
-    <g class="jp" style="animation-delay:2s">
-      <ellipse cx="0" cy="0" rx="9" ry="7" fill="#7b2ff7" opacity=".4"/>
-      <ellipse cx="0" cy="-1" rx="5" ry="3.5" fill="#a855f7" opacity=".22"/>
-    </g>
-    <path d="M-5,6 Q-7,17 -2,27" stroke="#7b2ff7" stroke-width=".8" fill="none" opacity=".3"/>
-    <path d="M0,7 Q2,18 -1,28" stroke="#7b2ff7" stroke-width=".8" fill="none" opacity=".22"/>
-    <path d="M5,6 Q7,16 3,25" stroke="#7b2ff7" stroke-width=".8" fill="none" opacity=".3"/>
+  <!-- =============================== -->
+  <!-- ===    PIXEL TORII GATE      === -->
+  <!-- =============================== -->
+  <g transform="translate(364, 148)" class="px">
+    <!-- Kasagi (top beam) — wide -->
+    <rect x="-8" y="0"  width="96" height="6" fill="#c0392b"/>
+    <rect x="-12" y="-2" width="104" height="4" fill="#d04030"/>
+    <!-- Shimaki (curved cap) -->
+    <rect x="-16" y="-6" width="112" height="4" fill="#a02818"/>
+    <rect x="-8"  y="-6" width="4"  height="4" fill="#b03020"/>
+    <rect x="84"  y="-6" width="4"  height="4" fill="#b03020"/>
+    <!-- Nuki (crossbeam) -->
+    <rect x="-4" y="16" width="88" height="4" fill="#c0392b"/>
+    <!-- Gakuzuka (center tablet) -->
+    <rect x="28" y="8" width="24" height="12" fill="#1a1a2e"/>
+    <rect x="30" y="10" width="20" height="8" fill="#0e0e1e"/>
+    <!-- Left Hashira (pillar) -->
+    <rect x="6"  y="6"  width="6" height="130" fill="#c0392b"/>
+    <!-- Right Hashira (pillar) -->
+    <rect x="68" y="6"  width="6" height="130" fill="#c0392b"/>
+    <!-- Pillar bases -->
+    <rect x="2"  y="134" width="14" height="6" fill="#5a5a68"/>
+    <rect x="64" y="134" width="14" height="6" fill="#5a5a68"/>
+    <!-- Snow on top -->
+    <rect x="-14" y="-10" width="108" height="4" fill="#fff" opacity=".65"/>
+    <rect x="-10" y="-14" width="100" height="4" fill="#fff" opacity=".45"/>
+    <!-- Snow on crossbeam -->
+    <rect x="-2" y="14" width="84" height="2" fill="#fff" opacity=".4"/>
   </g>
 
-  <!-- Fish -->
-  <g class="fl"><g class="fb"><g transform="translate(0,115)"><ellipse cx="18" cy="7" rx="13" ry="5" fill="#ff6eb4" opacity=".55"/><path d="M31,7 L38,2 L38,12Z" fill="#ff6eb4" opacity=".4"/><circle cx="10" cy="5" r="1.3" fill="#fff" opacity=".8"/></g></g></g>
-  <g class="fr"><g class="fb" style="animation-delay:1s"><g transform="translate(0,215)"><ellipse cx="18" cy="7" rx="11" ry="4.5" fill="#60efff" opacity=".5"/><path d="M29,7 L35,3 L35,11Z" fill="#60efff" opacity=".35"/><circle cx="10" cy="5.5" r="1.1" fill="#fff" opacity=".8"/></g></g></g>
-  <g class="fl2" opacity=".4"><g class="fb" style="animation-delay:.5s"><g transform="translate(0,275)"><ellipse cx="9" cy="3.5" rx="6" ry="2.5" fill="#00ff87" opacity=".5"/><ellipse cx="22" cy="7" rx="6" ry="2.5" fill="#00ff87" opacity=".45"/><ellipse cx="14" cy="10.5" rx="6" ry="2.5" fill="#00ff87" opacity=".48"/></g></g></g>
-  <g class="fr2" opacity=".35"><g class="fb" style="animation-delay:2s"><g transform="translate(0,55)"><ellipse cx="7" cy="2.5" rx="4.5" ry="1.8" fill="#ff6eb4" opacity=".45"/><ellipse cx="18" cy="5" rx="4.5" ry="1.8" fill="#ff6eb4" opacity=".38"/></g></g></g>
-
-  <!-- Bio Particles rising -->
-  <circle cx="95" cy="300" r="1.8" fill="#60efff" class="pf" style="animation-delay:0s"/><circle cx="210" cy="260" r="1.3" fill="#ff6eb4" class="pf" style="animation-delay:3s"/>
-  <circle cx="360" cy="320" r="2" fill="#00ff87" class="pf" style="animation-delay:1s"/><circle cx="510" cy="280" r="1.5" fill="#60efff" class="pf" style="animation-delay:5s"/>
-  <circle cx="630" cy="310" r="1.8" fill="#7b2ff7" class="pf" style="animation-delay:2s"/><circle cx="740" cy="270" r="1.3" fill="#ff6eb4" class="pf" style="animation-delay:7s"/>
-
-  <!-- Bubbles -->
-  <circle cx="150" cy="400" r="2.5" fill="#fff" opacity=".12" class="bu"/><circle cx="320" cy="400" r="3.5" fill="#fff" opacity=".08" class="bu" style="animation-delay:2s; animation-duration:10s"/>
-  <circle cx="510" cy="400" r="2" fill="#fff" opacity=".1" class="bu" style="animation-delay:1s; animation-duration:7s"/><circle cx="670" cy="400" r="3" fill="#fff" opacity=".07" class="bu" style="animation-delay:4s; animation-duration:9s"/>
-
-  <!-- Coral / Seaweed -->
-  <g transform="translate(45,340)">
-    <path d="M0,60 Q-4,38 4,22 Q9,12 7,0" stroke="#0e4d6e" stroke-width="2.5" fill="none" class="wl"/>
-    <path d="M14,60 Q18,32 10,14 Q7,4 13,-5" stroke="#0d3b5a" stroke-width="2" fill="none" class="wr" style="animation-delay:1s"/>
-    <path d="M28,60 Q23,40 28,22 Q33,8 26,0" stroke="#0e4d6e" stroke-width="1.8" fill="none" class="wl" style="animation-delay:.5s"/>
-    <circle cx="7" cy="0" r="2.5" fill="#ff6eb4" opacity=".15"/><circle cx="13" cy="-5" r="1.8" fill="#60efff" opacity=".1"/>
+  <!-- =============================== -->
+  <!-- === JAPANESE HOUSE — LEFT    === -->
+  <!-- =============================== -->
+  <g transform="translate(40, 168)" class="px">
+    <!-- Roof -->
+    <rect x="-8"  y="0"  width="136" height="4" fill="#1a1410"/>
+    <rect x="-4"  y="4"  width="128" height="4" fill="#2a2018"/>
+    <rect x="0"   y="8"  width="120" height="4" fill="#2a2018"/>
+    <polygon points="-12,0 60,-20 132,0" fill="#221a14"/>
+    <polygon points="-8,0 60,-16 128,0" fill="#2a2018"/>
+    <!-- Snow on roof -->
+    <rect x="-8" y="-20" width="12" height="4" fill="#fff" opacity=".5"/>
+    <rect x="20" y="-18" width="80" height="4" fill="#fff" opacity=".55"/>
+    <rect x="108" y="-16" width="16" height="4" fill="#fff" opacity=".45"/>
+    <polygon points="-4,-2 60,-18 124,-2 60,-14" fill="#fff" opacity=".4"/>
+    <!-- Walls -->
+    <rect x="4" y="12" width="112" height="72" fill="#302820"/>
+    <rect x="8" y="16" width="104" height="64" fill="#3a3028"/>
+    <!-- Shoji (sliding doors) -->
+    <rect x="14" y="28" width="22" height="48" fill="#d8cca8" opacity=".65"/>
+    <rect x="14" y="50" width="22" height="2" fill="#8a7a60" opacity=".4"/>
+    <rect x="25" y="28" width="2" height="48" fill="#8a7a60" opacity=".4"/>
+    <rect x="40" y="28" width="22" height="48" fill="#d8cca8" opacity=".65"/>
+    <rect x="40" y="50" width="22" height="2" fill="#8a7a60" opacity=".4"/>
+    <rect x="51" y="28" width="2" height="48" fill="#8a7a60" opacity=".4"/>
+    <!-- Window -->
+    <rect x="72" y="28" width="32" height="24" fill="#101820" opacity=".5"/>
+    <rect x="72" y="28" width="32" height="24" fill="none" stroke="#5a4a35" stroke-width="2"/>
+    <rect x="88" y="28" width="2" height="24" fill="#5a4a35"/>
+    <rect x="72" y="40" width="32" height="2" fill="#5a4a35"/>
+    <!-- Warm light -->
+    <rect x="74" y="30" width="14" height="10" fill="#ffcc44" opacity=".12"/>
+    <rect x="90" y="30" width="12" height="10" fill="#ffcc44" opacity=".08"/>
+    <!-- Engawa -->
+    <rect x="-4" y="80" width="128" height="6" fill="#4a3e30"/>
+    <!-- Foundation -->
+    <rect x="0" y="86" width="120" height="6" fill="#5a5a68"/>
+    <!-- Smoke -->
+    <rect x="88" y="-24" width="4" height="4" fill="#8890a0" class="sm" style="animation-delay:0s"/>
+    <rect x="86" y="-20" width="4" height="4" fill="#8890a0" class="sm" style="animation-delay:1.5s"/>
   </g>
-  <g transform="translate(350,358)">
-    <path d="M0,42 Q7,22 0,8 Q-4,0 4,-8" stroke="#0d3b5a" stroke-width="2.5" fill="none" class="wr" style="animation-delay:2s"/>
-    <path d="M18,42 Q13,28 20,12 Q25,4 18,0" stroke="#0e4d6e" stroke-width="2" fill="none" class="wl" style="animation-delay:.8s"/>
-    <circle cx="4" cy="-8" r="2" fill="#7b2ff7" opacity=".15"/>
-  </g>
-  <g transform="translate(680,348)">
-    <path d="M0,52 Q-7,32 3,15 Q8,3 4,-4" stroke="#0e4d6e" stroke-width="2.5" fill="none" class="wr" style="animation-delay:1.5s"/>
-    <path d="M18,52 Q22,28 16,10 Q10,0 18,-7" stroke="#0d3b5a" stroke-width="2" fill="none" class="wl" style="animation-delay:.3s"/>
-    <circle cx="4" cy="-4" r="2.5" fill="#00ff87" opacity=".15"/><circle cx="18" cy="-7" r="1.8" fill="#ff6eb4" opacity=".1"/>
+
+  <!-- =============================== -->
+  <!-- === JAPANESE HOUSE — RIGHT   === -->
+  <!-- =============================== -->
+  <g transform="translate(600, 182)" class="px">
+    <!-- Roof -->
+    <rect x="-4" y="0"  width="104" height="4" fill="#1a1410"/>
+    <rect x="0"  y="4"  width="96"  height="4" fill="#2a2018"/>
+    <polygon points="-8,0 48,-18 104,0" fill="#221a14"/>
+    <polygon points="-4,0 48,-14 100,0" fill="#2a2018"/>
+    <!-- Snow on roof -->
+    <rect x="10" y="-16" width="76" height="4" fill="#fff" opacity=".5"/>
+    <polygon points="0,-2 48,-14 96,-2 48,-10" fill="#fff" opacity=".38"/>
+    <!-- Walls -->
+    <rect x="4"  y="8"  width="88"  height="60" fill="#302820"/>
+    <rect x="8"  y="12" width="80"  height="52" fill="#3a3028"/>
+    <!-- Round window (pixel circle) -->
+    <rect x="32" y="18" width="28" height="4" fill="#101820" opacity=".45"/>
+    <rect x="28" y="22" width="36" height="4" fill="#101820" opacity=".45"/>
+    <rect x="24" y="26" width="44" height="4" fill="#101820" opacity=".45"/>
+    <rect x="24" y="30" width="44" height="4" fill="#101820" opacity=".45"/>
+    <rect x="28" y="34" width="36" height="4" fill="#101820" opacity=".45"/>
+    <rect x="32" y="38" width="28" height="4" fill="#101820" opacity=".45"/>
+    <!-- Window cross frame -->
+    <rect x="44" y="18" width="4" height="24" fill="#5a4a35" opacity=".6"/>
+    <rect x="24" y="30" width="44" height="2" fill="#5a4a35" opacity=".6"/>
+    <!-- Warm glow inside -->
+    <rect x="34" y="24" width="8" height="8" fill="#ffcc44" opacity=".06"/>
+    <!-- Door -->
+    <rect x="18" y="44" width="18" height="20" fill="#d8cca8" opacity=".55"/>
+    <rect x="27" y="44" width="2" height="20" fill="#8a7a60" opacity=".35"/>
+    <!-- Engawa -->
+    <rect x="-2" y="64" width="100" height="4" fill="#4a3e30"/>
+    <!-- Foundation -->
+    <rect x="0"  y="68" width="96" height="5" fill="#5a5a68"/>
   </g>
 
-  <!-- Sea Floor -->
-  <path d="M0,380 Q100,370 200,375 Q300,385 400,378 Q500,370 600,380 Q700,375 800,370 L800,400 L0,400Z" fill="#020b1a"/>
-  <path d="M0,390 Q100,385 200,388 Q300,395 400,390 Q500,383 600,392 Q700,388 800,385 L800,400 L0,400Z" fill="#010815"/>
+  <!-- =============================== -->
+  <!-- === PIXEL STONE LANTERN LEFT === -->
+  <!-- =============================== -->
+  <g transform="translate(290, 230)" class="px">
+    <!-- Base -->
+    <rect x="-2" y="40" width="16" height="4" fill="#5a5a68"/>
+    <!-- Shaft -->
+    <rect x="2"  y="16" width="8"  height="24" fill="#6a6a78"/>
+    <!-- Fire box -->
+    <rect x="-2" y="8"  width="16" height="10" fill="#5a5a68"/>
+    <!-- Glow -->
+    <rect x="0"  y="10" width="12" height="6" fill="#ffcc44" opacity=".2" class="lf"/>
+    <rect x="-4" y="6"  width="20" height="12" fill="#ffcc44" opacity=".06" class="lg"/>
+    <!-- Roof cap -->
+    <rect x="-4" y="4"  width="20" height="6" fill="#4a4a58"/>
+    <rect x="0"  y="0"  width="12" height="4" fill="#4a4a58"/>
+    <!-- Snow -->
+    <rect x="-4" y="0"  width="20" height="3" fill="#fff" opacity=".5"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#fff" opacity=".4"/>
+  </g>
+
+  <!-- === PIXEL STONE LANTERN RIGHT === -->
+  <g transform="translate(498, 235)" class="px">
+    <rect x="-2" y="36" width="14" height="4" fill="#5a5a68"/>
+    <rect x="1"  y="14" width="8"  height="22" fill="#6a6a78"/>
+    <rect x="-2" y="6"  width="14" height="10" fill="#5a5a68"/>
+    <rect x="0"  y="8"  width="10" height="6" fill="#ffcc44" opacity=".18" class="lf" style="animation-delay:1.2s"/>
+    <rect x="-4" y="4"  width="18" height="10" fill="#ffcc44" opacity=".05" class="lg" style="animation-delay:1s"/>
+    <rect x="-4" y="2"  width="18" height="6" fill="#4a4a58"/>
+    <rect x="0"  y="-2" width="10" height="4" fill="#4a4a58"/>
+    <rect x="-4" y="-2" width="18" height="3" fill="#fff" opacity=".45"/>
+    <rect x="0"  y="-5" width="10" height="3" fill="#fff" opacity=".35"/>
+  </g>
+
+  <!-- === PIXEL PINE TREES === -->
+  <g class="px" opacity=".65">
+    <!-- Left pine -->
+    <rect x="230" y="250" width="4" height="32" fill="#3a2a1a"/>
+    <polygon points="218,254 232,226 246,254" fill="#1a3a1a"/>
+    <polygon points="222,240 232,216 242,240" fill="#1f3f1f"/>
+    <rect x="220" y="252" width="24" height="3" fill="#fff" opacity=".35"/>
+    <rect x="224" y="238" width="16" height="3" fill="#fff" opacity=".3"/>
+
+    <!-- Right pine -->
+    <rect x="552" y="255" width="4" height="28" fill="#3a2a1a"/>
+    <polygon points="540,258 554,232 568,258" fill="#1a3a1a"/>
+    <polygon points="544,246 554,222 564,246" fill="#1f3f1f"/>
+    <rect x="542" y="256" width="24" height="3" fill="#fff" opacity=".35"/>
+    <rect x="546" y="244" width="16" height="3" fill="#fff" opacity=".3"/>
+  </g>
+
+  <!-- === PIXEL BRIDGE (over water) === -->
+  <g transform="translate(120, 285)" class="px">
+    <!-- Deck (arched) -->
+    <rect x="0"  y="10" width="56" height="4" fill="#5a4a35"/>
+    <rect x="4"  y="8"  width="48" height="4" fill="#6a5a42"/>
+    <rect x="12" y="6"  width="32" height="4" fill="#6a5a42"/>
+    <!-- Rails -->
+    <rect x="4"  y="0"  width="4" height="10" fill="#5a4a35"/>
+    <rect x="48" y="0"  width="4" height="10" fill="#5a4a35"/>
+    <rect x="24" y="-2" width="4" height="10" fill="#5a4a35"/>
+    <!-- Rail top bar -->
+    <rect x="4"  y="0" width="48" height="2" fill="#5a4a35"/>
+    <!-- Snow on rail -->
+    <rect x="4"  y="-2" width="48" height="2" fill="#fff" opacity=".4"/>
+  </g>
+
+  <!-- === SAKURA TREE (bare winter, left) === -->
+  <g transform="translate(26, 248)" class="px" opacity=".4">
+    <rect x="8" y="12" width="4" height="28" fill="#4a3020"/>
+    <rect x="4" y="0" width="4" height="16" fill="#3a2818"/>
+    <rect x="12" y="4" width="4" height="12" fill="#3a2818"/>
+    <rect x="0" y="-4" width="4" height="8" fill="#3a2818"/>
+    <rect x="16" y="0" width="4" height="8" fill="#3a2818"/>
+    <!-- Few remaining petals -->
+    <rect x="-2" y="-6" width="4" height="4" fill="#ffb0c0" opacity=".5"/>
+    <rect x="18" y="-2" width="4" height="4" fill="#ffb0c0" opacity=".4"/>
+  </g>
+
+  <!-- === SNOW PARTICLES === -->
+  <g class="px" fill="#fff">
+    <rect x="28"  width="4" height="4" class="sf" style="animation-delay:0s"/>
+    <rect x="100" width="3" height="3" class="sf" style="animation-delay:1s; animation-duration:7s"/>
+    <rect x="185" width="4" height="4" class="sf" style="animation-delay:2.5s"/>
+    <rect x="260" width="3" height="3" class="sf" style="animation-delay:.5s; animation-duration:8s"/>
+    <rect x="330" width="4" height="4" class="sf" style="animation-delay:3s; animation-duration:5.5s"/>
+    <rect x="405" width="3" height="3" class="sf" style="animation-delay:.8s; animation-duration:7.5s"/>
+    <rect x="468" width="4" height="4" class="sf" style="animation-delay:2s"/>
+    <rect x="535" width="3" height="3" class="sf" style="animation-delay:4s; animation-duration:6.5s"/>
+    <rect x="610" width="4" height="4" class="sf" style="animation-delay:1.2s"/>
+    <rect x="680" width="3" height="3" class="sf" style="animation-delay:2.8s; animation-duration:7s"/>
+    <rect x="745" width="4" height="4" class="sf" style="animation-delay:.5s; animation-duration:6s"/>
+    <rect x="155" width="3" height="3" class="sf" style="animation-delay:3.5s"/>
+    <rect x="500" width="4" height="4" class="sf" style="animation-delay:1.8s; animation-duration:5s"/>
+  </g>
+
+  <!-- === WARM LIGHT AMBIENT (pixel glow from houses) === -->
+  <rect x="70" y="230" width="80" height="48" fill="#ffcc44" opacity=".02" class="px"/>
+  <rect x="620" y="240" width="70" height="40" fill="#ffcc44" opacity=".015" class="px"/>
+
+  <!-- Bottom edge -->
+  <rect x="0" y="396" width="800" height="4" fill="#0a0f1a" class="px"/>
 </svg>

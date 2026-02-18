@@ -5,62 +5,156 @@
       /* <![CDATA[ */
       .pixel-art { shape-rendering: crispEdges; }
       .ascii { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 900; white-space: pre; }
-      
-      /* Animasi Inti: Flicker */
+
+      /* === LIGHTWEIGHT ANIMATIONS — no filter, no blur === */
+
+      /* Tree Flicker (neon feel, opacity only) */
       @keyframes neonFlicker {
-        0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px rgba(255,255,255,0.5)); }
-        85% { opacity: 1; } 90% { opacity: 0.4; } 95% { opacity: 1; }
+        0%,100% { opacity: 1; }
+        85%     { opacity: 1; }
+        90%     { opacity: 0.4; }
+        95%     { opacity: 1; }
       }
 
-      /* Animasi Tetesan Air Jatuh */
+      /* Apple Orb Float */
+      @keyframes appleFloat1 {
+        0%,100% { transform: translateY(0); }
+        50%     { transform: translateY(-8px); }
+      }
+      @keyframes appleFloat2 {
+        0%,100% { transform: translateY(0); }
+        50%     { transform: translateY(-6px); }
+      }
+
+      /* Apple Glow Pulse (opacity only) */
+      @keyframes appleGlow {
+        0%,100% { opacity: 0.3; }
+        50%     { opacity: 0.7; }
+      }
+
+      /* Water Drop Fall */
       @keyframes waterDrop {
-        0% { transform: translateY(-20px); opacity: 0; }
-        20% { opacity: 0.6; }
-        80% { opacity: 0.3; }
+        0%   { transform: translateY(-20px); opacity: 0; }
+        20%  { opacity: 0.5; }
+        80%  { opacity: 0.25; }
         100% { transform: translateY(220px); opacity: 0; }
       }
 
-      /* Animasi Pendaran Air (Underwater Caustics) */
+      /* Caustic Wave (translateX only) */
       @keyframes causticWave {
-        0%, 100% { opacity: 0.05; transform: scale(1) translateX(0); }
-        50% { opacity: 0.15; transform: scale(1.1) translateX(20px); }
+        0%,100% { opacity: 0.04; transform: translateX(0); }
+        50%     { opacity: 0.12; transform: translateX(15px); }
       }
 
-      /* Monolith Melayang */
-      @keyframes monolith {
-        0%, 100% { transform: translateY(0) rotate(45deg); filter: drop-shadow(0 0 5px #FFD700); }
-        50% { transform: translateY(-15px) rotate(180deg); filter: drop-shadow(0 0 15px #48dbfb); }
+      /* Firefly Particles */
+      @keyframes fireflyDrift {
+        0%   { transform: translateY(0) translateX(0); opacity: 0; }
+        15%  { opacity: 0.6; }
+        85%  { opacity: 0.3; }
+        100% { transform: translateY(-60px) translateX(15px); opacity: 0; }
       }
 
-      .flicker { animation: neonFlicker 7s infinite; }
-      .drop { animation: waterDrop 4s linear infinite; fill: #48dbfb; }
-      .caustic { animation: causticWave 8s ease-in-out infinite; fill: #ffffff; }
-      .monolith { animation: monolith 6s ease-in-out infinite; transform-origin: center; }
-      
-      .c1 { fill: #FFFFFF; } .c2 { fill: #FF5252; } .c3 { fill: #48dbfb; } .c4 { fill: #FFD700; }
+      /* Ambient pulse */
+      @keyframes ambPulse {
+        0%,100% { opacity: 0.1; }
+        50%     { opacity: 0.35; }
+      }
+
+      /* Root vein pulse */
+      @keyframes rootGlow {
+        0%,100% { opacity: 0.06; }
+        50%     { opacity: 0.15; }
+      }
+
+      /* Classes */
+      .flicker   { animation: neonFlicker 7s infinite; }
+      .apple1    { animation: appleFloat1 5s ease-in-out infinite; }
+      .apple2    { animation: appleFloat2 6s ease-in-out infinite; animation-delay: 1.5s; }
+      .apple-glow{ animation: appleGlow 3s ease-in-out infinite; }
+      .drop      { animation: waterDrop 4s linear infinite; fill: #48dbfb; }
+      .caustic   { animation: causticWave 8s ease-in-out infinite; }
+      .firefly   { animation: fireflyDrift 8s linear infinite; }
+      .amb       { animation: ambPulse 5s ease-in-out infinite; }
+      .root-g    { animation: rootGlow 6s ease-in-out infinite; }
+
+      /* Tree Colors — enhanced palette */
+      .c1 { fill: #E8E8E8; }  /* Soft white */
+      .c2 { fill: #FF5252; }  /* Red */
+      .c3 { fill: #48dbfb; }  /* Cyan */
+      .c4 { fill: #FFD700; }  /* Gold */
       /* ]]> */
     </style>
 
+    <!-- Gradients -->
     <radialGradient id="waterGlow" cx="50%" cy="0%" r="100%">
-      <stop offset="0%" stop-color="#48dbfb" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#48dbfb" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="caveAmb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1040" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#FFD700" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5252" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#FF5252" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FF5252" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rootVein" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
-  <rect width="100%" height="100%" fill="#050505" />
-  <rect width="100%" height="100%" fill="url(#waterGlow)" />
-  
-  <path d="M100 0 Q 150 50 200 0 Q 250 50 300 0" class="caustic" stroke="#48dbfb" stroke-width="0.5" fill="none" />
-  <path d="M400 0 Q 450 60 500 0 Q 550 60 600 0" class="caustic" stroke="#48dbfb" stroke-width="0.5" fill="none" style="animation-delay: -2s" />
+  <!-- === BACKGROUND === -->
+  <rect width="100%" height="100%" fill="#050505"/>
+  <rect width="100%" height="100%" fill="url(#waterGlow)"/>
+  <rect width="100%" height="100%" fill="url(#caveAmb)"/>
 
-  <circle cx="120" cy="0" r="1.5" class="drop" style="animation-delay: 0s"/>
-  <circle cx="280" cy="0" r="1" class="drop" style="animation-delay: 1.5s"/>
-  <circle cx="450" cy="0" r="2" class="drop" style="animation-delay: 0.8s"/>
-  <circle cx="600" cy="0" r="1.2" class="drop" style="animation-delay: 2.5s"/>
-  <circle cx="750" cy="0" r="1.5" class="drop" style="animation-delay: 3.2s"/>
+  <!-- === CAVE CEILING STALACTITES === -->
+  <path d="M0 0 L150 30 L250 0 Z M800 0 L700 40 L600 0 Z" fill="#000"/>
+  <path d="M300 0 L340 18 L380 0 Z" fill="#080808"/>
+  <path d="M500 0 L530 15 L560 0 Z" fill="#060606"/>
 
-  <path d="M0 0 L50 60 L100 0 M200 0 L250 80 L300 0 M650 0 L700 70 L750 0" fill="#0c0c0c" />
+  <!-- === CAUSTIC LIGHT WAVES (top) === -->
+  <path d="M80 0 Q130 40 180 0 Q230 40 280 0" class="caustic" stroke="#48dbfb" stroke-width="0.4" fill="none"/>
+  <path d="M380 0 Q430 50 480 0 Q530 50 580 0" class="caustic" stroke="#48dbfb" stroke-width="0.4" fill="none" style="animation-delay:-2s"/>
+  <path d="M620 0 Q660 35 700 0 Q740 35 780 0" class="caustic" stroke="#48dbfb" stroke-width="0.3" fill="none" style="animation-delay:-4s"/>
 
+  <!-- === WATER DROPS === -->
+  <circle cx="100" cy="0" r="1.2" class="drop" style="animation-delay:0s"/>
+  <circle cx="260" cy="0" r="0.8" class="drop" style="animation-delay:1.5s"/>
+  <circle cx="430" cy="0" r="1.5" class="drop" style="animation-delay:0.8s"/>
+  <circle cx="580" cy="0" r="1"   class="drop" style="animation-delay:2.5s"/>
+  <circle cx="720" cy="0" r="1.2" class="drop" style="animation-delay:3.2s"/>
+
+  <!-- === ROOT VEINS (underground glow) === -->
+  <path d="M350 200 Q320 170 280 185 Q240 195 200 200" stroke="#FFD700" stroke-width="0.6" fill="none" class="root-g" opacity="0.08"/>
+  <path d="M450 200 Q480 175 520 188 Q560 195 600 200" stroke="#FFD700" stroke-width="0.6" fill="none" class="root-g" opacity="0.06" style="animation-delay:3s"/>
+  <path d="M380 200 Q370 185 340 195" stroke="#48dbfb" stroke-width="0.4" fill="none" class="root-g" opacity="0.05" style="animation-delay:1s"/>
+  <path d="M420 200 Q430 188 460 193" stroke="#48dbfb" stroke-width="0.4" fill="none" class="root-g" opacity="0.05" style="animation-delay:2s"/>
+
+  <!-- === FIREFLY PARTICLES === -->
+  <circle cx="80"  cy="150" r="1"   fill="#FFD700" class="firefly" style="animation-delay:0s"/>
+  <circle cx="200" cy="120" r="0.8" fill="#60efff" class="firefly" style="animation-delay:2s"/>
+  <circle cx="600" cy="140" r="1.2" fill="#FFD700" class="firefly" style="animation-delay:4s"/>
+  <circle cx="720" cy="110" r="0.8" fill="#ff6eb4" class="firefly" style="animation-delay:1s"/>
+  <circle cx="150" cy="80"  r="0.6" fill="#48dbfb" class="firefly" style="animation-delay:3s"/>
+  <circle cx="660" cy="90"  r="0.7" fill="#FFD700" class="firefly" style="animation-delay:5s"/>
+
+  <!-- === AMBIENT GLOW DOTS === -->
+  <circle cx="50"  cy="50"  r="1.5" fill="#48dbfb" class="amb" style="animation-delay:0s"/>
+  <circle cx="170" cy="100" r="1"   fill="#7b2ff7" class="amb" style="animation-delay:1.5s"/>
+  <circle cx="650" cy="60"  r="1.3" fill="#48dbfb" class="amb" style="animation-delay:2.5s"/>
+  <circle cx="750" cy="120" r="1"   fill="#ff6eb4" class="amb" style="animation-delay:0.8s"/>
+
+  <!-- ============================================ -->
+  <!-- ===      SACRED ASCII TREE (preserved)   === -->
+  <!-- ============================================ -->
   <g class="flicker" transform="translate(240, 20)">
     <text x="0" y="0" class="ascii">
       <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
@@ -80,15 +174,42 @@
     </text>
   </g>
 
-  <g class="monolith" style="animation-delay: 0s;">
-    <rect x="340" y="70" width="8" height="8" fill="#FFD700" class="pixel-art" />
-    <rect x="342" y="72" width="4" height="4" fill="#050505" />
-  </g>
-  <g class="monolith" style="animation-delay: 3s;">
-    <rect x="490" y="50" width="6" height="6" fill="#FF5252" class="pixel-art" />
+  <!-- ============================================ -->
+  <!-- ===    GOLDEN APPLE ORB (left of tree)    === -->
+  <!-- ============================================ -->
+  <g class="apple1" transform="translate(330, 62)">
+    <!-- Outer glow ring -->
+    <circle cx="0" cy="0" r="18" fill="url(#goldGlow)" class="apple-glow"/>
+    <!-- Apple body -->
+    <circle cx="0" cy="0" r="5" fill="#FFD700" opacity="0.85"/>
+    <!-- Shine -->
+    <circle cx="-1.5" cy="-1.5" r="1.5" fill="#fff" opacity="0.4"/>
+    <!-- Inner core -->
+    <circle cx="0" cy="0" r="2" fill="#FFF8DC" opacity="0.3"/>
   </g>
 
-  <path d="M0 0 L150 30 L250 0 Z M800 0 L700 40 L600 0 Z" fill="#000" />
-  <path d="M0 170 L100 200 L0 200 Z M800 150 L700 200 L800 200 Z" fill="#000" />
+  <!-- ============================================ -->
+  <!-- ===     RED APPLE ORB (right of tree)     === -->
+  <!-- ============================================ -->
+  <g class="apple2" transform="translate(488, 45)">
+    <!-- Outer glow ring -->
+    <circle cx="0" cy="0" r="16" fill="url(#redGlow)" class="apple-glow" style="animation-delay:1.5s"/>
+    <!-- Apple body -->
+    <circle cx="0" cy="0" r="4.5" fill="#FF5252" opacity="0.85"/>
+    <!-- Shine -->
+    <circle cx="-1.2" cy="-1.2" r="1.2" fill="#fff" opacity="0.35"/>
+    <!-- Inner core -->
+    <circle cx="0" cy="0" r="1.8" fill="#ffcdd2" opacity="0.25"/>
+  </g>
+
+  <!-- === CAVE FLOOR === -->
+  <path d="M0 170 L100 200 L0 200 Z M800 150 L700 200 L800 200 Z" fill="#000"/>
+  <path d="M0 185 Q200 178 400 182 Q600 186 800 180 L800 200 L0 200 Z" fill="#030303"/>
+
+  <!-- === TINY GROUND CRYSTALS === -->
+  <polygon points="60,200 65,188 70,200" fill="#7b2ff7" opacity="0.12"/>
+  <polygon points="730,200 734,190 738,200" fill="#48dbfb" opacity="0.1"/>
+  <polygon points="180,200 183,193 186,200" fill="#FFD700" opacity="0.08"/>
+  <polygon points="620,200 624,191 628,200" fill="#ff6eb4" opacity="0.1"/>
 
 </svg>

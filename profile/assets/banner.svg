@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 800 280" width="800" height="280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* <![CDATA[ */
+      .px { shape-rendering: crispEdges; }
+      .ascii { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 900; white-space: pre; }
+
+      /* Snow */
+      @keyframes snowF { 0%{ transform:translateY(-16px); opacity:0 } 8%{ opacity:.8 } 92%{ opacity:.35 } 100%{ transform:translateY(300px); opacity:0 } }
+
+      /* Tree flicker */
+      @keyframes neonFlicker {
+        0%,100% { opacity:1 } 85%{ opacity:1 } 90%{ opacity:.35 } 95%{ opacity:1 }
+      }
+
+      /* Apple float */
+      @keyframes appleF1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
+      @keyframes appleF2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+      @keyframes appleGlow { 0%,100%{ opacity:.2 } 50%{ opacity:.6 } }
+
+      /* Sun rays rotate */
+      @keyframes rayPulse { 0%,100%{ opacity:.12 } 50%{ opacity:.22 } }
+
+      /* Cloud drift */
+      @keyframes cDrift { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(20px) } }
+      @keyframes cDriftB { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(-16px) } }
+
+      /* Lantern */
+      @keyframes lanternG { 0%,100%{ opacity:.3 } 50%{ opacity:.7 } }
+
+      /* Bird fly */
+      @keyframes bFlyL { 0%{ transform:translateX(860px) } 100%{ transform:translateX(-80px) } }
+      @keyframes bGlide { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+
+      /* Star twinkle (barely visible in day) */
+      @keyframes twk { 0%,100%{ opacity:0 } 50%{ opacity:.15 } }
+
+      .sf   { animation:snowF 5s linear infinite }
+      .fl   { animation:neonFlicker 7s infinite }
+      .ap1  { animation:appleF1 5s ease-in-out infinite }
+      .ap2  { animation:appleF2 6s ease-in-out infinite; animation-delay:1.5s }
+      .apG  { animation:appleGlow 3s ease-in-out infinite }
+      .rP   { animation:rayPulse 4s ease-in-out infinite }
+      .cD   { animation:cDrift 28s ease-in-out infinite }
+      .cDB  { animation:cDriftB 32s ease-in-out infinite }
+      .lG   { animation:lanternG 3s ease-in-out infinite }
+      .bL   { animation:bFlyL 20s linear infinite }
+      .bG   { animation:bGlide 2.5s ease-in-out infinite }
+      .twk  { animation:twk 6s ease-in-out infinite }
+
+      .c1 { fill: #E8E8E8; } .c2 { fill: #FF5252; } .c3 { fill: #48dbfb; } .c4 { fill: #FFD700; }
+      /* ]]> */
+    </style>
+
+    <!-- Pixel cloud -->
+    <g id="cloud" class="px">
+      <rect x="8"  y="0" width="24" height="4" fill="#fff" opacity=".7"/>
+      <rect x="4"  y="4" width="32" height="4" fill="#fff" opacity=".75"/>
+      <rect x="0"  y="8" width="40" height="4" fill="#fff" opacity=".8"/>
+    </g>
+    <g id="cloudB" class="px">
+      <rect x="8"  y="0" width="32" height="4" fill="#fff" opacity=".6"/>
+      <rect x="4"  y="4" width="40" height="4" fill="#fff" opacity=".65"/>
+      <rect x="0"  y="8" width="48" height="4" fill="#fff" opacity=".7"/>
+    </g>
+    <!-- Pixel bird -->
+    <g id="bird" class="px">
+      <rect x="0" y="4" width="4" height="4" fill="#2a3048"/>
+      <rect x="4" y="0" width="4" height="4" fill="#2a3048"/>
+      <rect x="8" y="4" width="4" height="4" fill="#2a3048"/>
+      <rect x="12" y="0" width="4" height="4" fill="#2a3048"/>
+      <rect x="16" y="4" width="4" height="4" fill="#2a3048"/>
+    </g>
+  </defs>
+
+  <!-- ============================================ -->
+  <!-- ===         BRIGHT BLUE SKY               === -->
+  <!-- ============================================ -->
+  <rect y="0"   width="800" height="40"  fill="#4aa8d8" class="px"/>
+  <rect y="40"  width="800" height="35"  fill="#58b4e0" class="px"/>
+  <rect y="75"  width="800" height="35"  fill="#68c0e8" class="px"/>
+  <rect y="110" width="800" height="35"  fill="#78caf0" class="px"/>
+  <rect y="145" width="800" height="35"  fill="#88d2f4" class="px"/>
+  <rect y="180" width="800" height="30"  fill="#94daf6" class="px"/>
+  <rect y="210" width="800" height="70"  fill="#a0e0f8" class="px"/>
+
+  <!-- ============================================ -->
+  <!-- ===            PIXEL SUN                  === -->
+  <!-- ============================================ -->
+  <g transform="translate(660, 18)" class="px">
+    <!-- Core -->
+    <rect x="8"  y="0"  width="16" height="4" fill="#fff4a0"/>
+    <rect x="4"  y="4"  width="24" height="4" fill="#fff4a0"/>
+    <rect x="0"  y="8"  width="32" height="4" fill="#ffe870"/>
+    <rect x="0"  y="12" width="32" height="4" fill="#ffe870"/>
+    <rect x="4"  y="16" width="24" height="4" fill="#fff4a0"/>
+    <rect x="8"  y="20" width="16" height="4" fill="#fff4a0"/>
+    <!-- Center bright -->
+    <rect x="10" y="8"  width="12" height="8" fill="#fffde0" opacity=".6"/>
+    <!-- Rays -->
+    <rect x="14" y="-8"  width="4" height="8"  fill="#ffe870" opacity=".4" class="rP"/>
+    <rect x="14" y="24"  width="4" height="8"  fill="#ffe870" opacity=".4" class="rP"/>
+    <rect x="-8" y="10"  width="8"  height="4"  fill="#ffe870" opacity=".4" class="rP" style="animation-delay:1s"/>
+    <rect x="32" y="10"  width="8"  height="4"  fill="#ffe870" opacity=".4" class="rP" style="animation-delay:1s"/>
+    <!-- Diagonal rays -->
+    <rect x="-4" y="-4"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="-4"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
+    <rect x="-4" y="24"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="24"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
+  </g>
+  <!-- Sun ambient glow -->
+  <rect x="640" y="5" width="72" height="52" fill="#fffde0" opacity=".06" class="rP px"/>
+
+  <!-- ============================================ -->
+  <!-- ===          PIXEL CLOUDS                 === -->
+  <!-- ============================================ -->
+  <g class="cD"><use href="#cloudB" x="40" y="30"/></g>
+  <g class="cDB"><use href="#cloud" x="480" y="20"/></g>
+  <g class="cD" style="animation-delay:-12s"><use href="#cloud" x="280" y="50" opacity=".5"/></g>
+  <g class="cDB" style="animation-delay:-8s"><use href="#cloud" x="580" y="55" opacity=".4"/></g>
+
+  <!-- ============================================ -->
+  <!-- ===      PIXEL BIRD                       === -->
+  <!-- ============================================ -->
+  <g class="bL"><g class="bG"><use href="#bird" x="0" y="42"/></g></g>
+
+  <!-- ============================================ -->
+  <!-- ===   BACK MOUNTAINS (snowy, distant)     === -->
+  <!-- ============================================ -->
+  <g class="px">
+    <polygon points="0,195 50,160 100,178 160,148 220,170 280,140 340,162 400,132 460,155 520,130 580,152 640,138 700,155 760,142 800,160 800,220 0,220" fill="#7aa0c0"/>
+    <!-- Snow highlights -->
+    <rect x="158" y="148" width="8" height="4" fill="#d8e8f4" opacity=".7"/>
+    <rect x="278" y="140" width="8" height="4" fill="#d8e8f4" opacity=".65"/>
+    <rect x="398" y="132" width="8" height="4" fill="#d8e8f4" opacity=".7"/>
+    <rect x="518" y="130" width="8" height="4" fill="#d8e8f4" opacity=".7"/>
+    <rect x="638" y="138" width="8" height="4" fill="#d8e8f4" opacity=".65"/>
+    <rect x="758" y="142" width="8" height="4" fill="#d8e8f4" opacity=".6"/>
+  </g>
+
+  <!-- === FRONT MOUNTAINS === -->
+  <g class="px">
+    <polygon points="0,210 70,180 140,200 220,172 310,195 400,168 480,190 560,170 640,192 720,175 800,188 800,230 0,230" fill="#5a88a8"/>
+    <rect x="218" y="172" width="8" height="4" fill="#c8d8e8" opacity=".6"/>
+    <rect x="398" y="168" width="8" height="4" fill="#c8d8e8" opacity=".6"/>
+    <rect x="558" y="170" width="8" height="4" fill="#c8d8e8" opacity=".6"/>
+    <rect x="718" y="175" width="8" height="4" fill="#c8d8e8" opacity=".55"/>
+  </g>
+
+  <!-- === PIXEL PINE TREES (on mountain ridge) === -->
+  <g class="px" fill="#2a5848" opacity=".6">
+    <polygon points="44,210 52,192 60,210"/>  <polygon points="47,198 52,186 57,198"/>
+    <polygon points="140,206 148,188 156,206"/><polygon points="143,194 148,182 153,194"/>
+    <polygon points="320,202 328,184 336,202"/><polygon points="323,190 328,178 333,190"/>
+    <polygon points="488,208 494,192 500,208"/><polygon points="490,198 494,186 498,198"/>
+    <polygon points="620,204 628,186 636,204"/><polygon points="623,192 628,180 633,192"/>
+    <polygon points="750,206 756,192 762,206"/><polygon points="752,196 756,186 760,196"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===     SNOW GROUND                       === -->
+  <!-- ============================================ -->
+  <rect x="0" y="225" width="800" height="55" fill="#e8e4dc" class="px"/>
+  <rect x="0" y="222" width="800" height="4"  fill="#f0ece4" class="px"/>
+  <!-- Snow sparkles -->
+  <rect x="30"  y="232" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
+  <rect x="120" y="240" width="2" height="2" fill="#fff" opacity=".4" class="px"/>
+  <rect x="250" y="235" width="2" height="2" fill="#fff" opacity=".45" class="px"/>
+  <rect x="380" y="242" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
+  <rect x="500" y="233" width="2" height="2" fill="#fff" opacity=".4" class="px"/>
+  <rect x="630" y="238" width="2" height="2" fill="#fff" opacity=".45" class="px"/>
+  <rect x="750" y="230" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
+
+  <!-- ============================================ -->
+  <!-- ===     PIXEL TORII GATE — LEFT           === -->
+  <!-- ============================================ -->
+  <g transform="translate(190, 110)" class="px">
+    <!-- Kasagi -->
+    <rect x="-6" y="-4" width="48" height="3" fill="#b82020"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="#c83030"/>
+    <!-- Nuki -->
+    <rect x="-2" y="10" width="40" height="3" fill="#c83030"/>
+    <!-- Gakuzuka -->
+    <rect x="12" y="4" width="12" height="8" fill="#1a1828"/>
+    <!-- Pillars -->
+    <rect x="2"  y="2"  width="4" height="112" fill="#c83030"/>
+    <rect x="30" y="2"  width="4" height="112" fill="#c83030"/>
+    <!-- Bases -->
+    <rect x="0"  y="112" width="8"  height="4" fill="#6a6a78"/>
+    <rect x="28" y="112" width="8"  height="4" fill="#6a6a78"/>
+    <!-- Snow on top -->
+    <rect x="-6" y="-7"  width="48" height="3" fill="#fff" opacity=".7"/>
+    <rect x="-2" y="-1"  width="40" height="2" fill="#fff" opacity=".4"/>
+    <!-- Snow on crossbeam -->
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".35"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===     PIXEL TORII GATE — RIGHT          === -->
+  <!-- ============================================ -->
+  <g transform="translate(570, 110)" class="px">
+    <rect x="-6" y="-4" width="48" height="3" fill="#b82020"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="#c83030"/>
+    <rect x="-2" y="10" width="40" height="3" fill="#c83030"/>
+    <rect x="12" y="4" width="12" height="8" fill="#1a1828"/>
+    <rect x="2"  y="2"  width="4" height="112" fill="#c83030"/>
+    <rect x="30" y="2"  width="4" height="112" fill="#c83030"/>
+    <rect x="0"  y="112" width="8"  height="4" fill="#6a6a78"/>
+    <rect x="28" y="112" width="8"  height="4" fill="#6a6a78"/>
+    <rect x="-6" y="-7"  width="48" height="3" fill="#fff" opacity=".7"/>
+    <rect x="-2" y="-1"  width="40" height="2" fill="#fff" opacity=".4"/>
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".35"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===    PIXEL STONE LANTERNS               === -->
+  <!-- ============================================ -->
+  <!-- Left lantern -->
+  <g transform="translate(234, 186)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="#6a6a78"/>
+    <rect x="2" y="10" width="8"  height="18" fill="#7a7a88"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#6a6a78"/>
+    <rect x="2" y="6"  width="8"  height="4" fill="#ffcc44" opacity=".2" class="lG"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#5a5a68"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#5a5a68"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".5"/>
+  </g>
+  <!-- Right lantern -->
+  <g transform="translate(558, 186)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="#6a6a78"/>
+    <rect x="2" y="10" width="8"  height="18" fill="#7a7a88"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#6a6a78"/>
+    <rect x="2" y="6"  width="8"  height="4" fill="#ffcc44" opacity=".2" class="lG" style="animation-delay:1.5s"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#5a5a68"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#5a5a68"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".5"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===   SACRED ASCII TREE (centered)        === -->
+  <!-- ============================================ -->
+  <g class="fl" transform="translate(268, 88)">
+    <text x="0" y="0" class="ascii">
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠤⠦⢀⣠⡀⠀⠀⠀⠀⢀⠈⠉⠁⡀⠀⠀⠈⢲⣿⠺⠂⠀⠀⠀⠀⠀⣴⣿⠉⠉</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠈⠉⠁⠒⠒⠀⠺⡄⠀⠀⠈⢀⣂⡀⢈⠾⣧⡄⠀⠀⠀⠀⠀⠀⠀⡿</tspan>
+      <tspan x="0" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠹.⠀⠀⠈⢩⣷⡟⠀⠬⢁⢠⠀⢀⠀⣀⣀⣼⠁</tspan>
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠀⠤⠀⠠⡇⠀⠀⠀⠀⠒⠭⣄⢀⠀⢨⠟⢅⡀⣀⣼⣿⡿⠿⠿⠟⠛⠁</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠩⣖⠀⢀⣴⣾⠿⠛⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠙⠛⢻⡠⠷⢤⡀⠀⠀⢀⣆⣿⣾⡿⠁⣀ ⣀⣀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⠀⢱⡆⠀⠙⢿⣤⣠⣿⠿⠛⠛⠋⠀⠀⠀⠁⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⣿⣫⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⠀⠀⠀⠹⣆⢸⠟⢀⣿⠈⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⢀⣿⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===     GOLDEN APPLE ORB (pixel)          === -->
+  <!-- ============================================ -->
+  <g class="ap1" transform="translate(354, 120)">
+    <g class="apG px">
+      <rect x="-8" y="0"  width="4" height="8" fill="#FFD700" opacity=".15"/>
+      <rect x="12" y="0"  width="4" height="8" fill="#FFD700" opacity=".15"/>
+      <rect x="0"  y="-8" width="8" height="4" fill="#FFD700" opacity=".15"/>
+      <rect x="0"  y="12" width="8" height="4" fill="#FFD700" opacity=".15"/>
+    </g>
+    <g class="px">
+      <rect x="0" y="-4" width="8" height="4" fill="#FFD700" opacity=".9"/>
+      <rect x="-4" y="0" width="16" height="4" fill="#FFD700" opacity=".9"/>
+      <rect x="-4" y="4" width="16" height="4" fill="#e8c000" opacity=".85"/>
+      <rect x="0" y="8" width="8" height="4" fill="#e8c000" opacity=".8"/>
+    </g>
+    <rect x="0" y="-2" width="4" height="4" fill="#fff" opacity=".35" class="px"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===      RED APPLE ORB (pixel)            === -->
+  <!-- ============================================ -->
+  <g class="ap2" transform="translate(502, 108)">
+    <g class="apG px" style="animation-delay:1.5s">
+      <rect x="-8" y="0"  width="4" height="8" fill="#FF5252" opacity=".12"/>
+      <rect x="12" y="0"  width="4" height="8" fill="#FF5252" opacity=".12"/>
+      <rect x="0"  y="-8" width="8" height="4" fill="#FF5252" opacity=".12"/>
+      <rect x="0"  y="12" width="8" height="4" fill="#FF5252" opacity=".12"/>
+    </g>
+    <g class="px">
+      <rect x="0" y="-4" width="8" height="4" fill="#FF5252" opacity=".9"/>
+      <rect x="-4" y="0" width="14" height="4" fill="#FF5252" opacity=".9"/>
+      <rect x="-4" y="4" width="14" height="4" fill="#e03838" opacity=".85"/>
+      <rect x="0" y="8" width="8" height="4" fill="#e03838" opacity=".8"/>
+    </g>
+    <rect x="0" y="-2" width="4" height="4" fill="#fff" opacity=".3" class="px"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===         SNOW PARTICLES                === -->
+  <!-- ============================================ -->
+  <g class="px" fill="#fff">
+    <rect x="20"  width="3" height="3" class="sf" style="animation-delay:0s"/>
+    <rect x="70"  width="4" height="4" class="sf" style="animation-delay:1.2s; animation-duration:6s"/>
+    <rect x="130" width="3" height="3" class="sf" style="animation-delay:2.5s"/>
+    <rect x="185" width="4" height="4" class="sf" style="animation-delay:.5s; animation-duration:7s"/>
+    <rect x="250" width="3" height="3" class="sf" style="animation-delay:3.2s; animation-duration:5.5s"/>
+    <rect x="310" width="4" height="4" class="sf" style="animation-delay:1.8s"/>
+    <rect x="365" width="3" height="3" class="sf" style="animation-delay:4s; animation-duration:6.5s"/>
+    <rect x="420" width="4" height="4" class="sf" style="animation-delay:.8s"/>
+    <rect x="475" width="3" height="3" class="sf" style="animation-delay:2.8s; animation-duration:7s"/>
+    <rect x="530" width="4" height="4" class="sf" style="animation-delay:1.5s; animation-duration:5s"/>
+    <rect x="585" width="3" height="3" class="sf" style="animation-delay:3.5s"/>
+    <rect x="640" width="4" height="4" class="sf" style="animation-delay:.3s; animation-duration:6s"/>
+    <rect x="700" width="3" height="3" class="sf" style="animation-delay:2s"/>
+    <rect x="760" width="4" height="4" class="sf" style="animation-delay:4.2s; animation-duration:5.5s"/>
+    <rect x="50"  width="3" height="3" class="sf" style="animation-delay:3s; animation-duration:7.5s"/>
+    <rect x="160" width="3" height="3" class="sf" style="animation-delay:1s; animation-duration:4.5s"/>
+    <rect x="450" width="4" height="4" class="sf" style="animation-delay:2.2s; animation-duration:6s"/>
+    <rect x="620" width="3" height="3" class="sf" style="animation-delay:3.8s; animation-duration:5s"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- ===        STONE PATH (center)            === -->
+  <!-- ============================================ -->
+  <g class="px" fill="#8a8078" opacity=".4">
+    <rect x="388" y="236" width="10" height="4"/>
+    <rect x="390" y="243" width="8"  height="4"/>
+    <rect x="392" y="250" width="6"  height="4"/>
+    <rect x="394" y="256" width="5"  height="3"/>
+  </g>
+
+  <!-- === OFFERING BOX (saisen bako) at bottom center === -->
+  <g transform="translate(382, 256)" class="px">
+    <rect x="0" y="0" width="28" height="4" fill="#5a3a20"/>
+    <rect x="2" y="4" width="24" height="12" fill="#4a2a15"/>
+    <rect x="0" y="16" width="28" height="3" fill="#5a3a20"/>
+    <!-- Slot -->
+    <rect x="8" y="1" width="12" height="2" fill="#2a1a08"/>
+  </g>
+
+  <!-- Bottom edge -->
+  <rect x="0" y="276" width="800" height="4" fill="#d8d0c8" class="px"/>
+</svg>

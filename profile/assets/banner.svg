@@ -9,14 +9,12 @@
       /* Snow */
       @keyframes snowF { 0%{ transform:translateY(-16px); opacity:0 } 8%{ opacity:.8 } 92%{ opacity:.35 } 100%{ transform:translateY(300px); opacity:0 } }
 
-      /* Tree flicker — enhanced with glow pulse */
-
       /* Apple float */
       @keyframes appleF1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
       @keyframes appleF2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
       @keyframes appleGlow { 0%,100%{ opacity:.2 } 50%{ opacity:.6 } }
 
-      /* Sun rays rotate */
+      /* Sun rays */
       @keyframes rayPulse { 0%,100%{ opacity:.12 } 50%{ opacity:.22 } }
 
       /* Cloud drift */
@@ -30,32 +28,74 @@
       @keyframes bFlyL { 0%{ transform:translateX(860px) } 100%{ transform:translateX(-80px) } }
       @keyframes bGlide { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
 
-      /* Star twinkle (barely visible in day) */
-      @keyframes twk { 0%,100%{ opacity:0 } 50%{ opacity:.15 } }
-
       /* Divine light beam */
       @keyframes divineBeam { 0%,100%{ opacity:.04 } 50%{ opacity:.12 } }
 
-      /* Spirit particles rising from tree */
+      /* Spirit particles */
       @keyframes spiritRise { 0%{ transform:translateY(0) translateX(0); opacity:0 } 12%{ opacity:.7 } 70%{ opacity:.3 } 100%{ transform:translateY(-80px) translateX(8px); opacity:0 } }
       @keyframes spiritRiseB { 0%{ transform:translateY(0) translateX(0); opacity:0 } 15%{ opacity:.5 } 65%{ opacity:.2 } 100%{ transform:translateY(-70px) translateX(-6px); opacity:0 } }
 
-      /* Sacred aura pulse behind tree */
+      /* Sacred aura */
       @keyframes auraPulse { 0%,100%{ opacity:.03 } 50%{ opacity:.1 } }
       @keyframes auraRing  { 0%,100%{ opacity:.02; transform:scale(1) } 50%{ opacity:.07; transform:scale(1.04) } }
 
-      /* Sakura petals drift */
+      /* Sakura petals */
       @keyframes petalDrift1 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.7 } 90%{ opacity:.3 } 100%{ transform:translate(40px,60px) rotate(180deg); opacity:0 } }
       @keyframes petalDrift2 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.6 } 90%{ opacity:.2 } 100%{ transform:translate(-35px,55px) rotate(-160deg); opacity:0 } }
 
-      /* Tree color cycle — subtle hue shift on the tree flicker */
+      /* Tree flicker */
       @keyframes treeGlow {
         0%,100% { opacity:1 }
         85% { opacity:1 } 88% { opacity:.8 } 90% { opacity:.3 } 93% { opacity:.9 } 95% { opacity:1 }
       }
 
-      /* Ground energy pulse */
+      /* Ground energy */
       @keyframes groundPulse { 0%,100%{ opacity:.03 } 50%{ opacity:.1 } }
+
+      /* ========================================== */
+      /* ===   DRAMATIC DARKNESS CYCLE (20s)     === */
+      /* ========================================== */
+      @keyframes skyDarken {
+        0%,28%   { opacity: 0 }
+        38%      { opacity: 0.85 }
+        52%,64%  { opacity: 0.9 }
+        74%      { opacity: 0.5 }
+        84%,100% { opacity: 0 }
+      }
+      @keyframes groundDarken {
+        0%,30%   { opacity: 0 }
+        40%      { opacity: 0.6 }
+        52%,62%  { opacity: 0.65 }
+        72%      { opacity: 0.3 }
+        84%,100% { opacity: 0 }
+      }
+      @keyframes sunHide {
+        0%,28%   { opacity: 1 }
+        38%,70%  { opacity: 0.05 }
+        82%,100% { opacity: 1 }
+      }
+      @keyframes dkCloudIn {
+        0%,24%   { transform: translateX(850px); opacity: 0 }
+        36%      { transform: translateX(0); opacity: 0.9 }
+        66%      { transform: translateX(0); opacity: 0.9 }
+        78%      { transform: translateX(-850px); opacity: 0 }
+        100%     { transform: translateX(-850px); opacity: 0 }
+      }
+      @keyframes dkCloudInB {
+        0%,26%   { transform: translateX(-850px); opacity: 0 }
+        38%      { transform: translateX(0); opacity: 0.85 }
+        64%      { transform: translateX(0); opacity: 0.85 }
+        76%      { transform: translateX(850px); opacity: 0 }
+        100%     { transform: translateX(850px); opacity: 0 }
+      }
+      @keyframes lightning {
+        0%,43%   { opacity: 0 }
+        43.4%    { opacity: 0.35 }
+        43.8%    { opacity: 0 }
+        44.4%    { opacity: 0.2 }
+        44.8%    { opacity: 0 }
+        100%     { opacity: 0 }
+      }
 
       .sf   { animation:snowF 5s linear infinite }
       .fl   { animation:treeGlow 7s infinite }
@@ -76,9 +116,32 @@
       .lG   { animation:lanternG 3s ease-in-out infinite }
       .bL   { animation:bFlyL 20s linear infinite }
       .bG   { animation:bGlide 2.5s ease-in-out infinite }
-      .twk  { animation:twk 6s ease-in-out infinite }
+
+      .skyDk  { animation: skyDarken 20s ease-in-out infinite }
+      .gndDk  { animation: groundDarken 20s ease-in-out infinite }
+      .sunH   { animation: sunHide 20s ease-in-out infinite }
+      .dkCl   { animation: dkCloudIn 20s ease-in-out infinite }
+      .dkClB  { animation: dkCloudInB 20s ease-in-out infinite }
+      .ltng   { animation: lightning 20s ease-in-out infinite }
 
       .c1 { fill: #E8E8E8; } .c2 { fill: #FF5252; } .c3 { fill: #48dbfb; } .c4 { fill: #FFD700; }
+
+      /* ========================================== */
+      /* ===         HOVER EFFECTS               === */
+      /* ========================================== */
+      svg:hover .spR  { animation-duration: 3s !important; }
+      svg:hover .spRB { animation-duration: 4s !important; }
+      svg:hover .ptl1 { animation-duration: 4s !important; }
+      svg:hover .ptl2 { animation-duration: 5s !important; }
+      svg:hover .sf   { animation-duration: 3s !important; }
+      svg:hover .grP  { animation-duration: 1.5s !important; }
+      svg:hover .lG   { animation-duration: 1s !important; }
+      svg:hover .ap1  { animation-duration: 2.5s !important; }
+      svg:hover .ap2  { animation-duration: 3s !important; }
+      svg:hover .auR  { animation-duration: 2.5s !important; }
+      svg:hover .auP  { animation-duration: 2s !important; }
+      svg:hover .bL   { animation-duration: 8s !important; }
+      svg:hover .rP   { animation-duration: 1.5s !important; }
       /* ]]> */
     </style>
 
@@ -101,11 +164,26 @@
       <rect x="12" y="0" width="4" height="4" fill="#2a3048"/>
       <rect x="16" y="4" width="4" height="4" fill="#2a3048"/>
     </g>
+    <!-- Dark storm clouds -->
+    <g id="dkCl1" class="px">
+      <rect x="0"  y="0"  width="90"  height="8"  fill="#1a1a28"/>
+      <rect x="-8" y="8"  width="106" height="12" fill="#121220"/>
+      <rect x="-4" y="20" width="98"  height="8"  fill="#181828"/>
+      <rect x="6"  y="28" width="78"  height="5"  fill="#1e1e2c" opacity=".7"/>
+    </g>
+    <g id="dkCl2" class="px">
+      <rect x="0"  y="0"  width="130" height="10" fill="#161624"/>
+      <rect x="-10" y="10" width="150" height="14" fill="#0e0e1c"/>
+      <rect x="-6" y="24" width="142" height="10" fill="#141422"/>
+      <rect x="10" y="34" width="110" height="6"  fill="#1a1a28" opacity=".6"/>
+    </g>
   </defs>
 
-  <!-- ============================================ -->
-  <!-- ===         BRIGHT BLUE SKY               === -->
-  <!-- ============================================ -->
+  <!-- ======================================================== -->
+  <!-- LAYER 1 — BASE SCENE                                     -->
+  <!-- ======================================================== -->
+
+  <!-- Sky -->
   <rect y="0"   width="800" height="40"  fill="#4aa8d8" class="px"/>
   <rect y="40"  width="800" height="35"  fill="#58b4e0" class="px"/>
   <rect y="75"  width="800" height="35"  fill="#68c0e8" class="px"/>
@@ -114,52 +192,38 @@
   <rect y="180" width="800" height="30"  fill="#94daf6" class="px"/>
   <rect y="210" width="800" height="70"  fill="#a0e0f8" class="px"/>
 
-  <!-- ============================================ -->
-  <!-- ===            PIXEL SUN                  === -->
-  <!-- ============================================ -->
-  <g transform="translate(660, 18)" class="px">
-    <!-- Core -->
+  <!-- Sun -->
+  <g transform="translate(660, 18)" class="px sunH">
     <rect x="8"  y="0"  width="16" height="4" fill="#fff4a0"/>
     <rect x="4"  y="4"  width="24" height="4" fill="#fff4a0"/>
     <rect x="0"  y="8"  width="32" height="4" fill="#ffe870"/>
     <rect x="0"  y="12" width="32" height="4" fill="#ffe870"/>
     <rect x="4"  y="16" width="24" height="4" fill="#fff4a0"/>
     <rect x="8"  y="20" width="16" height="4" fill="#fff4a0"/>
-    <!-- Center bright -->
     <rect x="10" y="8"  width="12" height="8" fill="#fffde0" opacity=".6"/>
-    <!-- Rays -->
     <rect x="14" y="-8"  width="4" height="8"  fill="#ffe870" opacity=".4" class="rP"/>
     <rect x="14" y="24"  width="4" height="8"  fill="#ffe870" opacity=".4" class="rP"/>
     <rect x="-8" y="10"  width="8"  height="4"  fill="#ffe870" opacity=".4" class="rP" style="animation-delay:1s"/>
     <rect x="32" y="10"  width="8"  height="4"  fill="#ffe870" opacity=".4" class="rP" style="animation-delay:1s"/>
-    <!-- Diagonal rays -->
     <rect x="-4" y="-4"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
     <rect x="32" y="-4"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
     <rect x="-4" y="24"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
     <rect x="32" y="24"  width="4" height="4"  fill="#ffe870" opacity=".25" class="rP" style="animation-delay:2s"/>
   </g>
-  <!-- Sun ambient glow -->
-  <rect x="640" y="5" width="72" height="52" fill="#fffde0" opacity=".06" class="rP px"/>
+  <rect x="640" y="5" width="72" height="52" fill="#fffde0" opacity=".06" class="rP px sunH"/>
 
-  <!-- ============================================ -->
-  <!-- ===          PIXEL CLOUDS                 === -->
-  <!-- ============================================ -->
+  <!-- Clouds -->
   <g class="cD"><use href="#cloudB" x="40" y="30"/></g>
   <g class="cDB"><use href="#cloud" x="480" y="20"/></g>
   <g class="cD" style="animation-delay:-12s"><use href="#cloud" x="280" y="50" opacity=".5"/></g>
   <g class="cDB" style="animation-delay:-8s"><use href="#cloud" x="580" y="55" opacity=".4"/></g>
 
-  <!-- ============================================ -->
-  <!-- ===      PIXEL BIRD                       === -->
-  <!-- ============================================ -->
+  <!-- Bird -->
   <g class="bL"><g class="bG"><use href="#bird" x="0" y="42"/></g></g>
 
-  <!-- ============================================ -->
-  <!-- ===   BACK MOUNTAINS (snowy, distant)     === -->
-  <!-- ============================================ -->
+  <!-- Back mountains -->
   <g class="px">
     <polygon points="0,195 50,160 100,178 160,148 220,170 280,140 340,162 400,132 460,155 520,130 580,152 640,138 700,155 760,142 800,160 800,220 0,220" fill="#7aa0c0"/>
-    <!-- Snow highlights -->
     <rect x="158" y="148" width="8" height="4" fill="#d8e8f4" opacity=".7"/>
     <rect x="278" y="140" width="8" height="4" fill="#d8e8f4" opacity=".65"/>
     <rect x="398" y="132" width="8" height="4" fill="#d8e8f4" opacity=".7"/>
@@ -168,7 +232,7 @@
     <rect x="758" y="142" width="8" height="4" fill="#d8e8f4" opacity=".6"/>
   </g>
 
-  <!-- === FRONT MOUNTAINS === -->
+  <!-- Front mountains -->
   <g class="px">
     <polygon points="0,210 70,180 140,200 220,172 310,195 400,168 480,190 560,170 640,192 720,175 800,188 800,230 0,230" fill="#5a88a8"/>
     <rect x="218" y="172" width="8" height="4" fill="#c8d8e8" opacity=".6"/>
@@ -177,7 +241,7 @@
     <rect x="718" y="175" width="8" height="4" fill="#c8d8e8" opacity=".55"/>
   </g>
 
-  <!-- === PIXEL PINE TREES (on mountain ridge) === -->
+  <!-- Pine trees -->
   <g class="px" fill="#2a5848" opacity=".6">
     <polygon points="44,210 52,192 60,210"/>  <polygon points="47,198 52,186 57,198"/>
     <polygon points="140,206 148,188 156,206"/><polygon points="143,194 148,182 153,194"/>
@@ -187,12 +251,9 @@
     <polygon points="750,206 756,192 762,206"/><polygon points="752,196 756,186 760,196"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===     SNOW GROUND                       === -->
-  <!-- ============================================ -->
+  <!-- Snow ground -->
   <rect x="0" y="225" width="800" height="55" fill="#e8e4dc" class="px"/>
   <rect x="0" y="222" width="800" height="4"  fill="#f0ece4" class="px"/>
-  <!-- Snow sparkles -->
   <rect x="30"  y="232" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
   <rect x="120" y="240" width="2" height="2" fill="#fff" opacity=".4" class="px"/>
   <rect x="250" y="235" width="2" height="2" fill="#fff" opacity=".45" class="px"/>
@@ -201,33 +262,22 @@
   <rect x="630" y="238" width="2" height="2" fill="#fff" opacity=".45" class="px"/>
   <rect x="750" y="230" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
 
-  <!-- ============================================ -->
-  <!-- ===     PIXEL TORII GATE — LEFT           === -->
-  <!-- ============================================ -->
+  <!-- Torii Left -->
   <g transform="translate(190, 110)" class="px">
-    <!-- Kasagi -->
     <rect x="-6" y="-4" width="48" height="3" fill="#b82020"/>
     <rect x="-4" y="-1" width="44" height="4" fill="#c83030"/>
-    <!-- Nuki -->
     <rect x="-2" y="10" width="40" height="3" fill="#c83030"/>
-    <!-- Gakuzuka -->
     <rect x="12" y="4" width="12" height="8" fill="#1a1828"/>
-    <!-- Pillars -->
     <rect x="2"  y="2"  width="4" height="112" fill="#c83030"/>
     <rect x="30" y="2"  width="4" height="112" fill="#c83030"/>
-    <!-- Bases -->
     <rect x="0"  y="112" width="8"  height="4" fill="#6a6a78"/>
     <rect x="28" y="112" width="8"  height="4" fill="#6a6a78"/>
-    <!-- Snow on top -->
     <rect x="-6" y="-7"  width="48" height="3" fill="#fff" opacity=".7"/>
     <rect x="-2" y="-1"  width="40" height="2" fill="#fff" opacity=".4"/>
-    <!-- Snow on crossbeam -->
     <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".35"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===     PIXEL TORII GATE — RIGHT          === -->
-  <!-- ============================================ -->
+  <!-- Torii Right -->
   <g transform="translate(570, 110)" class="px">
     <rect x="-6" y="-4" width="48" height="3" fill="#b82020"/>
     <rect x="-4" y="-1" width="44" height="4" fill="#c83030"/>
@@ -242,10 +292,7 @@
     <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".35"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===    PIXEL STONE LANTERNS               === -->
-  <!-- ============================================ -->
-  <!-- Left lantern -->
+  <!-- Stone Lanterns -->
   <g transform="translate(234, 186)" class="px">
     <rect x="0" y="28" width="12" height="3" fill="#6a6a78"/>
     <rect x="2" y="10" width="8"  height="18" fill="#7a7a88"/>
@@ -255,7 +302,6 @@
     <rect x="0"  y="-3" width="12" height="3" fill="#5a5a68"/>
     <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".5"/>
   </g>
-  <!-- Right lantern -->
   <g transform="translate(558, 186)" class="px">
     <rect x="0" y="28" width="12" height="3" fill="#6a6a78"/>
     <rect x="2" y="10" width="8"  height="18" fill="#7a7a88"/>
@@ -266,14 +312,10 @@
     <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".5"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===    DIVINE LIGHT BEAM (from sky)       === -->
-  <!-- ============================================ -->
-  <!-- Main beam — wide trapezoid of light hitting the tree area -->
+  <!-- Divine beam -->
   <g class="px">
     <polygon points="370,0 430,0 480,225 320,225" fill="#fffde0" opacity=".04" class="dvB"/>
     <polygon points="382,0 418,0 460,225 340,225" fill="#fff" opacity=".025" class="dvB" style="animation-delay:1.5s"/>
-    <!-- Pixel beam sparkles inside the light -->
     <rect x="388" y="30"  width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:.5s"/>
     <rect x="400" y="60"  width="3" height="3" fill="#fff" opacity=".08" class="dvB" style="animation-delay:1s"/>
     <rect x="378" y="90"  width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:2s"/>
@@ -281,28 +323,17 @@
     <rect x="394" y="145" width="3" height="3" fill="#fff" opacity=".1" class="dvB" style="animation-delay:.8s"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===     SACRED AURA (behind tree)         === -->
-  <!-- ============================================ -->
-  <!-- Outer aura ring (pixel diamond shape) -->
+  <!-- Aura dots -->
   <g transform="translate(400, 155)" class="px auR">
-    <!-- Diamond ring — large -->
     <rect x="-64" y="-4"  width="8" height="8" fill="#FFD700" opacity=".04"/>
     <rect x="56"  y="-4"  width="8" height="8" fill="#FFD700" opacity=".04"/>
     <rect x="-4"  y="-64" width="8" height="8" fill="#FFD700" opacity=".04"/>
     <rect x="-4"  y="56"  width="8" height="8" fill="#FFD700" opacity=".04"/>
-    <!-- Diagonal corners -->
-    <rect x="-48" y="-48" width="4" height="4" fill="#FFD700" opacity=".03"/>
-    <rect x="44"  y="-48" width="4" height="4" fill="#FFD700" opacity=".03"/>
-    <rect x="-48" y="44"  width="4" height="4" fill="#FFD700" opacity=".03"/>
-    <rect x="44"  y="44"  width="4" height="4" fill="#FFD700" opacity=".03"/>
   </g>
-  <!-- Inner aura glow (soft pixel rect) -->
   <g class="px auP">
     <rect x="330" y="100" width="140" height="120" fill="#FFD700" opacity=".03"/>
     <rect x="350" y="110" width="100" height="100" fill="#fffde0" opacity=".03"/>
   </g>
-  <!-- Sacred circle dots -->
   <g transform="translate(400, 155)" class="px auR" style="animation-delay:2s">
     <rect x="-50" y="-2" width="3" height="3" fill="#48dbfb" opacity=".06"/>
     <rect x="48"  y="-2" width="3" height="3" fill="#48dbfb" opacity=".06"/>
@@ -314,23 +345,72 @@
     <rect x="36"  y="32"  width="3" height="3" fill="#FFD700" opacity=".05"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===   GROUND ENERGY LINES (from tree base)=== -->
-  <!-- ============================================ -->
+  <!-- Ground energy -->
   <g class="px">
-    <!-- Left energy line -->
     <rect x="340" y="222" width="28" height="2" fill="#FFD700" class="grP"/>
     <rect x="310" y="224" width="20" height="2" fill="#FFD700" class="grP" style="animation-delay:1s"/>
     <rect x="288" y="226" width="12" height="2" fill="#FFD700" class="grP" style="animation-delay:2s"/>
-    <!-- Right energy line -->
     <rect x="432" y="222" width="28" height="2" fill="#FFD700" class="grP" style="animation-delay:.5s"/>
     <rect x="470" y="224" width="20" height="2" fill="#FFD700" class="grP" style="animation-delay:1.5s"/>
     <rect x="498" y="226" width="12" height="2" fill="#FFD700" class="grP" style="animation-delay:2.5s"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===   SACRED ASCII TREE (centered)        === -->
-  <!-- ============================================ -->
+  <!-- Stone path -->
+  <g class="px" fill="#8a8078" opacity=".4">
+    <rect x="388" y="236" width="10" height="4"/>
+    <rect x="390" y="243" width="8"  height="4"/>
+    <rect x="392" y="250" width="6"  height="4"/>
+    <rect x="394" y="256" width="5"  height="3"/>
+  </g>
+
+  <!-- Offering box -->
+  <g transform="translate(382, 256)" class="px">
+    <rect x="0" y="0" width="28" height="4" fill="#5a3a20"/>
+    <rect x="2" y="4" width="24" height="12" fill="#4a2a15"/>
+    <rect x="0" y="16" width="28" height="3" fill="#5a3a20"/>
+    <rect x="8" y="1" width="12" height="2" fill="#2a1a08"/>
+  </g>
+
+  <rect x="0" y="276" width="800" height="4" fill="#d8d0c8" class="px"/>
+
+  <!-- ======================================================== -->
+  <!-- LAYER 2 — DARKNESS OVERLAY                               -->
+  <!-- Everything below is covered. Tree above shines through.  -->
+  <!-- ======================================================== -->
+  <rect x="0" y="0" width="800" height="225" fill="#080816" class="skyDk px"/>
+  <rect x="0" y="222" width="800" height="58" fill="#080816" class="gndDk px"/>
+
+  <!-- Storm clouds -->
+  <g class="dkCl">
+    <use href="#dkCl2" x="20"  y="2"/>
+    <use href="#dkCl1" x="180" y="12"/>
+    <use href="#dkCl2" x="340" y="0"/>
+    <use href="#dkCl1" x="520" y="8"/>
+    <use href="#dkCl2" x="660" y="4"/>
+  </g>
+  <g class="dkClB">
+    <use href="#dkCl1" x="60"  y="38"/>
+    <use href="#dkCl2" x="200" y="30"/>
+    <use href="#dkCl1" x="400" y="42"/>
+    <use href="#dkCl2" x="560" y="34"/>
+    <use href="#dkCl1" x="720" y="36"/>
+  </g>
+  <g class="dkCl" style="animation-delay:0.8s">
+    <use href="#dkCl1" x="100" y="62"/>
+    <use href="#dkCl2" x="280" y="56"/>
+    <use href="#dkCl1" x="460" y="66"/>
+    <use href="#dkCl2" x="620" y="60"/>
+  </g>
+
+  <!-- Lightning -->
+  <rect x="0" y="0" width="800" height="280" fill="#c0c0e0" class="ltng px"/>
+
+  <!-- ======================================================== -->
+  <!-- LAYER 3 — TREE + ORBS + SPIRITS + PETALS                -->
+  <!-- Above darkness = naturally glows through                  -->
+  <!-- ======================================================== -->
+
+  <!-- Sacred ASCII tree -->
   <g class="fl" transform="translate(268, 88)">
     <text x="0" y="0" class="ascii">
       <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
@@ -347,28 +427,46 @@
     </text>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===   SPIRIT PARTICLES (rising from tree) === -->
-  <!-- ============================================ -->
-  <!-- Golden spirits -->
-  <rect x="380" y="180" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:0s"/>
-  <rect x="405" y="190" width="4" height="4" fill="#FFD700" class="spRB px" style="animation-delay:2s"/>
-  <rect x="418" y="175" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:4s"/>
-  <rect x="392" y="185" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:1s"/>
-  <rect x="370" y="195" width="4" height="4" fill="#ffe870" class="spR px" style="animation-delay:3s"/>
-  <rect x="428" y="182" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:5s"/>
-  <!-- Cyan spirits -->
-  <rect x="400" y="170" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:1.5s"/>
-  <rect x="386" y="188" width="3" height="3" fill="#48dbfb" class="spRB px" style="animation-delay:3.5s"/>
-  <rect x="412" y="178" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:5.5s"/>
-  <!-- White spirits (brighter, rarer) -->
-  <rect x="396" y="165" width="3" height="3" fill="#fff" class="spR px" style="animation-delay:2.5s; animation-duration:8s"/>
-  <rect x="410" y="192" width="3" height="3" fill="#fff" class="spRB px" style="animation-delay:4.5s; animation-duration:9s"/>
+  <!-- Golden orb — tiny 4px pixel -->
+  <g class="ap1" transform="translate(358, 124)">
+    <g class="apG px">
+      <rect x="-3" y="0" width="3" height="4" fill="#FFD700" opacity=".2"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#FFD700" opacity=".2"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#FFD700" opacity=".2"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#FFD700" opacity=".2"/>
+    </g>
+    <rect x="0" y="0" width="4" height="4" fill="#FFD700" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".4" class="px"/>
+  </g>
 
-  <!-- ============================================ -->
-  <!-- ===   SAKURA PETALS (floating near tree)  === -->
-  <!-- ============================================ -->
-  <!-- Pink petals -->
+  <!-- Red orb — tiny 4px pixel -->
+  <g class="ap2" transform="translate(440, 112)">
+    <g class="apG px" style="animation-delay:1.5s">
+      <rect x="-3" y="0" width="3" height="4" fill="#FF5252" opacity=".15"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#FF5252" opacity=".15"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#FF5252" opacity=".15"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#FF5252" opacity=".15"/>
+    </g>
+    <rect x="0" y="0" width="4" height="4" fill="#FF5252" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".35" class="px"/>
+  </g>
+
+  <!-- Spirit particles -->
+  <g>
+    <rect x="380" y="180" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:0s"/>
+    <rect x="405" y="190" width="3" height="3" fill="#FFD700" class="spRB px" style="animation-delay:2s"/>
+    <rect x="418" y="175" width="3" height="3" fill="#FFD700" class="spR px" style="animation-delay:4s"/>
+    <rect x="392" y="185" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:1s"/>
+    <rect x="370" y="195" width="3" height="3" fill="#ffe870" class="spR px" style="animation-delay:3s"/>
+    <rect x="428" y="182" width="3" height="3" fill="#ffe870" class="spRB px" style="animation-delay:5s"/>
+    <rect x="400" y="170" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:1.5s"/>
+    <rect x="386" y="188" width="3" height="3" fill="#48dbfb" class="spRB px" style="animation-delay:3.5s"/>
+    <rect x="412" y="178" width="3" height="3" fill="#48dbfb" class="spR px" style="animation-delay:5.5s"/>
+    <rect x="396" y="165" width="3" height="3" fill="#fff" class="spR px" style="animation-delay:2.5s; animation-duration:8s"/>
+    <rect x="410" y="192" width="3" height="3" fill="#fff" class="spRB px" style="animation-delay:4.5s; animation-duration:9s"/>
+  </g>
+
+  <!-- Sakura petals -->
   <g class="px">
     <rect x="350" y="100" width="4" height="3" fill="#ffb0c0" class="ptl1" style="animation-delay:0s"/>
     <rect x="420" y="95"  width="3" height="4" fill="#ffa0b0" class="ptl2" style="animation-delay:2s"/>
@@ -380,47 +478,9 @@
     <rect x="365" y="115" width="3" height="3" fill="#ffc0d0" class="ptl2" style="animation-delay:3.5s; animation-duration:11s"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===     GOLDEN APPLE ORB (pixel)          === -->
-  <!-- ============================================ -->
-  <g class="ap1" transform="translate(354, 120)">
-    <g class="apG px">
-      <rect x="-8" y="0"  width="4" height="8" fill="#FFD700" opacity=".15"/>
-      <rect x="12" y="0"  width="4" height="8" fill="#FFD700" opacity=".15"/>
-      <rect x="0"  y="-8" width="8" height="4" fill="#FFD700" opacity=".15"/>
-      <rect x="0"  y="12" width="8" height="4" fill="#FFD700" opacity=".15"/>
-    </g>
-    <g class="px">
-      <rect x="0" y="-4" width="8" height="4" fill="#FFD700" opacity=".9"/>
-      <rect x="-4" y="0" width="16" height="4" fill="#FFD700" opacity=".9"/>
-      <rect x="-4" y="4" width="16" height="4" fill="#e8c000" opacity=".85"/>
-      <rect x="0" y="8" width="8" height="4" fill="#e8c000" opacity=".8"/>
-    </g>
-    <rect x="0" y="-2" width="4" height="4" fill="#fff" opacity=".35" class="px"/>
-  </g>
-
-  <!-- ============================================ -->
-  <!-- ===      RED APPLE ORB (pixel)            === -->
-  <!-- ============================================ -->
-  <g class="ap2" transform="translate(502, 108)">
-    <g class="apG px" style="animation-delay:1.5s">
-      <rect x="-8" y="0"  width="4" height="8" fill="#FF5252" opacity=".12"/>
-      <rect x="12" y="0"  width="4" height="8" fill="#FF5252" opacity=".12"/>
-      <rect x="0"  y="-8" width="8" height="4" fill="#FF5252" opacity=".12"/>
-      <rect x="0"  y="12" width="8" height="4" fill="#FF5252" opacity=".12"/>
-    </g>
-    <g class="px">
-      <rect x="0" y="-4" width="8" height="4" fill="#FF5252" opacity=".9"/>
-      <rect x="-4" y="0" width="14" height="4" fill="#FF5252" opacity=".9"/>
-      <rect x="-4" y="4" width="14" height="4" fill="#e03838" opacity=".85"/>
-      <rect x="0" y="8" width="8" height="4" fill="#e03838" opacity=".8"/>
-    </g>
-    <rect x="0" y="-2" width="4" height="4" fill="#fff" opacity=".3" class="px"/>
-  </g>
-
-  <!-- ============================================ -->
-  <!-- ===         SNOW PARTICLES                === -->
-  <!-- ============================================ -->
+  <!-- ======================================================== -->
+  <!-- LAYER 4 — SNOW (always visible on top)                   -->
+  <!-- ======================================================== -->
   <g class="px" fill="#fff">
     <rect x="20"  width="3" height="3" class="sf" style="animation-delay:0s"/>
     <rect x="70"  width="4" height="4" class="sf" style="animation-delay:1.2s; animation-duration:6s"/>
@@ -442,25 +502,4 @@
     <rect x="620" width="3" height="3" class="sf" style="animation-delay:3.8s; animation-duration:5s"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- ===        STONE PATH (center)            === -->
-  <!-- ============================================ -->
-  <g class="px" fill="#8a8078" opacity=".4">
-    <rect x="388" y="236" width="10" height="4"/>
-    <rect x="390" y="243" width="8"  height="4"/>
-    <rect x="392" y="250" width="6"  height="4"/>
-    <rect x="394" y="256" width="5"  height="3"/>
-  </g>
-
-  <!-- === OFFERING BOX (saisen bako) at bottom center === -->
-  <g transform="translate(382, 256)" class="px">
-    <rect x="0" y="0" width="28" height="4" fill="#5a3a20"/>
-    <rect x="2" y="4" width="24" height="12" fill="#4a2a15"/>
-    <rect x="0" y="16" width="28" height="3" fill="#5a3a20"/>
-    <!-- Slot -->
-    <rect x="8" y="1" width="12" height="2" fill="#2a1a08"/>
-  </g>
-
-  <!-- Bottom edge -->
-  <rect x="0" y="276" width="800" height="4" fill="#d8d0c8" class="px"/>
 </svg>

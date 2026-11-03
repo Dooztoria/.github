@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 800 320" width="800" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serene pixel-art sea with a sacred ascii tree">
+  <defs>
+    <style>
+      /* <![CDATA[ */
+      .px { shape-rendering: crispEdges; }
+      .ascii { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 900; white-space: pre; }
+      /* ---- air: snow, spirits, frost petals ---- */
+      @keyframes snowF { 0%{ transform:translate(0,-16px); opacity:0 } 8%{ opacity:.85 } 92%{ opacity:.35 } 100%{ transform:translate(10px,340px); opacity:0 } }
+      @keyframes spiritRise  { 0%{ transform:translate(0,0); opacity:0 } 12%{ opacity:.8 } 70%{ opacity:.3 } 100%{ transform:translate(8px,-80px); opacity:0 } }
+      @keyframes spiritRiseB { 0%{ transform:translate(0,0); opacity:0 } 15%{ opacity:.6 } 65%{ opacity:.2 } 100%{ transform:translate(-6px,-70px); opacity:0 } }
+      @keyframes petalDrift1 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.75 } 90%{ opacity:.3 } 100%{ transform:translate(40px,60px) rotate(180deg); opacity:0 } }
+      @keyframes petalDrift2 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.65 } 90%{ opacity:.2 } 100%{ transform:translate(-35px,55px) rotate(-160deg); opacity:0 } }
+      /* ---- tree, aura, orbs, lanterns ---- */
+      @keyframes treeGlow { 0%,100%{ opacity:1 } 85%{ opacity:1 } 88%{ opacity:.82 } 90%{ opacity:.38 } 93%{ opacity:.9 } 95%{ opacity:1 } }
+      @keyframes auraPulse { 0%,100%{ opacity:.05 } 50%{ opacity:.12 } }
+      @keyframes auraRing  { 0%,100%{ opacity:.04; transform:scale(1) } 50%{ opacity:.1; transform:scale(1.05) } }
+      @keyframes orbF1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
+      @keyframes orbF2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+      @keyframes orbGlow { 0%,100%{ opacity:.2 } 50%{ opacity:.6 } }
+      @keyframes lanternG { 0%,100%{ opacity:.3 } 50%{ opacity:.7 } }
+      @keyframes groundPulse { 0%,100%{ opacity:.04 } 50%{ opacity:.14 } }
+      @keyframes divineBeam { 0%,100%{ opacity:.06 } 50%{ opacity:.14 } }
+      /* ---- sky: sun, clouds, birds ---- */
+      @keyframes rayPulse { 0%,100%{ opacity:.12 } 50%{ opacity:.24 } }
+      @keyframes cDrift  { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(20px) } }
+      @keyframes cDriftB { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(-16px) } }
+      @keyframes bFlyL { 0%{ transform:translateX(880px) } 100%{ transform:translateX(-200px) } }
+      @keyframes bGlide { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+      @keyframes bGlide2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(5px) } }
+      /* ---- calm sea: long, slow, adem ---- */
+      @keyframes seaShift  { 0%{ transform:translateX(0) } 100%{ transform:translateX(-200px) } }
+      @keyframes seaShiftB { 0%{ transform:translateX(0) } 100%{ transform:translateX(200px) } }
+      @keyframes shimmer   { 0%{ transform:translateX(-260px) } 100%{ transform:translateX(260px) } }
+      @keyframes waveBob   { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-2px) } }
+      @keyframes glint     { 0%,80%,100%{ opacity:.06 } 88%{ opacity:.85 } 94%{ opacity:.25 } }
+      @keyframes sparkle   { 0%,100%{ opacity:0 } 50%{ opacity:.9 } }
+      @keyframes mistDrift { 0%,100%{ transform:translateX(-30px); opacity:.22 } 50%{ transform:translateX(30px); opacity:.4 } }
+      /* ---- grandeur: orbit + light streaks ---- */
+      @keyframes orbitSpin { 0%{ transform:rotate(0deg) } 100%{ transform:rotate(360deg) } }
+      @keyframes streak     { 0%{ transform:translateX(-420px); opacity:0 } 15%{ opacity:.55 } 85%{ opacity:.35 } 100%{ transform:translateX(420px); opacity:0 } }
+      /* ---- storm cycle (26s): tide rises, shadow falls ---- */
+      @keyframes skyDarken { 0%,28%{ opacity:0 } 38%{ opacity:.8 } 52%,64%{ opacity:.86 } 74%{ opacity:.45 } 84%,100%{ opacity:0 } }
+      @keyframes groundDarken { 0%,30%{ opacity:0 } 40%{ opacity:.55 } 52%,62%{ opacity:.6 } 72%{ opacity:.28 } 84%,100%{ opacity:0 } }
+      @keyframes seaDarken { 0%,30%{ opacity:0 } 42%{ opacity:.5 } 54%,62%{ opacity:.55 } 74%{ opacity:.25 } 86%,100%{ opacity:0 } }
+      @keyframes sunHide { 0%,28%{ opacity:1 } 38%,70%{ opacity:.08 } 82%,100%{ opacity:1 } }
+      @keyframes dkCloudIn { 0%,24%{ transform:translateX(850px); opacity:0 } 36%{ transform:translateX(0); opacity:.85 } 66%{ transform:translateX(0); opacity:.85 } 78%{ transform:translateX(-850px); opacity:0 } 100%{ transform:translateX(-850px); opacity:0 } }
+      @keyframes dkCloudInB { 0%,26%{ transform:translateX(-850px); opacity:0 } 38%{ transform:translateX(0); opacity:.8 } 64%{ transform:translateX(0); opacity:.8 } 76%{ transform:translateX(850px); opacity:0 } 100%{ transform:translateX(850px); opacity:0 } }
+      @keyframes lightning { 0%,43%{ opacity:0 } 43.4%{ opacity:.22 } 43.8%{ opacity:0 } 44.4%{ opacity:.12 } 44.8%{ opacity:0 } 100%{ opacity:0 } }
+      .sf   { animation:snowF 6s linear infinite }
+      .fl   { animation:treeGlow 7s infinite }
+      .dvB  { animation:divineBeam 5s ease-in-out infinite }
+      .spR  { animation:spiritRise 6s linear infinite }
+      .spRB { animation:spiritRiseB 7s linear infinite }
+      .auP  { animation:auraPulse 4s ease-in-out infinite }
+      .auR  { animation:auraRing 5s ease-in-out infinite; transform-origin:center }
+      .ptl1 { animation:petalDrift1 8s linear infinite }
+      .ptl2 { animation:petalDrift2 9s linear infinite }
+      .grP  { animation:groundPulse 4s ease-in-out infinite }
+      .ap1  { animation:orbF1 5s ease-in-out infinite }
+      .ap2  { animation:orbF2 6s ease-in-out infinite }
+      .apG  { animation:orbGlow 3s ease-in-out infinite }
+      .rP   { animation:rayPulse 4s ease-in-out infinite }
+      .cD   { animation:cDrift 28s ease-in-out infinite }
+      .cDB  { animation:cDriftB 32s ease-in-out infinite }
+      .lG   { animation:lanternG 3s ease-in-out infinite }
+      .bL   { animation:bFlyL 26s linear infinite }
+      .bL2  { animation:bFlyL 34s linear infinite }
+      .bG   { animation:bGlide 2.5s ease-in-out infinite }
+      .bG2  { animation:bGlide2 3.2s ease-in-out infinite }
+      .seaA { animation:seaShift 24s linear infinite }
+      .seaB { animation:seaShiftB 34s linear infinite }
+      .shm  { animation:shimmer 11s ease-in-out infinite }
+      .wv   { animation:waveBob 6s ease-in-out infinite }
+      .gl   { animation:glint 5.5s ease-in-out infinite }
+      .spk  { animation:sparkle 3.5s ease-in-out infinite }
+      .mst  { animation:mistDrift 18s ease-in-out infinite }
+      .orb1 { animation:orbitSpin 60s linear infinite }
+      .orb2 { animation:orbitSpin 90s linear infinite reverse }
+      .stk  { animation:streak 9s ease-in-out infinite }
+      .skyDk { animation:skyDarken 26s ease-in-out infinite }
+      .gndDk { animation:groundDarken 26s ease-in-out infinite }
+      .seaDk { animation:seaDarken 26s ease-in-out infinite }
+      .sunH  { animation:sunHide 26s ease-in-out infinite }
+      .dkCl  { animation:dkCloudIn 26s ease-in-out infinite }
+      .dkClB { animation:dkCloudInB 26s ease-in-out infinite }
+      .ltng  { animation:lightning 26s ease-in-out infinite }
+      /* === TREE PALETTE (sacred, unchanged): white > ice > sky > sea === */
+      .c1 { fill: #F7FBFF; }
+      .c2 { fill: #A9D6F5; }
+      .c3 { fill: #6CB8E8; }
+      .c4 { fill: #1F5F96; }
+      /* ---- hover: only shorten the run time (all targets are matched nodes) ---- */
+      svg:hover .sf   { animation-duration: 3.5s }
+      svg:hover .spR  { animation-duration: 3s }
+      svg:hover .spRB { animation-duration: 4s }
+      svg:hover .ptl1 { animation-duration: 4s }
+      svg:hover .ptl2 { animation-duration: 5s }
+      svg:hover .grP  { animation-duration: 1.5s }
+      svg:hover .lG   { animation-duration: 1s }
+      svg:hover .ap1  { animation-duration: 2.5s }
+      svg:hover .ap2  { animation-duration: 3s }
+      svg:hover .auR  { animation-duration: 2.5s }
+      svg:hover .auP  { animation-duration: 2s }
+      svg:hover .bL   { animation-duration: 11s }
+      svg:hover .rP   { animation-duration: 1.5s }
+      svg:hover .shm  { animation-duration: 3.5s }
+      svg:hover .spk  { animation-duration: 1.2s }
+      svg:hover .stk  { animation-duration: 3s }
+      /* ]]> */
+    </style>
+    <!-- ================= GRADIENTS ================= -->
+    <!-- sky: deep sea blue -> calm light blue -> white -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#163B5E"/>
+      <stop offset="0.16" stop-color="#22547F"/>
+      <stop offset="0.34" stop-color="#3B7BAC"/>
+      <stop offset="0.54" stop-color="#6AAADB"/>
+      <stop offset="0.74" stop-color="#A3D2F2"/>
+      <stop offset="0.90" stop-color="#D3EDFC"/>
+      <stop offset="1"    stop-color="#F2FAFF"/>
+    </linearGradient>
+    <!-- NOTE: no white sheen / veil rect over the sky ->
+         those layers wash the upper sky out to near-white in some renderers -->
+    <linearGradient id="skyVeil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"    stop-color="#0B2440" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#1B4E78" stop-opacity="0.14"/>
+      <stop offset="1"    stop-color="#0B2E4A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="horizonBlend" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#EFF8FE" stop-opacity="0"/>
+      <stop offset="0.6" stop-color="#EAF6FF" stop-opacity="0.5"/>
+      <stop offset="1"   stop-color="#FFFFFF" stop-opacity="0.85"/>
+    </linearGradient>
+    <radialGradient id="horizonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#CFE9FB" stop-opacity="0.22"/>
+      <stop offset="1"    stop-color="#CFE9FB" stop-opacity="0"/>
+    </radialGradient>
+    <!-- sea: white foam -> light blue -> deep sea -->
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#F2FAFF" stop-opacity="1"/>
+      <stop offset="0.22" stop-color="#A2D5F3" stop-opacity="1"/>
+      <stop offset="0.42" stop-color="#6FB2E1"/>
+      <stop offset="0.65" stop-color="#3C86BB"/>
+      <stop offset="0.85" stop-color="#1F5680"/>
+      <stop offset="1"    stop-color="#123A5C"/>
+    </linearGradient>
+    <radialGradient id="seaSheen" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="0.5" stop-color="#CFEAFB" stop-opacity="0.16"/>
+      <stop offset="1"   stop-color="#CFEAFB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shimmerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0.26"/>
+      <stop offset="0.5"  stop-color="#F2FBFF" stop-opacity="0.5"/>
+      <stop offset="0.58" stop-color="#FFFFFF" stop-opacity="0.26"/>
+      <stop offset="1"    stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bandGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="reflectGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.7"/>
+      <stop offset="0.7" stop-color="#CFEAFB" stop-opacity="0.16"/>
+      <stop offset="1"   stop-color="#CFEAFB" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mistGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <!-- sun -->
+    <radialGradient id="sunGrad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F2FAFF"/>
+      <stop offset="1"   stop-color="#CDEAFB" stop-opacity="0.85"/>
+    </radialGradient>
+    <radialGradient id="sunGlowR" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#BFE3F8" stop-opacity="0.3"/>
+      <stop offset="1"    stop-color="#BFE3F8" stop-opacity="0"/>
+    </radialGradient>
+    <!-- mountains / land -->
+    <linearGradient id="mtnBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9CC4DE"/>
+      <stop offset="1" stop-color="#5E8FB4"/>
+    </linearGradient>
+    <linearGradient id="mtnFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3F719A"/>
+      <stop offset="1" stop-color="#1E4A72"/>
+    </linearGradient>
+    <linearGradient id="pineGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B6E86"/>
+      <stop offset="1" stop-color="#143F55"/>
+    </linearGradient>
+    <linearGradient id="islandGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#D9ECF8"/>
+      <stop offset="1" stop-color="#8FB6CF"/>
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#F4FAFE"/>
+      <stop offset="1"    stop-color="#D6EAF7"/>
+    </linearGradient>
+    <linearGradient id="landEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#CFE7F6" stop-opacity="0.45"/>
+    </linearGradient>
+    <!-- objects -->
+    <linearGradient id="toriiGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#F2FBFF"/>
+      <stop offset="0.45" stop-color="#A9D3EE"/>
+      <stop offset="1"    stop-color="#5C95BE"/>
+    </linearGradient>
+    <linearGradient id="stoneGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B6C9D8"/>
+      <stop offset="1" stop-color="#7A93A8"/>
+    </linearGradient>
+    <radialGradient id="lanternGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#BFE7FF" stop-opacity="0.45"/>
+      <stop offset="1"   stop-color="#BFE7FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#CBE9FC" stop-opacity="0.18"/>
+      <stop offset="1"   stop-color="#CBE9FC" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="treeAura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="0.4" stop-color="#CDEBFD" stop-opacity="0.24"/>
+      <stop offset="1"   stop-color="#1B4E73" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbWhite" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#9FD3F2"/>
+    </radialGradient>
+    <radialGradient id="orbSea" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#BFE6FF"/>
+      <stop offset="1" stop-color="#215F94"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#0B2E4A" stop-opacity="0"/>
+      <stop offset="1"    stop-color="#0B2E4A" stop-opacity="0.18"/>
+    </radialGradient>
+    <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.25" stop-color="#D9F0FF" stop-opacity="0.6"/>
+      <stop offset="0.5"  stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="0.75" stop-color="#9FD3F2" stop-opacity="0.5"/>
+      <stop offset="1"    stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <!-- ============ reusable pixel parts ============ -->
+    <g id="cloud" class="px">
+      <rect x="8" y="0" width="24" height="4" fill="#fff" opacity=".72"/>
+      <rect x="4" y="4" width="32" height="4" fill="#fff" opacity=".78"/>
+      <rect x="0" y="8" width="40" height="4" fill="#fff" opacity=".84"/>
+    </g>
+    <g id="cloudB" class="px">
+      <rect x="8" y="0" width="32" height="4" fill="#fff" opacity=".6"/>
+      <rect x="4" y="4" width="40" height="4" fill="#fff" opacity=".66"/>
+      <rect x="0" y="8" width="48" height="4" fill="#fff" opacity=".72"/>
+    </g>
+    <g id="bird" class="px">
+      <rect x="0" y="4" width="4" height="4" fill="#17425F"/>
+      <rect x="4" y="0" width="4" height="4" fill="#17425F"/>
+      <rect x="8" y="4" width="4" height="4" fill="#17425F"/>
+      <rect x="12" y="0" width="4" height="4" fill="#17425F"/>
+      <rect x="16" y="4" width="4" height="4" fill="#17425F"/>
+    </g>
+    <g id="dkCl1" class="px">
+      <rect x="0"  y="0"  width="90"  height="8"  fill="#1D3550"/>
+      <rect x="-8" y="8"  width="106" height="12" fill="#122840"/>
+      <rect x="-4" y="20" width="98"  height="8"  fill="#193049"/>
+      <rect x="6"  y="28" width="78"  height="5"  fill="#22405F" opacity=".7"/>
+    </g>
+    <g id="dkCl2" class="px">
+      <rect x="0"   y="0"  width="130" height="10" fill="#1A2F49"/>
+      <rect x="-10" y="10" width="150" height="14" fill="#0E1F32"/>
+      <rect x="-6"  y="24" width="142" height="10" fill="#16293F"/>
+      <rect x="10"  y="34" width="110" height="6"  fill="#1D3550" opacity=".6"/>
+    </g>
+    <g id="wave" class="px">
+      <rect x="0"  y="2" width="6" height="2" fill="#FFFFFF" opacity=".30"/>
+      <rect x="6"  y="0" width="6" height="2" fill="#EAF7FF" opacity=".38"/>
+      <rect x="12" y="2" width="8" height="2" fill="#FFFFFF" opacity=".30"/>
+      <rect x="20" y="4" width="6" height="2" fill="#CFEAFB" opacity=".26"/>
+      <rect x="26" y="2" width="6" height="2" fill="#FFFFFF" opacity=".28"/>
+    </g>
+    <g id="waveB" class="px">
+      <rect x="0"  y="0" width="10" height="2" fill="#FFFFFF" opacity=".22"/>
+      <rect x="10" y="2" width="8"  height="2" fill="#EAF7FF" opacity=".30"/>
+      <rect x="18" y="0" width="12" height="2" fill="#FFFFFF" opacity=".22"/>
+    </g>
+    <g id="waveD" class="px">
+      <rect x="0"  y="2" width="8"  height="2" fill="#0B2A45" opacity=".18"/>
+      <rect x="8"  y="0" width="10" height="2" fill="#0B2A45" opacity=".12"/>
+      <rect x="18" y="2" width="12" height="2" fill="#0B2A45" opacity=".16"/>
+    </g>
+    <circle id="star" r="1.4" fill="#FFFFFF"/>
+  </defs>
+  <!-- ======================================================== -->
+  <!-- LAYER 0 — SKY, SUN, CLOUDS, MOUNTAINS                     -->
+  <!-- ======================================================== -->
+  <rect x="0" y="0" width="800" height="216" fill="url(#skyGrad)"/>
+  <rect x="0" y="0" width="800" height="216" fill="url(#skyVeil)"/>
+  <rect x="0" y="150" width="800" height="70" fill="url(#horizonBlend)"/>
+  <ellipse cx="400" cy="206" rx="360" ry="95" fill="url(#horizonGlow)"/>
+  <!-- sun with soft halo -->
+  <circle cx="676" cy="40" r="88" fill="url(#sunGlowR)" class="rP sunH"/>
+  <g transform="translate(660, 18)" class="px sunH">
+    <rect x="8"  y="0"  width="16" height="4" fill="#F4FBFF"/>
+    <rect x="4"  y="4"  width="24" height="4" fill="#F4FBFF"/>
+    <rect x="0"  y="8"  width="32" height="4" fill="#F4FBFF"/>
+    <rect x="0"  y="12" width="32" height="4" fill="#F4FBFF"/>
+    <rect x="4"  y="16" width="24" height="4" fill="url(#sunGrad)"/>
+    <rect x="8"  y="20" width="16" height="4" fill="url(#sunGrad)"/>
+    <rect x="10" y="8"  width="12" height="8" fill="#FFFFFF" opacity=".75"/>
+    <rect x="14" y="-8" width="4" height="8" fill="#FFFFFF" opacity=".45" class="rP"/>
+    <rect x="14" y="24" width="4" height="8" fill="#FFFFFF" opacity=".45" class="rP"/>
+    <rect x="-8" y="10" width="8" height="4" fill="#FFFFFF" opacity=".45" class="rP" style="animation-delay:1s"/>
+    <rect x="32" y="10" width="8" height="4" fill="#FFFFFF" opacity=".45" class="rP" style="animation-delay:1s"/>
+    <rect x="-4" y="-4" width="4" height="4" fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="-4" width="4" height="4" fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="-4" y="24" width="4" height="4" fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="24" width="4" height="4" fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+  </g>
+  <!-- clouds -->
+  <g class="cD"><use href="#cloudB" x="40" y="30"/></g>
+  <g class="cDB"><use href="#cloud" x="480" y="20"/></g>
+  <g class="cD" style="animation-delay:-12s"><use href="#cloud" x="280" y="50" opacity=".5"/></g>
+  <g class="cDB" style="animation-delay:-8s"><use href="#cloud" x="580" y="55" opacity=".4"/></g>
+  <!-- birds: original + two distant companions (new depth) -->
+  <g class="bL"><g class="bG"><use href="#bird" x="0" y="42"/></g></g>
+  <g class="bL2" style="animation-delay:-9s"><g class="bG2"><use href="#bird" transform="translate(28,66) scale(.75)" opacity=".7"/></g></g>
+  <g class="bL2" style="animation-delay:-20s"><g class="bG"><use href="#bird" transform="translate(58,78) scale(.6)" opacity=".5"/></g></g>
+  <!-- back mountains -->
+  <g class="px">
+    <polygon points="0,195 50,160 100,178 160,148 220,170 280,140 340,162 400,132 460,155 520,130 580,152 640,138 700,155 760,142 800,160 800,220 0,220" fill="url(#mtnBack)"/>
+    <rect x="158" y="148" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="278" y="140" width="8" height="4" fill="#FFFFFF" opacity=".75"/>
+    <rect x="398" y="132" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="518" y="130" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="638" y="138" width="8" height="4" fill="#FFFFFF" opacity=".75"/>
+    <rect x="758" y="142" width="8" height="4" fill="#FFFFFF" opacity=".7"/>
+  </g>
+  <!-- front mountains -->
+  <g class="px">
+    <polygon points="0,210 70,180 140,200 220,172 310,195 400,168 480,190 560,170 640,192 720,175 800,188 800,230 0,230" fill="url(#mtnFront)"/>
+    <rect x="218" y="172" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="398" y="168" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="558" y="170" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="718" y="175" width="8" height="4" fill="#E6F2FB" opacity=".65"/>
+  </g>
+  <!-- pine trees -->
+  <g class="px" fill="url(#pineGrad)" opacity=".85">
+    <polygon points="44,210 52,192 60,210"/>  <polygon points="47,198 52,186 57,198"/>
+    <polygon points="140,206 148,188 156,206"/><polygon points="143,194 148,182 153,194"/>
+    <polygon points="320,202 328,184 336,202"/><polygon points="323,190 328,178 333,190"/>
+    <polygon points="488,208 494,192 500,208"/><polygon points="490,198 494,186 498,198"/>
+    <polygon points="620,204 628,186 636,204"/><polygon points="623,192 628,180 633,192"/>
+    <polygon points="750,206 756,192 762,206"/><polygon points="752,196 756,186 760,196"/>
+  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 1 — CALM SEA (distance: horizon -> far water)       -->
+  <!-- ======================================================== -->
+  <rect x="0" y="216" width="800" height="104" fill="url(#seaGrad)"/>
+  <ellipse cx="400" cy="230" rx="300" ry="30" fill="url(#seaSheen)"/>
+  <rect x="0" y="216" width="800" height="104" fill="#0E3454" opacity=".10"/>
+  <!-- far light bands, drifting slowly -->
+  <g class="px">
+    <g class="seaA">      <rect x="20" y="221" width="180" height="2" fill="url(#bandGrad)" opacity=".55"/>      <rect x="240" y="224" width="220" height="2" fill="url(#bandGrad)" opacity=".55"/>      <rect x="500" y="221" width="200" height="2" fill="url(#bandGrad)" opacity=".55"/>      <rect x="700" y="225" width="160" height="2" fill="url(#bandGrad)" opacity=".55"/>    </g>    <g class="seaB wv">      <rect x="0" y="230" width="150" height="2" fill="#FFFFFF" opacity=".22"/>      <rect x="190" y="233" width="140" height="2" fill="#FFFFFF" opacity=".22"/>      <rect x="380" y="231" width="170" height="2" fill="#FFFFFF" opacity=".22"/>      <rect x="600" y="234" width="180" height="2" fill="#FFFFFF" opacity=".22"/>    </g>  </g>  <!-- animated shimmer sweep across the water -->
+  <rect x="-260" y="216" width="200" height="104" fill="url(#shimmerGrad)" class="shm" opacity=".7"/>
+  <!-- horizon glints -->
+  <g class="px">    <rect x="473" y="236" width="6" height="2" fill="#FFFFFF" class="gl" style="animation-delay:2.5s"/>    <rect x="611" y="225" width="3" height="2" fill="#FFFFFF" class="gl" style="animation-delay:4.4s"/>    <rect x="497" y="239" width="3" height="2" fill="#FFFFFF" class="gl" style="animation-delay:0.5s"/>    <rect x="320" y="223" width="2" height="2" fill="#FFFFFF" class="gl" style="animation-delay:3.0s"/>    <rect x="720" y="239" width="2" height="2" fill="#FFFFFF" class="gl" style="animation-delay:3.3s"/>    <rect x="415" y="233" width="3" height="2" fill="#FFFFFF" class="gl" style="animation-delay:3.4s"/>    <rect x="551" y="221" width="2" height="2" fill="#FFFFFF" class="gl" style="animation-delay:0.2s"/>    <rect x="257" y="238" width="2" height="2" fill="#FFFFFF" class="gl" style="animation-delay:4.3s"/>    <rect x="344" y="233" width="3" height="2" fill="#FFFFFF" class="gl" style="animation-delay:2.9s"/>    <rect x="665" y="228" width="6" height="2" fill="#FFFFFF" class="gl" style="animation-delay:0.0s"/>    <rect x="97" y="233" width="4" height="2" fill="#FFFFFF" class="gl" style="animation-delay:2.2s"/>    <rect x="574" y="221" width="4" height="2" fill="#FFFFFF" class="gl" style="animation-delay:1.7s"/>    <rect x="245" y="235" width="4" height="2" fill="#FFFFFF" class="gl" style="animation-delay:0.2s"/>    <rect x="586" y="222" width="6" height="2" fill="#FFFFFF" class="gl" style="animation-delay:0.6s"/>  </g>
+  <!-- reflection of the sacred beam on the water -->
+  <g class="px">
+    <polygon points="320,216 480,216 440,320 360,320" fill="url(#reflectGrad)" opacity=".35"/>
+    <g class="seaA" style="animation-duration:30s">      <rect x="355" y="224" width="90" height="2" fill="#FFFFFF" opacity="0.55"/>      <rect x="359" y="238" width="82" height="2" fill="#FFFFFF" opacity="0.48"/>      <rect x="363" y="252" width="74" height="2" fill="#FFFFFF" opacity="0.41"/>      <rect x="367" y="266" width="66" height="2" fill="#FFFFFF" opacity="0.34"/>      <rect x="371" y="280" width="58" height="2" fill="#FFFFFF" opacity="0.27"/>      <rect x="375" y="294" width="50" height="2" fill="#FFFFFF" opacity="0.2"/>    </g>
+  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 2 — SNOW LAND (island in the sea)                   -->
+  <!-- ======================================================== -->
+  <g class="px">
+    <path d="M0,212 L0,228 L80,228 L128,224 L200,228 L288,220 L360,216 L440,216 L512,220 L600,224 L712,220 L800,224 L800,212 Z" fill="url(#groundGrad)"/>
+    <path d="M0,228 L80,228 L128,224 L200,228 L288,220 L360,216 L440,216 L512,220 L600,224 L712,220 L800,224 L800,232 L712,228 L600,232 L512,228 L440,224 L360,224 L288,228 L200,236 L128,232 L80,236 L0,236 Z" fill="url(#landEdge)" opacity=".8"/>
+  </g>
+  <rect x="0" y="212" width="800" height="4" fill="#FFFFFF" class="px"/>
+  <g class="px">    <rect x="30" y="220" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="90" y="222" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="120" y="217" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="250" y="216" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="300" y="226" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="380" y="216" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="500" y="219" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="560" y="219" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="630" y="216" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="690" y="223" width="2" height="2" fill="#fff" opacity=".6"/>    <rect x="750" y="222" width="2" height="2" fill="#fff" opacity=".6"/>  </g>  <!-- beach foam (gentle bob) -->  <g class="px wv" style="animation-duration:7s">    <rect x="0" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="36" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.8"/>    <rect x="68" y="226" width="18" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="104" y="226" width="18" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="140" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="162" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="184" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="220" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="260" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.8"/>    <rect x="286" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.8"/>    <rect x="328" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="356" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="388" y="226" width="18" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="418" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="458" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="480" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="512" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.8"/>    <rect x="540" y="226" width="18" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="570" y="226" width="10" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="592" y="226" width="14" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="632" y="226" width="18" height="2" fill="#FFFFFF" opacity="0.7"/>    <rect x="676" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.55"/>    <rect x="726" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.8"/>    <rect x="762" y="226" width="24" height="2" fill="#FFFFFF" opacity="0.55"/>  </g>  <g class="px wv" style="animation-duration:9s; animation-delay:-3s">    <rect x="0" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="28" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="82" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="128" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="182" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="232" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="260" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="288" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="324" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="370" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="412" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="466" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="494" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="536" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="582" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="620" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="652" y="232" width="8" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="680" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.45"/>    <rect x="730" y="232" width="16" height="2" fill="#EAF7FF" opacity="0.35"/>    <rect x="766" y="232" width="12" height="2" fill="#EAF7FF" opacity="0.35"/>  </g>  <!-- islets in the water (new objects) -->
+  <g class="px">
+    <path d="M72,236 L78,230 L88,228 L98,231 L104,236 Z" fill="url(#islandGrad)"/>
+    <rect x="78" y="228" width="14" height="2" fill="#FFFFFF" opacity=".9"/>
+    <path d="M724,238 L730,232 L738,230 L748,233 L754,238 Z" fill="url(#islandGrad)"/>
+    <rect x="730" y="230" width="10" height="2" fill="#FFFFFF" opacity=".9"/>
+    <polygon points="780,230 784,216 788,230" fill="url(#pineGrad)"/>
+    <polygon points="782,224 784,214 786,224" fill="url(#pineGrad)"/>
+    <path d="M30,240 L36,236 L44,238 L50,241 Z" fill="#9CBDD3"/>
+    <rect x="76"  y="240" width="22" height="2" fill="#FFFFFF" opacity=".25"/>
+    <rect x="728" y="240" width="22" height="2" fill="#FFFFFF" opacity=".22"/>
+    <rect x="32"  y="244" width="16" height="2" fill="#FFFFFF" opacity=".18"/>
+  </g>
+  <!-- Torii (left) -->
+  <g transform="translate(190, 110)" class="px">
+    <rect x="-6" y="-4" width="48" height="3" fill="#22405F"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="url(#toriiGrad)"/>
+    <rect x="-2" y="10" width="40" height="3" fill="url(#toriiGrad)"/>
+    <rect x="12" y="4"  width="12" height="8" fill="#173248"/>
+    <rect x="2"  y="2"  width="4" height="100" fill="url(#toriiGrad)"/>
+    <rect x="30" y="2"  width="4" height="100" fill="url(#toriiGrad)"/>
+    <rect x="0"  y="100" width="8" height="4" fill="url(#stoneGrad)"/>
+    <rect x="28" y="100" width="8" height="4" fill="url(#stoneGrad)"/>
+    <rect x="-6" y="-7" width="48" height="3" fill="#fff" opacity=".85"/>
+    <rect x="-2" y="-1" width="40" height="2" fill="#fff" opacity=".55"/>
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".45"/>
+  </g>
+  <!-- Torii (right) -->
+  <g transform="translate(570, 110)" class="px">
+    <rect x="-6" y="-4" width="48" height="3" fill="#22405F"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="url(#toriiGrad)"/>
+    <rect x="-2" y="10" width="40" height="3" fill="url(#toriiGrad)"/>
+    <rect x="12" y="4"  width="12" height="8" fill="#173248"/>
+    <rect x="2"  y="2"  width="4" height="100" fill="url(#toriiGrad)"/>
+    <rect x="30" y="2"  width="4" height="100" fill="url(#toriiGrad)"/>
+    <rect x="0"  y="100" width="8" height="4" fill="url(#stoneGrad)"/>
+    <rect x="28" y="100" width="8" height="4" fill="url(#stoneGrad)"/>
+    <rect x="-6" y="-7" width="48" height="3" fill="#fff" opacity=".85"/>
+    <rect x="-2" y="-1" width="40" height="2" fill="#fff" opacity=".55"/>
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".45"/>
+  </g>
+  <!-- stone lanterns -->
+  <g transform="translate(234, 178)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="url(#stoneGrad)"/>
+    <rect x="2" y="10" width="8"  height="18" fill="url(#stoneGrad)"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#7A93A8"/>
+    <ellipse cx="6" cy="8" rx="10" ry="7" fill="url(#lanternGlow)" class="lG"/>
+    <rect x="2" y="6"  width="8"  height="4" fill="#FFFFFF" opacity=".35" class="lG"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#6A8199"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#6A8199"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".6"/>
+  </g>
+  <g transform="translate(558, 178)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="url(#stoneGrad)"/>
+    <rect x="2" y="10" width="8"  height="18" fill="url(#stoneGrad)"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#7A93A8"/>
+    <ellipse cx="6" cy="8" rx="10" ry="7" fill="url(#lanternGlow)" class="lG" style="animation-delay:1.5s"/>
+    <rect x="2" y="6"  width="8" height="4" fill="#FFFFFF" opacity=".35" class="lG" style="animation-delay:1.5s"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#6A8199"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#6A8199"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".6"/>
+  </g>
+  <!-- divine beam -->
+  <g class="px">
+    <polygon points="370,0 430,0 480,212 320,212" fill="url(#beamGrad)" class="dvB"/>
+    <polygon points="382,0 418,0 460,212 340,212" fill="url(#beamGrad)" class="dvB" style="animation-delay:1.5s"/>
+    <rect x="388" y="30"  width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:.5s"/>
+    <rect x="400" y="60"  width="3" height="3" fill="#fff" opacity=".25" class="dvB" style="animation-delay:1s"/>
+    <rect x="378" y="90"  width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:2s"/>
+    <rect x="412" y="110" width="3" height="3" fill="#fff" opacity=".25" class="dvB" style="animation-delay:1.5s"/>
+    <rect x="394" y="145" width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:.8s"/>
+  </g>
+  <!-- aura -->
+  <ellipse cx="400" cy="150" rx="120" ry="105" fill="url(#treeAura)" class="auP"/>
+  <g class="px auP">
+    <rect x="330" y="100" width="140" height="120" fill="#FFFFFF" opacity=".04"/>
+    <rect x="350" y="110" width="100" height="100" fill="#CFE9FB" opacity=".06"/>
+  </g>
+  <!-- ground energy -->
+  <g class="px">
+    <rect x="340" y="206" width="28" height="2" fill="#FFFFFF" class="grP"/>
+    <rect x="310" y="209" width="20" height="2" fill="#B9E1FA" class="grP" style="animation-delay:1s"/>
+    <rect x="288" y="212" width="12" height="2" fill="#7FC3EC" class="grP" style="animation-delay:2s"/>
+    <rect x="432" y="206" width="28" height="2" fill="#FFFFFF" class="grP" style="animation-delay:.5s"/>
+    <rect x="470" y="209" width="20" height="2" fill="#B9E1FA" class="grP" style="animation-delay:1.5s"/>
+    <rect x="498" y="212" width="12" height="2" fill="#7FC3EC" class="grP" style="animation-delay:2.5s"/>
+  </g>
+  <!-- stone path -->
+  <g class="px" fill="#6F8AA0" opacity=".4">
+    <rect x="388" y="216" width="10" height="3"/>
+    <rect x="390" y="221" width="8"  height="3"/>
+    <rect x="392" y="226" width="6"  height="2"/>
+  </g>
+  <!-- offering box -->
+  <g transform="translate(382, 224)" class="px">
+    <rect x="0" y="0"  width="28" height="3" fill="#2A4055"/>
+    <rect x="2" y="3"  width="24" height="8" fill="#1C2E40"/>
+    <rect x="0" y="11" width="28" height="3" fill="#2A4055"/>
+    <rect x="8" y="1"  width="12" height="2" fill="#0E1C28"/>
+  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 3 — FOREGROUND WATER (pixel crests, calm & slow)    -->
+  <!-- ======================================================== -->
+  <g class="px">
+    <g class="seaA" style="animation-duration:26s">      <use href="#waveB" x="-50" y="242" opacity="0.85"/>      <use href="#waveB" x="-10" y="242" opacity="0.85"/>      <use href="#waveB" x="30" y="242" opacity="0.85"/>      <use href="#waveB" x="70" y="242" opacity="0.85"/>      <use href="#waveB" x="110" y="242" opacity="0.85"/>      <use href="#waveB" x="150" y="242" opacity="0.85"/>      <use href="#waveB" x="190" y="242" opacity="0.85"/>      <use href="#waveB" x="230" y="242" opacity="0.85"/>      <use href="#waveB" x="270" y="242" opacity="0.85"/>      <use href="#waveB" x="310" y="242" opacity="0.85"/>      <use href="#waveB" x="350" y="242" opacity="0.85"/>      <use href="#waveB" x="390" y="242" opacity="0.85"/>      <use href="#waveB" x="430" y="242" opacity="0.85"/>      <use href="#waveB" x="470" y="242" opacity="0.85"/>      <use href="#waveB" x="510" y="242" opacity="0.85"/>      <use href="#waveB" x="550" y="242" opacity="0.85"/>      <use href="#waveB" x="590" y="242" opacity="0.85"/>      <use href="#waveB" x="630" y="242" opacity="0.85"/>      <use href="#waveB" x="670" y="242" opacity="0.85"/>      <use href="#waveB" x="710" y="242" opacity="0.85"/>      <use href="#waveB" x="750" y="242" opacity="0.85"/>      <use href="#waveB" x="790" y="242" opacity="0.85"/>      <use href="#waveB" x="830" y="242" opacity="0.85"/>      <use href="#waveB" x="870" y="242" opacity="0.85"/>    </g>
+  </g>  <g class="px">
+    <g class="seaB" style="animation-duration:30s">      <use href="#wave" x="-50" y="252" opacity="1.0"/>      <use href="#wave" x="-2" y="252" opacity="1.0"/>      <use href="#wave" x="46" y="252" opacity="1.0"/>      <use href="#wave" x="94" y="252" opacity="1.0"/>      <use href="#wave" x="142" y="252" opacity="1.0"/>      <use href="#wave" x="190" y="252" opacity="1.0"/>      <use href="#wave" x="238" y="252" opacity="1.0"/>      <use href="#wave" x="286" y="252" opacity="1.0"/>      <use href="#wave" x="334" y="252" opacity="1.0"/>      <use href="#wave" x="382" y="252" opacity="1.0"/>      <use href="#wave" x="430" y="252" opacity="1.0"/>      <use href="#wave" x="478" y="252" opacity="1.0"/>      <use href="#wave" x="526" y="252" opacity="1.0"/>      <use href="#wave" x="574" y="252" opacity="1.0"/>      <use href="#wave" x="622" y="252" opacity="1.0"/>      <use href="#wave" x="670" y="252" opacity="1.0"/>      <use href="#wave" x="718" y="252" opacity="1.0"/>      <use href="#wave" x="766" y="252" opacity="1.0"/>      <use href="#wave" x="814" y="252" opacity="1.0"/>      <use href="#wave" x="862" y="252" opacity="1.0"/>    </g>
+  </g>  <g class="px">
+    <g class="seaA" style="animation-duration:34s">      <use href="#waveB" x="-50" y="266" opacity="0.9"/>      <use href="#waveB" x="-10" y="266" opacity="0.9"/>      <use href="#waveB" x="30" y="266" opacity="0.9"/>      <use href="#waveB" x="70" y="266" opacity="0.9"/>      <use href="#waveB" x="110" y="266" opacity="0.9"/>      <use href="#waveB" x="150" y="266" opacity="0.9"/>      <use href="#waveB" x="190" y="266" opacity="0.9"/>      <use href="#waveB" x="230" y="266" opacity="0.9"/>      <use href="#waveB" x="270" y="266" opacity="0.9"/>      <use href="#waveB" x="310" y="266" opacity="0.9"/>      <use href="#waveB" x="350" y="266" opacity="0.9"/>      <use href="#waveB" x="390" y="266" opacity="0.9"/>      <use href="#waveB" x="430" y="266" opacity="0.9"/>      <use href="#waveB" x="470" y="266" opacity="0.9"/>      <use href="#waveB" x="510" y="266" opacity="0.9"/>      <use href="#waveB" x="550" y="266" opacity="0.9"/>      <use href="#waveB" x="590" y="266" opacity="0.9"/>      <use href="#waveB" x="630" y="266" opacity="0.9"/>      <use href="#waveB" x="670" y="266" opacity="0.9"/>      <use href="#waveB" x="710" y="266" opacity="0.9"/>      <use href="#waveB" x="750" y="266" opacity="0.9"/>      <use href="#waveB" x="790" y="266" opacity="0.9"/>      <use href="#waveB" x="830" y="266" opacity="0.9"/>      <use href="#waveB" x="870" y="266" opacity="0.9"/>    </g>
+  </g>  <g class="px">
+    <g class="seaB" style="animation-duration:38s">      <use href="#wave" x="-50" y="282" opacity="1.0"/>      <use href="#wave" x="-2" y="282" opacity="1.0"/>      <use href="#wave" x="46" y="282" opacity="1.0"/>      <use href="#wave" x="94" y="282" opacity="1.0"/>      <use href="#wave" x="142" y="282" opacity="1.0"/>      <use href="#wave" x="190" y="282" opacity="1.0"/>      <use href="#wave" x="238" y="282" opacity="1.0"/>      <use href="#wave" x="286" y="282" opacity="1.0"/>      <use href="#wave" x="334" y="282" opacity="1.0"/>      <use href="#wave" x="382" y="282" opacity="1.0"/>      <use href="#wave" x="430" y="282" opacity="1.0"/>      <use href="#wave" x="478" y="282" opacity="1.0"/>      <use href="#wave" x="526" y="282" opacity="1.0"/>      <use href="#wave" x="574" y="282" opacity="1.0"/>      <use href="#wave" x="622" y="282" opacity="1.0"/>      <use href="#wave" x="670" y="282" opacity="1.0"/>      <use href="#wave" x="718" y="282" opacity="1.0"/>      <use href="#wave" x="766" y="282" opacity="1.0"/>      <use href="#wave" x="814" y="282" opacity="1.0"/>      <use href="#wave" x="862" y="282" opacity="1.0"/>    </g>
+  </g>  <g class="px">
+    <g class="seaA" style="animation-duration:42s">      <use href="#waveB" x="-50" y="298" opacity="0.85"/>      <use href="#waveB" x="-10" y="298" opacity="0.85"/>      <use href="#waveB" x="30" y="298" opacity="0.85"/>      <use href="#waveB" x="70" y="298" opacity="0.85"/>      <use href="#waveB" x="110" y="298" opacity="0.85"/>      <use href="#waveB" x="150" y="298" opacity="0.85"/>      <use href="#waveB" x="190" y="298" opacity="0.85"/>      <use href="#waveB" x="230" y="298" opacity="0.85"/>      <use href="#waveB" x="270" y="298" opacity="0.85"/>      <use href="#waveB" x="310" y="298" opacity="0.85"/>      <use href="#waveB" x="350" y="298" opacity="0.85"/>      <use href="#waveB" x="390" y="298" opacity="0.85"/>      <use href="#waveB" x="430" y="298" opacity="0.85"/>      <use href="#waveB" x="470" y="298" opacity="0.85"/>      <use href="#waveB" x="510" y="298" opacity="0.85"/>      <use href="#waveB" x="550" y="298" opacity="0.85"/>      <use href="#waveB" x="590" y="298" opacity="0.85"/>      <use href="#waveB" x="630" y="298" opacity="0.85"/>      <use href="#waveB" x="670" y="298" opacity="0.85"/>      <use href="#waveB" x="710" y="298" opacity="0.85"/>      <use href="#waveB" x="750" y="298" opacity="0.85"/>      <use href="#waveB" x="790" y="298" opacity="0.85"/>      <use href="#waveB" x="830" y="298" opacity="0.85"/>      <use href="#waveB" x="870" y="298" opacity="0.85"/>    </g>
+  </g>  <g class="px">
+    <g class="seaB" style="animation-duration:46s">      <use href="#wave" x="-50" y="312" opacity="0.8"/>      <use href="#wave" x="-2" y="312" opacity="0.8"/>      <use href="#wave" x="46" y="312" opacity="0.8"/>      <use href="#wave" x="94" y="312" opacity="0.8"/>      <use href="#wave" x="142" y="312" opacity="0.8"/>      <use href="#wave" x="190" y="312" opacity="0.8"/>      <use href="#wave" x="238" y="312" opacity="0.8"/>      <use href="#wave" x="286" y="312" opacity="0.8"/>      <use href="#wave" x="334" y="312" opacity="0.8"/>      <use href="#wave" x="382" y="312" opacity="0.8"/>      <use href="#wave" x="430" y="312" opacity="0.8"/>      <use href="#wave" x="478" y="312" opacity="0.8"/>      <use href="#wave" x="526" y="312" opacity="0.8"/>      <use href="#wave" x="574" y="312" opacity="0.8"/>      <use href="#wave" x="622" y="312" opacity="0.8"/>      <use href="#wave" x="670" y="312" opacity="0.8"/>      <use href="#wave" x="718" y="312" opacity="0.8"/>      <use href="#wave" x="766" y="312" opacity="0.8"/>      <use href="#wave" x="814" y="312" opacity="0.8"/>      <use href="#wave" x="862" y="312" opacity="0.8"/>    </g>
+  </g>  <g class="px">
+    <g class="seaB" style="animation-duration:30s">      <use href="#waveD" x="-40" y="250" opacity="0.45"/>      <use href="#waveD" x="-4" y="250" opacity="0.45"/>      <use href="#waveD" x="32" y="250" opacity="0.45"/>      <use href="#waveD" x="68" y="250" opacity="0.45"/>      <use href="#waveD" x="104" y="250" opacity="0.45"/>      <use href="#waveD" x="140" y="250" opacity="0.45"/>      <use href="#waveD" x="176" y="250" opacity="0.45"/>      <use href="#waveD" x="212" y="250" opacity="0.45"/>      <use href="#waveD" x="248" y="250" opacity="0.45"/>      <use href="#waveD" x="284" y="250" opacity="0.45"/>      <use href="#waveD" x="320" y="250" opacity="0.45"/>      <use href="#waveD" x="356" y="250" opacity="0.45"/>      <use href="#waveD" x="392" y="250" opacity="0.45"/>      <use href="#waveD" x="428" y="250" opacity="0.45"/>      <use href="#waveD" x="464" y="250" opacity="0.45"/>      <use href="#waveD" x="500" y="250" opacity="0.45"/>      <use href="#waveD" x="536" y="250" opacity="0.45"/>      <use href="#waveD" x="572" y="250" opacity="0.45"/>      <use href="#waveD" x="608" y="250" opacity="0.45"/>      <use href="#waveD" x="644" y="250" opacity="0.45"/>      <use href="#waveD" x="680" y="250" opacity="0.45"/>      <use href="#waveD" x="716" y="250" opacity="0.45"/>      <use href="#waveD" x="752" y="250" opacity="0.45"/>      <use href="#waveD" x="788" y="250" opacity="0.45"/>      <use href="#waveD" x="824" y="250" opacity="0.45"/>      <use href="#waveD" x="860" y="250" opacity="0.45"/>      <use href="#waveD" x="896" y="250" opacity="0.45"/>    </g>
+  </g>  <g class="px">
+    <g class="seaA" style="animation-duration:36s">      <use href="#waveD" x="-40" y="272" opacity="0.4"/>      <use href="#waveD" x="-4" y="272" opacity="0.4"/>      <use href="#waveD" x="32" y="272" opacity="0.4"/>      <use href="#waveD" x="68" y="272" opacity="0.4"/>      <use href="#waveD" x="104" y="272" opacity="0.4"/>      <use href="#waveD" x="140" y="272" opacity="0.4"/>      <use href="#waveD" x="176" y="272" opacity="0.4"/>      <use href="#waveD" x="212" y="272" opacity="0.4"/>      <use href="#waveD" x="248" y="272" opacity="0.4"/>      <use href="#waveD" x="284" y="272" opacity="0.4"/>      <use href="#waveD" x="320" y="272" opacity="0.4"/>      <use href="#waveD" x="356" y="272" opacity="0.4"/>      <use href="#waveD" x="392" y="272" opacity="0.4"/>      <use href="#waveD" x="428" y="272" opacity="0.4"/>      <use href="#waveD" x="464" y="272" opacity="0.4"/>      <use href="#waveD" x="500" y="272" opacity="0.4"/>      <use href="#waveD" x="536" y="272" opacity="0.4"/>      <use href="#waveD" x="572" y="272" opacity="0.4"/>      <use href="#waveD" x="608" y="272" opacity="0.4"/>      <use href="#waveD" x="644" y="272" opacity="0.4"/>      <use href="#waveD" x="680" y="272" opacity="0.4"/>      <use href="#waveD" x="716" y="272" opacity="0.4"/>      <use href="#waveD" x="752" y="272" opacity="0.4"/>      <use href="#waveD" x="788" y="272" opacity="0.4"/>      <use href="#waveD" x="824" y="272" opacity="0.4"/>      <use href="#waveD" x="860" y="272" opacity="0.4"/>      <use href="#waveD" x="896" y="272" opacity="0.4"/>    </g>
+  </g>  <g class="px">
+    <g class="seaB" style="animation-duration:40s">      <use href="#waveD" x="-40" y="290" opacity="0.34"/>      <use href="#waveD" x="-4" y="290" opacity="0.34"/>      <use href="#waveD" x="32" y="290" opacity="0.34"/>      <use href="#waveD" x="68" y="290" opacity="0.34"/>      <use href="#waveD" x="104" y="290" opacity="0.34"/>      <use href="#waveD" x="140" y="290" opacity="0.34"/>      <use href="#waveD" x="176" y="290" opacity="0.34"/>      <use href="#waveD" x="212" y="290" opacity="0.34"/>      <use href="#waveD" x="248" y="290" opacity="0.34"/>      <use href="#waveD" x="284" y="290" opacity="0.34"/>      <use href="#waveD" x="320" y="290" opacity="0.34"/>      <use href="#waveD" x="356" y="290" opacity="0.34"/>      <use href="#waveD" x="392" y="290" opacity="0.34"/>      <use href="#waveD" x="428" y="290" opacity="0.34"/>      <use href="#waveD" x="464" y="290" opacity="0.34"/>      <use href="#waveD" x="500" y="290" opacity="0.34"/>      <use href="#waveD" x="536" y="290" opacity="0.34"/>      <use href="#waveD" x="572" y="290" opacity="0.34"/>      <use href="#waveD" x="608" y="290" opacity="0.34"/>      <use href="#waveD" x="644" y="290" opacity="0.34"/>      <use href="#waveD" x="680" y="290" opacity="0.34"/>      <use href="#waveD" x="716" y="290" opacity="0.34"/>      <use href="#waveD" x="752" y="290" opacity="0.34"/>      <use href="#waveD" x="788" y="290" opacity="0.34"/>      <use href="#waveD" x="824" y="290" opacity="0.34"/>      <use href="#waveD" x="860" y="290" opacity="0.34"/>      <use href="#waveD" x="896" y="290" opacity="0.34"/>    </g>
+  </g>  <g class="px">
+    <g class="seaA" style="animation-duration:44s">      <use href="#waveD" x="-40" y="306" opacity="0.28"/>      <use href="#waveD" x="-4" y="306" opacity="0.28"/>      <use href="#waveD" x="32" y="306" opacity="0.28"/>      <use href="#waveD" x="68" y="306" opacity="0.28"/>      <use href="#waveD" x="104" y="306" opacity="0.28"/>      <use href="#waveD" x="140" y="306" opacity="0.28"/>      <use href="#waveD" x="176" y="306" opacity="0.28"/>      <use href="#waveD" x="212" y="306" opacity="0.28"/>      <use href="#waveD" x="248" y="306" opacity="0.28"/>      <use href="#waveD" x="284" y="306" opacity="0.28"/>      <use href="#waveD" x="320" y="306" opacity="0.28"/>      <use href="#waveD" x="356" y="306" opacity="0.28"/>      <use href="#waveD" x="392" y="306" opacity="0.28"/>      <use href="#waveD" x="428" y="306" opacity="0.28"/>      <use href="#waveD" x="464" y="306" opacity="0.28"/>      <use href="#waveD" x="500" y="306" opacity="0.28"/>      <use href="#waveD" x="536" y="306" opacity="0.28"/>      <use href="#waveD" x="572" y="306" opacity="0.28"/>      <use href="#waveD" x="608" y="306" opacity="0.28"/>      <use href="#waveD" x="644" y="306" opacity="0.28"/>      <use href="#waveD" x="680" y="306" opacity="0.28"/>      <use href="#waveD" x="716" y="306" opacity="0.28"/>      <use href="#waveD" x="752" y="306" opacity="0.28"/>      <use href="#waveD" x="788" y="306" opacity="0.28"/>      <use href="#waveD" x="824" y="306" opacity="0.28"/>      <use href="#waveD" x="860" y="306" opacity="0.28"/>      <use href="#waveD" x="896" y="306" opacity="0.28"/>    </g>
+  </g>  <!-- caustic sparkles on the water -->
+  <g class="px">    <rect x="348" y="312" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:3.3s"/>    <rect x="614" y="250" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:1.7s"/>    <rect x="376" y="285" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:0.1s"/>    <rect x="661" y="255" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:0.2s"/>    <rect x="328" y="286" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:3.5s"/>    <rect x="87" y="303" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:1.3s"/>    <rect x="55" y="262" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:1.2s"/>    <rect x="711" y="306" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:3.0s"/>    <rect x="437" y="249" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:2.0s"/>    <rect x="649" y="294" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:2.0s"/>    <rect x="633" y="255" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:0.3s"/>    <rect x="128" y="278" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:2.5s"/>    <rect x="407" y="304" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:1.6s"/>    <rect x="564" y="256" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:2.6s"/>    <rect x="40" y="285" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:0.3s"/>    <rect x="32" y="275" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:0.4s"/>    <rect x="639" y="308" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:3.1s"/>    <rect x="386" y="284" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:2.4s"/>    <rect x="217" y="312" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:2.6s"/>    <rect x="360" y="302" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:3.1s"/>    <rect x="344" y="297" width="3" height="3" fill="#FFFFFF" class="spk" style="animation-delay:0.9s"/>    <rect x="659" y="301" width="2" height="2" fill="#FFFFFF" class="spk" style="animation-delay:3.1s"/>  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 4 — CELESTIAL ARCS + ORBITING STARS (new)           -->
+  <!-- ======================================================== -->
+  <g fill="none">
+    <circle cx="400" cy="150" r="122" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="1"/>
+    <path d="M232,150 A168 168 0 0 1 568,150" stroke="#CFEAFB" stroke-opacity=".16" stroke-width="1" stroke-dasharray="2 6"/>
+    <path d="M400,-38 A188 188 0 0 1 588,150" stroke="#FFFFFF" stroke-opacity=".10" stroke-width="1" stroke-dasharray="1 9"/>
+    <circle cx="400" cy="150" r="80" stroke="#9FD3F2" stroke-opacity=".10" stroke-width="1" stroke-dasharray="3 10"/>
+  </g>
+  <g class="orb1" style="transform-origin:400px 150px">
+    <circle cx="400" cy="28" r="5" fill="#FFFFFF" opacity=".18"/>
+    <use href="#star" x="400" y="28"/>
+    <use href="#star" x="264" y="216" opacity=".6"/>
+  </g>
+  <g class="orb2" style="transform-origin:400px 150px">
+    <use href="#star" x="522" y="150"/>
+    <use href="#star" x="278" y="150" opacity=".55"/>
+    <use href="#star" x="400" y="272" opacity=".35"/>
+  </g>
+  <g class="px auR" style="transform-origin:400px 155px">
+    <circle cx="400" cy="155" r="118" stroke="#FFFFFF" stroke-opacity=".08" fill="none"/>
+  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 5 — STORM OVERLAY (sky + land + sea)                -->
+  <!-- ======================================================== -->
+  <rect x="0" y="0" width="800" height="216" fill="#0B2438" class="skyDk"/>
+  <rect x="0" y="212" width="800" height="40" fill="#0B2438" class="gndDk"/>
+  <rect x="0" y="224" width="800" height="96" fill="#08243A" class="seaDk"/>
+  <g class="dkCl">
+    <use href="#dkCl2" x="20"  y="2"/>
+    <use href="#dkCl1" x="180" y="12"/>
+    <use href="#dkCl2" x="340" y="0"/>
+    <use href="#dkCl1" x="520" y="8"/>
+    <use href="#dkCl2" x="660" y="4"/>
+  </g>
+  <g class="dkClB">
+    <use href="#dkCl1" x="60"  y="38"/>
+    <use href="#dkCl2" x="200" y="30"/>
+    <use href="#dkCl1" x="400" y="42"/>
+    <use href="#dkCl2" x="560" y="34"/>
+    <use href="#dkCl1" x="720" y="36"/>
+  </g>
+  <g class="dkCl" style="animation-delay:0.8s">
+    <use href="#dkCl1" x="100" y="62"/>
+    <use href="#dkCl2" x="280" y="56"/>
+    <use href="#dkCl1" x="460" y="66"/>
+    <use href="#dkCl2" x="620" y="60"/>
+  </g>
+  <rect x="0" y="0" width="800" height="320" fill="#CFE9FF" opacity="0" class="ltng"/>
+  <!-- ======================================================== -->
+  <!-- LAYER 6 — SACRED ASCII TREE + ORBS + SPIRITS + PETALS     -->
+  <!-- ======================================================== -->
+  <!-- the tree: original glyph art, original palette (c1 white / c2 ice / c3 sky / c4 sea) -->
+  <text x="400" y="90" class="ascii fl" text-anchor="middle">
+    <tspan x="400" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c3">⠀⠤⠦⢀⣠⡀⠀⠀⠀⠀⢀⠈⠉⠁⡀⠀⠀⠈⢲⣿⠺⠂⠀⠀⠀⠀⠀⣴⣿⠉⠉</tspan>
+    <tspan x="400" dy="1.1em" class="c2">⠀⠀⠀⠀⠈⠉⠁⠒⠒⠀⠺⡄⠀⠀⠈⢀⣂⡀⢈⠾⣧⡄⠀⠀⠀⠀⠀⠀⠀⡿</tspan>
+    <tspan x="400" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠹.⠀⠀⠈⢩⣷⡟⠀⠬⢁⢠⠀⢀⠀⣀⣀⣼⠁</tspan>
+    <tspan x="400" dy="1.1em" class="c1">⠀⠀⠀⠤⠀⠠⡇⠀⠀⠀⠀⠒⠭⣄⢀⠀⢨⠟⢅⡀⣀⣼⣿⡿⠿⠿⠟⠛⠁</tspan>
+    <tspan x="400" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠩⣖⠀⢀⣴⣾⠿⠛⠀⠀⠀⠀⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c2">⠀⠀⠀⠀⠙⠛⢻⡠⠷⢤⡀⠀⠀⢀⣆⣿⣾⡿⠁⣀ ⣀⣀⠀⠀⠀⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⠀⢱⡆⠀⠙⢿⣤⣠⣿⠿⠛⠛⠋⠀⠀⠀⠁⠀⠀⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c1">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⣿⣫⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⠀⠀⠀⠹⣆⢸⠟⢀⣿⠈⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+    <tspan x="400" dy="1.1em" class="c2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⢀⣿⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+  </text>
+  <!-- drifting aura rings -->
+  <g transform="translate(400,155)" class="px auR">    <rect x="-64" y="-4" width="8" height="8" fill="#FFFFFF" opacity="0.1"/>    <rect x="56" y="-4" width="8" height="8" fill="#FFFFFF" opacity="0.1"/>    <rect x="-4" y="-64" width="8" height="8" fill="#FFFFFF" opacity="0.1"/>    <rect x="-4" y="56" width="8" height="8" fill="#FFFFFF" opacity="0.1"/>  </g>  <g transform="translate(400,155)" class="px auR" style="animation-delay:2s">    <rect x="-50" y="-2" width="3" height="3" fill="#FFFFFF" opacity=".2"/>    <rect x="48" y="-2" width="3" height="3" fill="#FFFFFF" opacity=".2"/>    <rect x="-2" y="-50" width="3" height="3" fill="#9FD3F2" opacity=".2"/>    <rect x="-2" y="48" width="3" height="3" fill="#9FD3F2" opacity=".2"/>    <rect x="-38" y="-34" width="3" height="3" fill="#D8EEFC" opacity=".2"/>    <rect x="36" y="-34" width="3" height="3" fill="#D8EEFC" opacity=".2"/>    <rect x="-38" y="32" width="3" height="3" fill="#D8EEFC" opacity=".2"/>    <rect x="36" y="32" width="3" height="3" fill="#D8EEFC" opacity=".2"/>  </g>
+  <!-- orbs: white + sea blue (original) and two small new ones -->
+  <g class="ap1" transform="translate(358, 124)">
+    <g class="apG px">
+      <rect x="-3" y="0" width="3" height="4" fill="#FFFFFF" opacity=".22"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#FFFFFF" opacity=".22"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#FFFFFF" opacity=".22"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#FFFFFF" opacity=".22"/>
+    </g>
+    <rect x="0" y="0" width="4" height="4" fill="url(#orbWhite)" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".6" class="px"/>
+  </g>
+  <g class="ap2" transform="translate(440, 112)">
+    <g class="apG px" style="animation-delay:1.5s">
+      <rect x="-3" y="0" width="3" height="4" fill="#7FC3EC" opacity=".18"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#7FC3EC" opacity=".18"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#7FC3EC" opacity=".18"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#7FC3EC" opacity=".18"/>
+    </g>
+    <rect x="0" y="0" width="4" height="4" fill="url(#orbSea)" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".55" class="px"/>
+  </g>
+  <g class="ap2" transform="translate(452, 168)" style="animation-delay:.8s">
+    <rect x="0" y="0" width="3" height="3" fill="url(#orbWhite)" class="px"/>
+    <rect x="0" y="0" width="1" height="1" fill="#fff" opacity=".8" class="px"/>
+  </g>
+  <g class="ap1" transform="translate(344, 160)" style="animation-delay:2.2s">
+    <rect x="0" y="0" width="3" height="3" fill="url(#orbSea)" class="px"/>
+    <rect x="0" y="0" width="1" height="1" fill="#fff" opacity=".7" class="px"/>
+  </g>
+  <!-- spirit particles (original + a few more) -->
+  <g class="px">    <rect x="380" y="180" width="3" height="3" fill="#FFFFFF" class="spR" style="animation-delay:0s"/>    <rect x="405" y="190" width="3" height="3" fill="#D8EEFC" class="spRB" style="animation-delay:2s"/>    <rect x="418" y="175" width="3" height="3" fill="#FFFFFF" class="spR" style="animation-delay:4s"/>    <rect x="392" y="185" width="3" height="3" fill="#B9E1FA" class="spRB" style="animation-delay:1s"/>    <rect x="370" y="195" width="3" height="3" fill="#D8EEFC" class="spR" style="animation-delay:3s"/>    <rect x="428" y="182" width="3" height="3" fill="#B9E1FA" class="spRB" style="animation-delay:5s"/>    <rect x="400" y="170" width="3" height="3" fill="#7FC3EC" class="spR" style="animation-delay:1.5s"/>    <rect x="386" y="188" width="3" height="3" fill="#7FC3EC" class="spRB" style="animation-delay:3.5s"/>    <rect x="412" y="178" width="3" height="3" fill="#9FD3F2" class="spR" style="animation-delay:5.5s"/>    <rect x="396" y="165" width="3" height="3" fill="#fff" class="spR" style="animation-delay:2.5s; animation-duration:8s"/>    <rect x="410" y="192" width="3" height="3" fill="#fff" class="spRB" style="animation-delay:4.5s; animation-duration:8s"/>    <rect x="352" y="200" width="3" height="3" fill="#FFFFFF" class="spR" style="animation-delay:0.7s"/>    <rect x="446" y="196" width="3" height="3" fill="#D8EEFC" class="spRB" style="animation-delay:2.9s"/>    <rect x="366" y="204" width="3" height="3" fill="#9FD3F2" class="spR" style="animation-delay:4.4s"/>  </g>
+  <!-- frost petals -->
+  <g class="px">    <rect x="350" y="100" width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:0s"/>    <rect x="420" y="95" width="4" height="3" fill="#D8EEFC" class="ptl2" style="animation-delay:2s"/>    <rect x="380" y="88" width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:4s"/>    <rect x="440" y="105" width="4" height="3" fill="#CFE9FB" class="ptl2" style="animation-delay:1s"/>    <rect x="330" y="110" width="4" height="3" fill="#D8EEFC" class="ptl1" style="animation-delay:3s"/>    <rect x="460" y="92" width="4" height="3" fill="#FFFFFF" class="ptl2" style="animation-delay:5s"/>    <rect x="395" y="82" width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:6s"/>    <rect x="365" y="115" width="4" height="3" fill="#CFE9FB" class="ptl2" style="animation-delay:3.5s"/>  </g>
+  <!-- ======================================================== -->
+  <!-- LAYER 7 — ATMOSPHERE: mist, streaks, snow, frame, vignette -->
+  <!-- ======================================================== -->
+  <!-- low sea mist (soft depth over the water) -->
+  <g class="px">
+    <rect x="0" y="238" width="800" height="26" fill="url(#mistGrad)" class="mst" opacity=".5"/>
+    <rect x="-40" y="264" width="900" height="18" fill="#FFFFFF" class="mst" opacity=".12" style="animation-delay:-7s"/>
+  </g>
+  <!-- light streaks sweeping the sky -->
+  <g class="px" fill="#FFFFFF">
+    <rect x="0" y="58"  width="120" height="2" opacity=".10" class="stk"/>
+    <rect x="0" y="96"  width="180" height="2" opacity=".08" class="stk" style="animation-delay:-3s; animation-duration:11s"/>
+    <rect x="0" y="126" width="90"  height="2" opacity=".09" class="stk" style="animation-delay:-6s; animation-duration:13s"/>
+  </g>
+  <!-- snow (always on top) -->
+  <g class="px" fill="#fff">
+    <rect x="20"  width="3" height="3" class="sf" style="animation-delay:0s"/>
+    <rect x="70"  width="4" height="4" class="sf" style="animation-delay:1.2s; animation-duration:7s"/>
+    <rect x="130" width="3" height="3" class="sf" style="animation-delay:2.5s"/>
+    <rect x="185" width="4" height="4" class="sf" style="animation-delay:.5s; animation-duration:8s"/>
+    <rect x="250" width="3" height="3" class="sf" style="animation-delay:3.2s; animation-duration:6.5s"/>
+    <rect x="310" width="4" height="4" class="sf" style="animation-delay:1.8s"/>
+    <rect x="365" width="3" height="3" class="sf" style="animation-delay:4s; animation-duration:7.5s"/>
+    <rect x="420" width="4" height="4" class="sf" style="animation-delay:.8s"/>
+    <rect x="475" width="3" height="3" class="sf" style="animation-delay:2.8s; animation-duration:8s"/>
+    <rect x="530" width="4" height="4" class="sf" style="animation-delay:1.5s; animation-duration:6s"/>
+    <rect x="585" width="3" height="3" class="sf" style="animation-delay:3.5s"/>
+    <rect x="640" width="4" height="4" class="sf" style="animation-delay:.3s; animation-duration:7s"/>
+    <rect x="700" width="3" height="3" class="sf" style="animation-delay:2s"/>
+    <rect x="760" width="4" height="4" class="sf" style="animation-delay:4.2s; animation-duration:6.5s"/>
+    <rect x="50"  width="3" height="3" class="sf" style="animation-delay:3s; animation-duration:8.5s"/>
+    <rect x="160" width="3" height="3" class="sf" style="animation-delay:1s; animation-duration:5.5s"/>
+    <rect x="450" width="4" height="4" class="sf" style="animation-delay:2.2s; animation-duration:7s"/>
+    <rect x="620" width="3" height="3" class="sf" style="animation-delay:3.8s; animation-duration:6s"/>
+  </g>
+  <!-- HUD frame: quiet, elegant edge (new) -->
+  <g class="px">
+    <rect x="6" y="6" width="788" height="1" fill="url(#frameGrad)" opacity=".5"/>
+    <rect x="6" y="313" width="788" height="1" fill="url(#frameGrad)" opacity=".5"/>
+    <rect x="6" y="6" width="1" height="308" fill="url(#frameGrad)" opacity=".3"/>
+    <rect x="793" y="6" width="1" height="308" fill="url(#frameGrad)" opacity=".3"/>
+    <rect x="6"    y="6"   width="16" height="3" fill="#FFFFFF" opacity=".8"/>
+    <rect x="6"    y="6"   width="3"  height="16" fill="#FFFFFF" opacity=".8"/>
+    <rect x="778"  y="6"   width="16" height="3" fill="#FFFFFF" opacity=".8"/>
+    <rect x="791"  y="6"   width="3"  height="16" fill="#FFFFFF" opacity=".8"/>
+    <rect x="6"    y="311" width="16" height="3" fill="#FFFFFF" opacity=".8"/>
+    <rect x="6"    y="298" width="3"  height="16" fill="#FFFFFF" opacity=".8"/>
+    <rect x="778"  y="311" width="16" height="3" fill="#FFFFFF" opacity=".8"/>
+    <rect x="791"  y="298" width="3"  height="16" fill="#FFFFFF" opacity=".8"/>
+    <rect x="388"  y="4"   width="24" height="2" fill="#FFFFFF" opacity=".7"/>
+    <rect x="388"  y="314" width="24" height="2" fill="#FFFFFF" opacity=".7"/>
+  </g>
+  <rect x="0" y="0" width="800" height="320" fill="url(#vignette)"/>
+</svg>

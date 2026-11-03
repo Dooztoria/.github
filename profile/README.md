@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/banner.svg" width="100%" alt="⛩️">
+  <img src="assets/beta3.svg" width="100%" alt="⛩️">
 
   <br/>
 

@@ -1,363 +1,605 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 280" width="800" height="280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sacred blue landscape animated banner">
+<svg fill="none" viewBox="0 0 800 280" width="800" height="280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       /* <![CDATA[ */
-      .a{transform-box:fill-box;transform-origin:center}
-      @keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
-      @keyframes driftL{0%,100%{transform:translateX(-18px)}50%{transform:translateX(18px)}}
-      @keyframes driftR{0%,100%{transform:translateX(16px)}50%{transform:translateX(-16px)}}
-      @keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.85}80%{opacity:.35}100%{transform:translateY(-70px);opacity:0}}
-      @keyframes fall{0%{transform:translateY(-14px);opacity:0}10%{opacity:.85}90%{opacity:.5}100%{transform:translateY(150px);opacity:0}}
-      @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.95}}
-      @keyframes halo{0%,100%{opacity:.35;transform:scale(.94)}50%{opacity:.85;transform:scale(1.06)}}
-      @keyframes beam{0%,100%{opacity:.35}50%{opacity:.9}}
-      @keyframes bird{0%{transform:translateX(860px)}100%{transform:translateX(-60px)}}
-      @keyframes petal{0%{transform:translate(0,0) rotate(0deg);opacity:0}12%{opacity:.85}88%{opacity:.3}100%{transform:translate(-40px,90px) rotate(160deg);opacity:0}}
-      @keyframes flare{0%,100%{opacity:.5}50%{opacity:1}}
-      @keyframes sheen{0%{transform:translateX(-240px)}60%,100%{transform:translateX(820px)}}
-      @keyframes tide{0%,100%{transform:translateX(0)}50%{transform:translateX(-40px)}}
-      /* === Grand cycle: deep-sea twilight (28s) === */
-      @keyframes dusk{0%,24%{opacity:0}40%,62%{opacity:1}80%,100%{opacity:0}}
-      @keyframes duskDim{0%,24%{opacity:0}40%,62%{opacity:.75}80%,100%{opacity:0}}
-      @keyframes duskGlow{0%,24%{opacity:.25}40%,62%{opacity:1}80%,100%{opacity:.25}}
-      @keyframes moonUp{0%,28%{transform:translateY(40px);opacity:0}44%,58%{transform:translateY(0);opacity:1}74%,100%{transform:translateY(40px);opacity:0}}
-      @keyframes moonGrow{0%,20%{transform:scale(.9)}50%{transform:scale(1.12)}80%,100%{transform:scale(.9)}}
-      @keyframes rain{0%,30%{opacity:0}38%,66%{opacity:.5}76%,100%{opacity:0}}
-      @keyframes moonShimmer{0%,100%{opacity:.25}50%{opacity:.9}}
+      .px { shape-rendering: crispEdges; }
+      .ascii { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 900; white-space: pre; }
 
-      .tw1{animation:tw 4s ease-in-out infinite}
-      .tw2{animation:tw 6s ease-in-out infinite;animation-delay:-2s}
-      .cl1{animation:driftL 26s ease-in-out infinite}
-      .cl2{animation:driftR 32s ease-in-out infinite}
-      .sp1{animation:rise 6s linear infinite}
-      .sp2{animation:rise 8s linear infinite;animation-delay:-3s}
-      .sf1{animation:fall 5s linear infinite}
-      .sf2{animation:fall 7s linear infinite;animation-delay:-2s}
-      .gl{animation:pulse 3.5s ease-in-out infinite}
-      .gl2{animation:pulse 3.5s ease-in-out infinite;animation-delay:-1.7s}
-      .hl{animation:halo 6s ease-in-out infinite}
-      .bm{animation:beam 5s ease-in-out infinite}
-      .bd{animation:bird 22s linear infinite}
-      .p1{animation:petal 9s linear infinite}
-      .p2{animation:petal 11s linear infinite;animation-delay:-5s}
-      .rd{animation:flare 4s ease-in-out infinite}
-      .sh{animation:sheen 9s ease-in-out infinite}
-      .td{animation:tide 12s ease-in-out infinite}
-      .dk{animation:dusk 28s ease-in-out infinite}
-      .dkD{animation:duskDim 28s ease-in-out infinite}
-      .dkG{animation:duskGlow 28s ease-in-out infinite}
-      .mn{animation:moonUp 28s ease-in-out infinite}
-      .mg{animation:moonGrow 28s ease-in-out infinite}
-      .rn{animation:rain 28s linear infinite}
-      .rn2{animation:rain 22s linear infinite;animation-delay:-9s}
-      .ms{animation:moonShimmer 6s ease-in-out infinite}
+      /* Snow */
+      @keyframes snowF { 0%{ transform:translateY(-16px); opacity:0 } 8%{ opacity:.85 } 92%{ opacity:.35 } 100%{ transform:translateY(300px); opacity:0 } }
+
+      /* Orbs float */
+      @keyframes orbF1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-5px) } }
+      @keyframes orbF2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+      @keyframes orbGlow { 0%,100%{ opacity:.2 } 50%{ opacity:.6 } }
+
+      /* Sun rays */
+      @keyframes rayPulse { 0%,100%{ opacity:.12 } 50%{ opacity:.24 } }
+
+      /* Cloud drift */
+      @keyframes cDrift  { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(20px) } }
+      @keyframes cDriftB { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(-16px) } }
+
+      /* Lantern */
+      @keyframes lanternG { 0%,100%{ opacity:.3 } 50%{ opacity:.7 } }
+
+      /* Bird fly */
+      @keyframes bFlyL { 0%{ transform:translateX(860px) } 100%{ transform:translateX(-80px) } }
+      @keyframes bGlide { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-4px) } }
+
+      /* Divine light beam */
+      @keyframes divineBeam { 0%,100%{ opacity:.06 } 50%{ opacity:.14 } }
+
+      /* Spirit particles */
+      @keyframes spiritRise  { 0%{ transform:translateY(0) translateX(0); opacity:0 } 12%{ opacity:.8 } 70%{ opacity:.3 } 100%{ transform:translateY(-80px) translateX(8px); opacity:0 } }
+      @keyframes spiritRiseB { 0%{ transform:translateY(0) translateX(0); opacity:0 } 15%{ opacity:.6 } 65%{ opacity:.2 } 100%{ transform:translateY(-70px) translateX(-6px); opacity:0 } }
+
+      /* Sacred aura */
+      @keyframes auraPulse { 0%,100%{ opacity:.05 } 50%{ opacity:.12 } }
+      @keyframes auraRing  { 0%,100%{ opacity:.04; transform:scale(1) } 50%{ opacity:.1; transform:scale(1.04) } }
+
+      /* Petals (frost) */
+      @keyframes petalDrift1 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.75 } 90%{ opacity:.3 } 100%{ transform:translate(40px,60px) rotate(180deg); opacity:0 } }
+      @keyframes petalDrift2 { 0%{ transform:translate(0,0) rotate(0deg); opacity:0 } 10%{ opacity:.65 } 90%{ opacity:.2 } 100%{ transform:translate(-35px,55px) rotate(-160deg); opacity:0 } }
+
+      /* Tree flicker */
+      @keyframes treeGlow {
+        0%,100% { opacity:1 }
+        85% { opacity:1 } 88% { opacity:.82 } 90% { opacity:.38 } 93% { opacity:.9 } 95% { opacity:1 }
+      }
+
+      /* Ground energy */
+      @keyframes groundPulse { 0%,100%{ opacity:.04 } 50%{ opacity:.14 } }
+
+      /* ========================================== */
+      /* ===   STORM CYCLE (20s) — tide & shadow === */
+      /* ========================================== */
+      @keyframes skyDarken {
+        0%,28%   { opacity: 0 }
+        38%      { opacity: 0.8 }
+        52%,64%  { opacity: 0.86 }
+        74%      { opacity: 0.45 }
+        84%,100% { opacity: 0 }
+      }
+      @keyframes groundDarken {
+        0%,30%   { opacity: 0 }
+        40%      { opacity: 0.55 }
+        52%,62%  { opacity: 0.6 }
+        72%      { opacity: 0.28 }
+        84%,100% { opacity: 0 }
+      }
+      @keyframes sunHide {
+        0%,28%   { opacity: 1 }
+        38%,70%  { opacity: 0.08 }
+        82%,100% { opacity: 1 }
+      }
+      @keyframes dkCloudIn {
+        0%,24%   { transform: translateX(850px); opacity: 0 }
+        36%      { transform: translateX(0); opacity: 0.85 }
+        66%      { transform: translateX(0); opacity: 0.85 }
+        78%      { transform: translateX(-850px); opacity: 0 }
+        100%     { transform: translateX(-850px); opacity: 0 }
+      }
+      @keyframes dkCloudInB {
+        0%,26%   { transform: translateX(-850px); opacity: 0 }
+        38%      { transform: translateX(0); opacity: 0.8 }
+        64%      { transform: translateX(0); opacity: 0.8 }
+        76%      { transform: translateX(850px); opacity: 0 }
+        100%     { transform: translateX(850px); opacity: 0 }
+      }
+      @keyframes lightning {
+        0%,43%   { opacity: 0 }
+        43.4%    { opacity: 0.28 }
+        43.8%    { opacity: 0 }
+        44.4%    { opacity: 0.16 }
+        44.8%    { opacity: 0 }
+        100%     { opacity: 0 }
+      }
+
+      .sf   { animation:snowF 5s linear infinite }
+      .fl   { animation:treeGlow 7s infinite }
+      .dvB  { animation:divineBeam 5s ease-in-out infinite }
+      .spR  { animation:spiritRise 6s linear infinite }
+      .spRB { animation:spiritRiseB 7s linear infinite }
+      .auP  { animation:auraPulse 4s ease-in-out infinite }
+      .auR  { animation:auraRing 5s ease-in-out infinite; transform-origin:center }
+      .ptl1 { animation:petalDrift1 8s linear infinite }
+      .ptl2 { animation:petalDrift2 9s linear infinite }
+      .grP  { animation:groundPulse 4s ease-in-out infinite }
+      .ap1  { animation:orbF1 5s ease-in-out infinite }
+      .ap2  { animation:orbF2 6s ease-in-out infinite; animation-delay:1.5s }
+      .apG  { animation:orbGlow 3s ease-in-out infinite }
+      .rP   { animation:rayPulse 4s ease-in-out infinite }
+      .cD   { animation:cDrift 28s ease-in-out infinite }
+      .cDB  { animation:cDriftB 32s ease-in-out infinite }
+      .lG   { animation:lanternG 3s ease-in-out infinite }
+      .bL   { animation:bFlyL 20s linear infinite }
+      .bG   { animation:bGlide 2.5s ease-in-out infinite }
+
+      .skyDk  { animation: skyDarken 20s ease-in-out infinite }
+      .gndDk  { animation: groundDarken 20s ease-in-out infinite }
+      .sunH   { animation: sunHide 20s ease-in-out infinite }
+      .dkCl   { animation: dkCloudIn 20s ease-in-out infinite }
+      .dkClB  { animation: dkCloudInB 20s ease-in-out infinite }
+      .ltng   { animation: lightning 20s ease-in-out infinite }
+
+      /* === TREE PALETTE: white → ice → sky → sea === */
+      .c1 { fill: #F7FBFF; }   /* snow white      */
+      .c2 { fill: #A9D6F5; }   /* frost sky blue  */
+      .c3 { fill: #6CB8E8; }   /* mid sky blue    */
+      .c4 { fill: #1F5F96; }   /* deep sea blue   */
+
+      /* ========================================== */
+      /* ===         HOVER EFFECTS               === */
+      /* ========================================== */
+      svg:hover .spR  { animation-duration: 3s !important; }
+      svg:hover .spRB { animation-duration: 4s !important; }
+      svg:hover .ptl1 { animation-duration: 4s !important; }
+      svg:hover .ptl2 { animation-duration: 5s !important; }
+      svg:hover .sf   { animation-duration: 3s !important; }
+      svg:hover .grP  { animation-duration: 1.5s !important; }
+      svg:hover .lG   { animation-duration: 1s !important; }
+      svg:hover .ap1  { animation-duration: 2.5s !important; }
+      svg:hover .ap2  { animation-duration: 3s !important; }
+      svg:hover .auR  { animation-duration: 2.5s !important; }
+      svg:hover .auP  { animation-duration: 2s !important; }
+      svg:hover .bL   { animation-duration: 8s !important; }
+      svg:hover .rP   { animation-duration: 1.5s !important; }
       /* ]]> */
     </style>
 
-    <!-- Smooth multi-stop sky: ivory haze -> light blue -> sea blue -->
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#eaf7ff"/>
-      <stop offset=".16" stop-color="#cfeaff"/>
-      <stop offset=".34" stop-color="#a9d8f8"/>
-      <stop offset=".52" stop-color="#86c6ef"/>
-      <stop offset=".70" stop-color="#62b0e4"/>
-      <stop offset=".86" stop-color="#4a9ad6"/>
-      <stop offset="1" stop-color="#3a8ac9"/>
+    <!-- ================= GRADIENTS ================= -->
+    <!-- Main sky: light blue → deep sea → back to light -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#2C6E9F"/>
+      <stop offset="0.22" stop-color="#3E8CBF"/>
+      <stop offset="0.45" stop-color="#6FB4E3"/>
+      <stop offset="0.68" stop-color="#A6D6F4"/>
+      <stop offset="0.86" stop-color="#D4ECFB"/>
+      <stop offset="1"    stop-color="#EFF8FE"/>
     </linearGradient>
-    <linearGradient id="duskSky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#020a1c"/>
-      <stop offset=".45" stop-color="#05163a"/>
-      <stop offset=".78" stop-color="#0a2a5c"/>
-      <stop offset="1" stop-color="#123f78"/>
+    <!-- Diagonal sheen over the sky (soft light from top-left) -->
+    <linearGradient id="skySheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="1"   stop-color="#0B2E4A" stop-opacity="0.14"/>
     </linearGradient>
-    <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
-      <stop offset=".28" stop-color="#e8f6ff" stop-opacity=".55"/>
-      <stop offset=".62" stop-color="#bfe4ff" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#a9d8f8" stop-opacity="0"/>
+    <!-- Horizon bloom behind the tree -->
+    <radialGradient id="horizonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#CFE9FB" stop-opacity="0.22"/>
+      <stop offset="1"   stop-color="#CFE9FB" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="sunCore" cx=".42" cy=".38" r=".62">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset=".55" stop-color="#f2fbff"/>
-      <stop offset="1" stop-color="#cfeaff"/>
+    <!-- Sun -->
+    <radialGradient id="sunGrad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F2FAFF"/>
+      <stop offset="1"   stop-color="#CDEAFB" stop-opacity="0.85"/>
     </radialGradient>
-    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
-      <stop offset=".35" stop-color="#d8eeff" stop-opacity=".3"/>
-      <stop offset="1" stop-color="#a9d8f8" stop-opacity="0"/>
+    <radialGradient id="sunGlowR" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#BFE3F8" stop-opacity="0.28"/>
+      <stop offset="1"   stop-color="#BFE3F8" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#3a80c0"/>
-      <stop offset="1" stop-color="#2f6fa8"/>
+    <!-- Mountain ranges -->
+    <linearGradient id="mtnBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FB9D6"/>
+      <stop offset="1" stop-color="#5E8FB4"/>
     </linearGradient>
-    <linearGradient id="peak1" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#eaf6ff"/>
-      <stop offset=".18" stop-color="#c6e4fa"/>
-      <stop offset=".42" stop-color="#9ac6ea"/>
-      <stop offset=".72" stop-color="#6fa6d4"/>
-      <stop offset="1" stop-color="#4f88bb"/>
+    <linearGradient id="mtnFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3F719A"/>
+      <stop offset="1" stop-color="#22507A"/>
     </linearGradient>
-    <linearGradient id="peak2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#7fb2dd"/>
-      <stop offset=".35" stop-color="#5b93c6"/>
-      <stop offset=".75" stop-color="#3f76ab"/>
-      <stop offset="1" stop-color="#2c5d92"/>
+    <linearGradient id="pineGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B6E86"/>
+      <stop offset="1" stop-color="#143F55"/>
     </linearGradient>
-    <linearGradient id="peak3" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2c6aa6"/>
-      <stop offset=".45" stop-color="#1e4f88"/>
-      <stop offset="1" stop-color="#143a69"/>
+    <!-- Snow / ground -->
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#FFFFFF"/>
+      <stop offset="0.28" stop-color="#F4FAFE"/>
+      <stop offset="1"    stop-color="#D6EAF7"/>
     </linearGradient>
-    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#7fc4ec"/>
-      <stop offset=".25" stop-color="#5aa8dc"/>
-      <stop offset=".60" stop-color="#3b86c4"/>
-      <stop offset="1" stop-color="#1e5385"/>
+    <!-- Torii -->
+    <linearGradient id="toriiGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#E9F7FF"/>
+      <stop offset="0.45" stop-color="#A9D3EE"/>
+      <stop offset="1"   stop-color="#5C95BE"/>
     </linearGradient>
-    <linearGradient id="shore" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f7fbff"/>
-      <stop offset=".5" stop-color="#dcefff"/>
-      <stop offset="1" stop-color="#bcdcf6"/>
+    <!-- Stone -->
+    <linearGradient id="stoneGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B6C9D8"/>
+      <stop offset="1" stop-color="#7A93A8"/>
     </linearGradient>
-    <linearGradient id="torii" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#e0453f"/>
-      <stop offset=".5" stop-color="#d23a36"/>
-      <stop offset="1" stop-color="#a8282a"/>
-    </linearGradient>
-    <linearGradient id="toriiTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1c2742"/>
-      <stop offset="1" stop-color="#0e1626"/>
-    </linearGradient>
+    <!-- Lantern light -->
+    <radialGradient id="lanternGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#BFE7FF" stop-opacity="0.45"/>
+      <stop offset="1"   stop-color="#BFE7FF" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Divine beam -->
     <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/>
-      <stop offset=".5" stop-color="#dff2ff" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#bfe4ff" stop-opacity="0"/>
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#CBE9FC" stop-opacity="0.18"/>
+      <stop offset="1"   stop-color="#CBE9FC" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset=".5" stop-color="#ffffff" stop-opacity=".22"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="fadeGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f7fbff" stop-opacity="0"/>
-      <stop offset="1" stop-color="#f7fbff" stop-opacity=".9"/>
-    </linearGradient>
-
-    <!-- Soft-layered shadow filters (used sparingly: 3 total) -->
-    <filter id="softShift" x="-30%" y="-30%" width="160%" height="170%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
-      <feOffset dy="5"/>
-      <feComponentTransfer><feFuncA type="linear" slope=".38"/></feComponentTransfer>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softSmall" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
-      <feOffset dy="2"/>
-      <feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="blurOnly" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="9"/>
-    </filter>
-
-    <radialGradient id="vig" cx=".5" cy=".45" r=".75">
-      <stop offset=".6" stop-color="#03204a" stop-opacity="0"/>
-      <stop offset="1" stop-color="#03204a" stop-opacity=".28"/>
+    <!-- Tree core aura -->
+    <radialGradient id="treeAura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="0.4" stop-color="#CDEBFD" stop-opacity="0.22"/>
+      <stop offset="1"   stop-color="#1B4E73" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Orb glow -->
+    <radialGradient id="orbWhite" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#9FD3F2"/>
+    </radialGradient>
+    <radialGradient id="orbSea" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#BFE6FF"/>
+      <stop offset="1" stop-color="#215F94"/>
+    </radialGradient>
+    <!-- Soft vignette -->
+    <radialGradient id="vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#0B2E4A" stop-opacity="0"/>
+      <stop offset="1"    stop-color="#0B2E4A" stop-opacity="0.16"/>
     </radialGradient>
 
-    <g id="cloudShape" fill="#ffffff">
-      <rect x="0" y="8" width="86" height="10" rx="5"/>
-      <rect x="10" y="2" width="46" height="14" rx="7"/>
-      <rect x="40" y="0" width="30" height="12" rx="6"/>
+    <!-- Pixel cloud -->
+    <g id="cloud" class="px">
+      <rect x="8"  y="0" width="24" height="4" fill="#fff" opacity=".72"/>
+      <rect x="4"  y="4" width="32" height="4" fill="#fff" opacity=".78"/>
+      <rect x="0"  y="8" width="40" height="4" fill="#fff" opacity=".84"/>
     </g>
-    <g id="birdShape" fill="none" stroke="#1d3350" stroke-width="2" stroke-linecap="round">
-      <path d="M0 6 Q5 0 10 6 Q15 0 20 6"/>
+    <g id="cloudB" class="px">
+      <rect x="8"  y="0" width="32" height="4" fill="#fff" opacity=".6"/>
+      <rect x="4"  y="4" width="40" height="4" fill="#fff" opacity=".66"/>
+      <rect x="0"  y="8" width="48" height="4" fill="#fff" opacity=".72"/>
     </g>
-    <g id="pineShape" fill="#1b4a63">
-      <polygon points="0,-26 9,0 -9,0"/>
-      <polygon points="0,-14 12,8 -12,8"/>
+    <!-- Pixel bird -->
+    <g id="bird" class="px">
+      <rect x="0" y="4" width="4" height="4" fill="#17425F"/>
+      <rect x="4" y="0" width="4" height="4" fill="#17425F"/>
+      <rect x="8" y="4" width="4" height="4" fill="#17425F"/>
+      <rect x="12" y="0" width="4" height="4" fill="#17425F"/>
+      <rect x="16" y="4" width="4" height="4" fill="#17425F"/>
+    </g>
+    <!-- Storm clouds -->
+    <g id="dkCl1" class="px">
+      <rect x="0"  y="0"  width="90"  height="8"  fill="#1D3550"/>
+      <rect x="-8" y="8"  width="106" height="12" fill="#122840"/>
+      <rect x="-4" y="20" width="98"  height="8"  fill="#193049"/>
+      <rect x="6"  y="28" width="78"  height="5"  fill="#22405F" opacity=".7"/>
+    </g>
+    <g id="dkCl2" class="px">
+      <rect x="0"   y="0"  width="130" height="10" fill="#1A2F49"/>
+      <rect x="-10" y="10" width="150" height="14" fill="#0E1F32"/>
+      <rect x="-6"  y="24" width="142" height="10" fill="#16293F"/>
+      <rect x="10"  y="34" width="110" height="6"  fill="#1D3550" opacity=".6"/>
     </g>
   </defs>
 
-  <!-- ===== SKY & LIGHT ===== -->
-  <rect width="800" height="280" fill="url(#sky)"/>
-  <rect x="0" y="0" width="800" height="280" fill="url(#duskSky)" class="dk"/>
+  <!-- ======================================================== -->
+  <!-- LAYER 1 — BASE SCENE                                     -->
+  <!-- ======================================================== -->
 
-  <!-- Stars (revealed at dusk) -->
-  <g fill="#ffffff" class="dkD">
-    <circle cx="60" cy="40" r="1.4" class="tw1"/><circle cx="140" cy="70" r="1" class="tw2"/>
-    <circle cx="230" cy="30" r="1.2" class="tw1"/><circle cx="320" cy="55" r="1" class="tw2"/>
-    <circle cx="420" cy="24" r="1.3" class="tw1"/><circle cx="520" cy="48" r="1" class="tw2"/>
-    <circle cx="610" cy="32" r="1.2" class="tw1"/><circle cx="700" cy="66" r="1" class="tw2"/>
-    <circle cx="760" cy="36" r="1.4" class="tw1"/><circle cx="95" cy="95" r="1" class="tw2"/>
-    <circle cx="370" cy="86" r="1" class="tw1"/><circle cx="560" cy="92" r="1.2" class="tw2"/>
-  </g>
+  <!-- Sky: single smooth gradient (pixel-step look removed) -->
+  <rect x="0" y="0" width="800" height="225" fill="url(#skyGrad)"/>
+  <rect x="0" y="0" width="800" height="225" fill="url(#skySheen)"/>
+  <ellipse cx="400" cy="205" rx="340" ry="95" fill="url(#horizonGlow)"/>
 
-  <!-- Sun -->
-  <g class="mg" style="transform-box:view-box;transform-origin:660px 70px">
-    <circle cx="660" cy="70" r="80" fill="url(#sunGlow)"/>
-    <circle cx="660" cy="70" r="22" fill="url(#sunCore)"/>
-  </g>
-  <!-- Moon (rises during dusk cycle) -->
-  <g class="mn">
-    <circle cx="660" cy="70" r="62" fill="url(#moonGlow)" class="ms"/>
-    <circle cx="660" cy="70" r="17" fill="#f4fbff"/>
-    <circle cx="666" cy="65" r="13" fill="#dfeeff" opacity=".6"/>
+  <!-- Sun with soft halo -->
+  <circle cx="676" cy="40" r="78" fill="url(#sunGlowR)" class="rP sunH"/>
+  <g transform="translate(660, 18)" class="px sunH">
+    <rect x="8"  y="0"  width="16" height="4" fill="url(#sunGrad)"/>
+    <rect x="4"  y="4"  width="24" height="4" fill="url(#sunGrad)"/>
+    <rect x="0"  y="8"  width="32" height="4" fill="#F4FBFF"/>
+    <rect x="0"  y="12" width="32" height="4" fill="#F4FBFF"/>
+    <rect x="4"  y="16" width="24" height="4" fill="url(#sunGrad)"/>
+    <rect x="8"  y="20" width="16" height="4" fill="url(#sunGrad)"/>
+    <rect x="10" y="8"  width="12" height="8" fill="#FFFFFF" opacity=".75"/>
+    <rect x="14" y="-8"  width="4" height="8"  fill="#FFFFFF" opacity=".45" class="rP"/>
+    <rect x="14" y="24"  width="4" height="8"  fill="#FFFFFF" opacity=".45" class="rP"/>
+    <rect x="-8" y="10"  width="8"  height="4"  fill="#FFFFFF" opacity=".45" class="rP" style="animation-delay:1s"/>
+    <rect x="32" y="10"  width="8"  height="4"  fill="#FFFFFF" opacity=".45" class="rP" style="animation-delay:1s"/>
+    <rect x="-4" y="-4"  width="4" height="4"  fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="-4"  width="4" height="4"  fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="-4" y="24"  width="4" height="4"  fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
+    <rect x="32" y="24"  width="4" height="4"  fill="#FFFFFF" opacity=".3" class="rP" style="animation-delay:2s"/>
   </g>
 
   <!-- Clouds -->
-  <g class="cl1" opacity=".85"><use href="#cloudShape" x="60" y="40"/></g>
-  <g class="cl2" opacity=".65"><use href="#cloudShape" x="330" y="26" transform="scale(1.2)"/></g>
-  <g class="cl1" opacity=".5" style="animation-delay:-9s"><use href="#cloudShape" x="540" y="110"/></g>
-  <g class="cl2" opacity=".7" style="animation-delay:-14s"><use href="#cloudShape" x="700" y="88" transform="scale(.9)"/></g>
+  <g class="cD"><use href="#cloudB" x="40" y="30"/></g>
+  <g class="cDB"><use href="#cloud" x="480" y="20"/></g>
+  <g class="cD" style="animation-delay:-12s"><use href="#cloud" x="280" y="50" opacity=".5"/></g>
+  <g class="cDB" style="animation-delay:-8s"><use href="#cloud" x="580" y="55" opacity=".4"/></g>
 
-  <!-- Birds -->
-  <g class="bd"><use href="#birdShape" x="0" y="66"/>
-    <use href="#birdShape" x="28" y="54" transform="scale(.8)" style="transform-box:view-box"/>
-  </g>
+  <!-- Bird -->
+  <g class="bL"><g class="bG"><use href="#bird" x="0" y="42"/></g></g>
 
-  <!-- Divine light beam -->
-  <g class="bm">
-    <polygon points="390,0 470,0 520,200 340,200" fill="url(#beamGrad)"/>
-    <polygon points="410,0 450,0 485,200 375,200" fill="url(#beamGrad)" opacity=".7"/>
-  </g>
-
-  <!-- ===== MOUNTAINS (back -> front, layered depth) ===== -->
-  <g filter="url(#softShift)">
-    <path d="M0 160 L90 108 L150 138 L230 96 L310 134 L400 88 L490 130 L570 100 L650 132 L730 104 L800 140 L800 220 L0 220 Z" fill="url(#peak1)" opacity=".75"/>
-  </g>
-  <g filter="url(#softShift)">
-    <path d="M0 180 L70 146 L140 168 L220 130 L310 162 L400 120 L480 156 L560 128 L640 160 L720 134 L800 164 L800 230 L0 230 Z" fill="url(#peak2)"/>
-    <!-- snow caps -->
-    <path d="M220 130 L236 142 L228 144 L220 138 L212 144 L204 142 Z" fill="#f2fbff" opacity=".9"/>
-    <path d="M400 120 L416 133 L408 135 L400 129 L392 135 L384 133 Z" fill="#f2fbff" opacity=".9"/>
-    <path d="M560 128 L575 140 L567 142 L560 136 L552 142 L545 140 Z" fill="#f2fbff" opacity=".85"/>
-    <path d="M720 134 L734 145 L726 147 L720 141 L712 147 L706 145 Z" fill="#f2fbff" opacity=".8"/>
-  </g>
-  <g filter="url(#softShift)">
-    <path d="M0 204 L80 176 L160 196 L250 168 L330 192 L420 164 L500 190 L590 170 L670 194 L750 176 L800 190 L800 236 L0 236 Z" fill="url(#peak3)"/>
-    <ellipse cx="400" cy="204" rx="300" ry="22" fill="#0a2a4e" opacity=".3" filter="url(#blurOnly)"/>
+  <!-- Back mountains -->
+  <g class="px">
+    <polygon points="0,195 50,160 100,178 160,148 220,170 280,140 340,162 400,132 460,155 520,130 580,152 640,138 700,155 760,142 800,160 800,220 0,220" fill="url(#mtnBack)"/>
+    <polygon points="0,195 50,160 100,178 160,148 220,170 280,140 340,162 400,132 460,155 520,130 580,152 640,138 700,155 760,142 800,160 800,220 0,220" fill="url(#skySheen)" opacity=".6"/>
+    <rect x="158" y="148" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="278" y="140" width="8" height="4" fill="#FFFFFF" opacity=".75"/>
+    <rect x="398" y="132" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="518" y="130" width="8" height="4" fill="#FFFFFF" opacity=".8"/>
+    <rect x="638" y="138" width="8" height="4" fill="#FFFFFF" opacity=".75"/>
+    <rect x="758" y="142" width="8" height="4" fill="#FFFFFF" opacity=".7"/>
   </g>
 
-  <!-- Pine silhouettes -->
-  <g opacity=".55">
-    <use href="#pineShape" x="46" y="206" transform="scale(.7)" style="transform-box:view-box"/>
-    <use href="#pineShape" x="150" y="200" transform="scale(.9)" style="transform-box:view-box"/>
-    <use href="#pineShape" x="320" y="196" transform="scale(.8)" style="transform-box:view-box"/>
-    <use href="#pineShape" x="486" y="200" transform="scale(1)" style="transform-box:view-box"/>
-    <use href="#pineShape" x="628" y="196" transform="scale(.85)" style="transform-box:view-box"/>
-    <use href="#pineShape" x="748" y="200" transform="scale(.7)" style="transform-box:view-box"/>
+  <!-- Front mountains -->
+  <g class="px">
+    <polygon points="0,210 70,180 140,200 220,172 310,195 400,168 480,190 560,170 640,192 720,175 800,188 800,230 0,230" fill="url(#mtnFront)"/>
+    <rect x="218" y="172" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="398" y="168" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="558" y="170" width="8" height="4" fill="#E6F2FB" opacity=".7"/>
+    <rect x="718" y="175" width="8" height="4" fill="#E6F2FB" opacity=".65"/>
   </g>
 
-  <!-- ===== SEA ===== -->
-  <rect x="0" y="226" width="800" height="54" fill="url(#water)"/>
-  <g stroke="#eaf7ff" stroke-linecap="round" fill="none" opacity=".55">
-    <path d="M-40 238 H80 M150 238 H240 M320 238 H400 M500 238 H590 M680 238 H800" stroke-width="1.4" class="td"/>
-    <path d="M-20 248 H110 M190 248 H300 M380 248 H470 M560 248 H660 M760 248 H840" stroke-width="1.1" class="td" style="animation-delay:-4s"/>
-    <path d="M-40 258 H60 M140 258 H260 M340 258 H440 M520 258 H620 M720 258 H820" stroke-width="1" class="td" style="animation-delay:-8s"/>
-    <path d="M-30 268 H90 M170 268 H280 M360 268 H460 M540 268 H640 M740 268 H830" stroke-width="1.2" class="td" style="animation-delay:-2s"/>
+  <!-- Pine trees -->
+  <g class="px" fill="url(#pineGrad)" opacity=".85">
+    <polygon points="44,210 52,192 60,210"/>  <polygon points="47,198 52,186 57,198"/>
+    <polygon points="140,206 148,188 156,206"/><polygon points="143,194 148,182 153,194"/>
+    <polygon points="320,202 328,184 336,202"/><polygon points="323,190 328,178 333,190"/>
+    <polygon points="488,208 494,192 500,208"/><polygon points="490,198 494,186 498,198"/>
+    <polygon points="620,204 628,186 636,204"/><polygon points="623,192 628,180 633,192"/>
+    <polygon points="750,206 756,192 762,206"/><polygon points="752,196 756,186 760,196"/>
   </g>
-  <!-- sun/moon shimmer on water -->
-  <g class="ms" stroke="#ffffff" fill="none" stroke-linecap="round" opacity=".5">
-    <path d="M630 240 H690 M640 251 H700 M646 262 H706" stroke-width="1.6" class="rd"/>
+
+  <!-- Snow ground -->
+  <rect x="0" y="225" width="800" height="55" fill="url(#groundGrad)" class="px"/>
+  <rect x="0" y="222" width="800" height="4"  fill="#FFFFFF" class="px"/>
+  <rect x="30"  y="232" width="2" height="2" fill="#fff" opacity=".6" class="px"/>
+  <rect x="120" y="240" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
+  <rect x="250" y="235" width="2" height="2" fill="#fff" opacity=".55" class="px"/>
+  <rect x="380" y="242" width="2" height="2" fill="#fff" opacity=".6" class="px"/>
+  <rect x="500" y="233" width="2" height="2" fill="#fff" opacity=".5" class="px"/>
+  <rect x="630" y="238" width="2" height="2" fill="#fff" opacity=".55" class="px"/>
+  <rect x="750" y="230" width="2" height="2" fill="#fff" opacity=".6" class="px"/>
+
+  <!-- Torii Left -->
+  <g transform="translate(190, 110)" class="px">
+    <rect x="-6" y="-4" width="48" height="3" fill="#22405F"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="url(#toriiGrad)"/>
+    <rect x="-2" y="10" width="40" height="3" fill="url(#toriiGrad)"/>
+    <rect x="12" y="4" width="12" height="8" fill="#173248"/>
+    <rect x="2"  y="2"  width="4" height="112" fill="url(#toriiGrad)"/>
+    <rect x="30" y="2"  width="4" height="112" fill="url(#toriiGrad)"/>
+    <rect x="0"  y="112" width="8"  height="4" fill="url(#stoneGrad)"/>
+    <rect x="28" y="112" width="8"  height="4" fill="url(#stoneGrad)"/>
+    <rect x="-6" y="-7"  width="48" height="3" fill="#fff" opacity=".85"/>
+    <rect x="-2" y="-1"  width="40" height="2" fill="#fff" opacity=".55"/>
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".45"/>
   </g>
-  <!-- Specular sheen sweep -->
-  <rect x="0" y="226" width="220" height="54" fill="url(#sheenGrad)" class="sh" style="transform-box:view-box"/>
 
-  <!-- Shore -->
-  <path d="M0 274 Q120 266 240 274 T480 274 T720 274 T960 274 L960 282 L0 282 Z" fill="url(#shore)" opacity=".95"/>
-  <rect x="0" y="272" width="800" height="3" fill="#ffffff" opacity=".55"/>
-  <rect x="0" y="226" width="800" height="8" fill="url(#fadeGrad)" opacity=".5"/>
+  <!-- Torii Right -->
+  <g transform="translate(570, 110)" class="px">
+    <rect x="-6" y="-4" width="48" height="3" fill="#22405F"/>
+    <rect x="-4" y="-1" width="44" height="4" fill="url(#toriiGrad)"/>
+    <rect x="-2" y="10" width="40" height="3" fill="url(#toriiGrad)"/>
+    <rect x="12" y="4" width="12" height="8" fill="#173248"/>
+    <rect x="2"  y="2"  width="4" height="112" fill="url(#toriiGrad)"/>
+    <rect x="30" y="2"  width="4" height="112" fill="url(#toriiGrad)"/>
+    <rect x="0"  y="112" width="8"  height="4" fill="url(#stoneGrad)"/>
+    <rect x="28" y="112" width="8"  height="4" fill="url(#stoneGrad)"/>
+    <rect x="-6" y="-7"  width="48" height="3" fill="#fff" opacity=".85"/>
+    <rect x="-2" y="-1"  width="40" height="2" fill="#fff" opacity=".55"/>
+    <rect x="0"  y="9"  width="36" height="2" fill="#fff" opacity=".45"/>
+  </g>
 
-  <!-- Torii gates (perspective pair on water) -->
-  <g filter="url(#softSmall)">
-    <g transform="translate(196,150) scale(1.25)" fill="url(#torii)" opacity=".93">
-      <rect x="-16" y="-6" width="52" height="5" rx="1" fill="url(#toriiTop)"/>
-      <rect x="-12" y="0" width="44" height="5" rx="1"/>
-      <rect x="-9" y="15" width="38" height="4"/>
-      <rect x="-6" y="19" width="32" height="6" fill="url(#toriiTop)"/>
-      <rect x="-5" y="5" width="5" height="64"/>
-      <rect x="20" y="5" width="5" height="64"/>
-      <rect x="-8" y="66" width="11" height="4" fill="url(#toriiTop)"/>
-      <rect x="17" y="66" width="11" height="4" fill="url(#toriiTop)"/>
-      <rect x="-16" y="-6" width="52" height="2" fill="#ffffff" opacity=".35"/>
+  <!-- Stone Lanterns -->
+  <g transform="translate(234, 186)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="url(#stoneGrad)"/>
+    <rect x="2" y="10" width="8"  height="18" fill="url(#stoneGrad)"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#7A93A8"/>
+    <ellipse cx="6" cy="8" rx="10" ry="7" fill="url(#lanternGlow)" class="lG"/>
+    <rect x="2" y="6"  width="8"  height="4" fill="#FFFFFF" opacity=".35" class="lG"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#6A8199"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#6A8199"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".6"/>
+  </g>
+  <g transform="translate(558, 186)" class="px">
+    <rect x="0" y="28" width="12" height="3" fill="url(#stoneGrad)"/>
+    <rect x="2" y="10" width="8"  height="18" fill="url(#stoneGrad)"/>
+    <rect x="0" y="4"  width="12" height="8" fill="#7A93A8"/>
+    <ellipse cx="6" cy="8" rx="10" ry="7" fill="url(#lanternGlow)" class="lG" style="animation-delay:1.5s"/>
+    <rect x="2" y="6"  width="8"  height="4" fill="#FFFFFF" opacity=".35" class="lG" style="animation-delay:1.5s"/>
+    <rect x="-2" y="0" width="16" height="6" fill="#6A8199"/>
+    <rect x="0"  y="-3" width="12" height="3" fill="#6A8199"/>
+    <rect x="-2" y="-3" width="16" height="2" fill="#fff" opacity=".6"/>
+  </g>
+
+  <!-- Divine beam -->
+  <g class="px">
+    <polygon points="370,0 430,0 480,225 320,225" fill="url(#beamGrad)" class="dvB"/>
+    <polygon points="382,0 418,0 460,225 340,225" fill="url(#beamGrad)" class="dvB" style="animation-delay:1.5s"/>
+    <rect x="388" y="30"  width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:.5s"/>
+    <rect x="400" y="60"  width="3" height="3" fill="#fff" opacity=".25" class="dvB" style="animation-delay:1s"/>
+    <rect x="378" y="90"  width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:2s"/>
+    <rect x="412" y="110" width="3" height="3" fill="#fff" opacity=".25" class="dvB" style="animation-delay:1.5s"/>
+    <rect x="394" y="145" width="3" height="3" fill="#fff" opacity=".3" class="dvB" style="animation-delay:.8s"/>
+  </g>
+
+  <!-- Aura: soft core glow + drifting rings -->
+  <ellipse cx="400" cy="150" rx="120" ry="105" fill="url(#treeAura)" class="auP"/>
+  <g transform="translate(400, 155)" class="px auR">
+    <rect x="-64" y="-4"  width="8" height="8" fill="#FFFFFF" opacity=".1"/>
+    <rect x="56"  y="-4"  width="8" height="8" fill="#FFFFFF" opacity=".1"/>
+    <rect x="-4"  y="-64" width="8" height="8" fill="#FFFFFF" opacity=".1"/>
+    <rect x="-4"  y="56"  width="8" height="8" fill="#FFFFFF" opacity=".1"/>
+  </g>
+  <g class="px auP">
+    <rect x="330" y="100" width="140" height="120" fill="#FFFFFF" opacity=".04"/>
+    <rect x="350" y="110" width="100" height="100" fill="#CFE9FB" opacity=".06"/>
+  </g>
+  <g transform="translate(400, 155)" class="px auR" style="animation-delay:2s">
+    <rect x="-50" y="-2" width="3" height="3" fill="#FFFFFF" opacity=".2"/>
+    <rect x="48"  y="-2" width="3" height="3" fill="#FFFFFF" opacity=".2"/>
+    <rect x="-2"  y="-50" width="3" height="3" fill="#9FD3F2" opacity=".22"/>
+    <rect x="-2"  y="48"  width="3" height="3" fill="#9FD3F2" opacity=".22"/>
+    <rect x="-38" y="-34" width="3" height="3" fill="#D8EEFC" opacity=".18"/>
+    <rect x="36"  y="-34" width="3" height="3" fill="#D8EEFC" opacity=".18"/>
+    <rect x="-38" y="32"  width="3" height="3" fill="#D8EEFC" opacity=".18"/>
+    <rect x="36"  y="32"  width="3" height="3" fill="#D8EEFC" opacity=".18"/>
+  </g>
+
+  <!-- Ground energy -->
+  <g class="px">
+    <rect x="340" y="222" width="28" height="2" fill="#FFFFFF" class="grP"/>
+    <rect x="310" y="224" width="20" height="2" fill="#B9E1FA" class="grP" style="animation-delay:1s"/>
+    <rect x="288" y="226" width="12" height="2" fill="#7FC3EC" class="grP" style="animation-delay:2s"/>
+    <rect x="432" y="222" width="28" height="2" fill="#FFFFFF" class="grP" style="animation-delay:.5s"/>
+    <rect x="470" y="224" width="20" height="2" fill="#B9E1FA" class="grP" style="animation-delay:1.5s"/>
+    <rect x="498" y="226" width="12" height="2" fill="#7FC3EC" class="grP" style="animation-delay:2.5s"/>
+  </g>
+
+  <!-- Stone path -->
+  <g class="px" fill="#6F8AA0" opacity=".4">
+    <rect x="388" y="236" width="10" height="4"/>
+    <rect x="390" y="243" width="8"  height="4"/>
+    <rect x="392" y="250" width="6"  height="4"/>
+    <rect x="394" y="256" width="5"  height="3"/>
+  </g>
+
+  <!-- Offering box -->
+  <g transform="translate(382, 256)" class="px">
+    <rect x="0" y="0" width="28" height="4" fill="#2A4055"/>
+    <rect x="2" y="4" width="24" height="12" fill="#1C2E40"/>
+    <rect x="0" y="16" width="28" height="3" fill="#2A4055"/>
+    <rect x="8" y="1" width="12" height="2" fill="#0E1C28"/>
+  </g>
+
+  <rect x="0" y="276" width="800" height="4" fill="#E6F2FB" class="px"/>
+
+  <!-- ======================================================== -->
+  <!-- LAYER 2 — STORM OVERLAY                                  -->
+  <!-- ======================================================== -->
+  <rect x="0" y="0" width="800" height="225" fill="#0B2438" class="skyDk px"/>
+  <rect x="0" y="222" width="800" height="58" fill="#0B2438" class="gndDk px"/>
+
+  <g class="dkCl">
+    <use href="#dkCl2" x="20"  y="2"/>
+    <use href="#dkCl1" x="180" y="12"/>
+    <use href="#dkCl2" x="340" y="0"/>
+    <use href="#dkCl1" x="520" y="8"/>
+    <use href="#dkCl2" x="660" y="4"/>
+  </g>
+  <g class="dkClB">
+    <use href="#dkCl1" x="60"  y="38"/>
+    <use href="#dkCl2" x="200" y="30"/>
+    <use href="#dkCl1" x="400" y="42"/>
+    <use href="#dkCl2" x="560" y="34"/>
+    <use href="#dkCl1" x="720" y="36"/>
+  </g>
+  <g class="dkCl" style="animation-delay:0.8s">
+    <use href="#dkCl1" x="100" y="62"/>
+    <use href="#dkCl2" x="280" y="56"/>
+    <use href="#dkCl1" x="460" y="66"/>
+    <use href="#dkCl2" x="620" y="60"/>
+  </g>
+
+  <!-- Lightning (cool blue-white flash) -->
+  <rect x="0" y="0" width="800" height="280" fill="#CFE9FF" class="ltng px"/>
+
+  <!-- ======================================================== -->
+  <!-- LAYER 3 — TREE + ORBS + SPIRITS + PETALS                 -->
+  <!-- ======================================================== -->
+
+  <!-- Sacred ASCII tree -->
+  <g class="fl" transform="translate(268, 88)">
+    <text x="0" y="0" class="ascii">
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⢼⠃⠀⠀⠀⣠⣴⣾⠋⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠤⠦⢀⣠⡀⠀⠀⠀⠀⢀⠈⠉⠁⡀⠀⠀⠈⢲⣿⠺⠂⠀⠀⠀⠀⠀⣴⣿⠉⠉</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠈⠉⠁⠒⠒⠀⠺⡄⠀⠀⠈⢀⣂⡀⢈⠾⣧⡄⠀⠀⠀⠀⠀⠀⠀⡿</tspan>
+      <tspan x="0" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠹.⠀⠀⠈⢩⣷⡟⠀⠬⢁⢠⠀⢀⠀⣀⣀⣼⠁</tspan>
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠀⠤⠀⠠⡇⠀⠀⠀⠀⠒⠭⣄⢀⠀⢨⠟⢅⡀⣀⣼⣿⡿⠿⠿⠟⠛⠁</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠩⣖⠀⢀⣴⣾⠿⠛⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠙⠛⢻⡠⠷⢤⡀⠀⠀⢀⣆⣿⣾⡿⠁⣀ ⣀⣀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c4">⠀⠀⠀⠀⠀⠀⠀⢱⡆⠀⠙⢿⣤⣠⣿⠿⠛⠛⠋⠀⠀⠀⠁⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c1">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⣿⣫⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c3">⠀⠀⠀⠀⠀⠀⠀⠀⠹⣆⢸⠟⢀⣿⠈⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+      <tspan x="0" dy="1.1em" class="c2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⢀⣿⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tspan>
+    </text>
+  </g>
+
+  <!-- White orb -->
+  <g class="ap1" transform="translate(358, 124)">
+    <g class="apG px">
+      <rect x="-3" y="0" width="3" height="4" fill="#FFFFFF" opacity=".22"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#FFFFFF" opacity=".22"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#FFFFFF" opacity=".22"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#FFFFFF" opacity=".22"/>
     </g>
-    <g transform="translate(574,150) scale(1.25)" fill="url(#torii)" opacity=".93">
-      <rect x="-16" y="-6" width="52" height="5" rx="1" fill="url(#toriiTop)"/>
-      <rect x="-12" y="0" width="44" height="5" rx="1"/>
-      <rect x="-9" y="15" width="38" height="4"/>
-      <rect x="-6" y="19" width="32" height="6" fill="url(#toriiTop)"/>
-      <rect x="-5" y="5" width="5" height="64"/>
-      <rect x="20" y="5" width="5" height="64"/>
-      <rect x="-8" y="66" width="11" height="4" fill="url(#toriiTop)"/>
-      <rect x="17" y="66" width="11" height="4" fill="url(#toriiTop)"/>
-      <rect x="-16" y="-6" width="52" height="2" fill="#ffffff" opacity=".35"/>
-    </g>
+    <rect x="0" y="0" width="4" height="4" fill="url(#orbWhite)" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".6" class="px"/>
   </g>
 
-  <!-- Water shadow beneath gates -->
-  <ellipse cx="196" cy="241" rx="36" ry="5" fill="#0d3260" opacity=".18"/>
-  <ellipse cx="574" cy="241" rx="36" ry="5" fill="#0d3260" opacity=".18"/>
-
-  <!-- Divine orb / mana halo (centerpiece, above gates) -->
-  <g transform="translate(400,118)">
-    <g class="hl">
-      <circle r="86" fill="url(#sunGlow)" opacity=".55"/>
-      <circle r="46" fill="none" stroke="#ffffff" stroke-width="1.2" opacity=".55"/>
-      <circle r="62" fill="none" stroke="#bfe4ff" stroke-width="1" opacity=".4"/>
+  <!-- Sea-blue orb -->
+  <g class="ap2" transform="translate(440, 112)">
+    <g class="apG px" style="animation-delay:1.5s">
+      <rect x="-3" y="0" width="3" height="4" fill="#7FC3EC" opacity=".18"/>
+      <rect x="4"  y="0" width="3" height="4" fill="#7FC3EC" opacity=".18"/>
+      <rect x="0" y="-3" width="4" height="3" fill="#7FC3EC" opacity=".18"/>
+      <rect x="0" y="4"  width="4" height="3" fill="#7FC3EC" opacity=".18"/>
     </g>
-    <circle r="16" fill="url(#sunCore)" filter="url(#softSmall)"/>
-    <circle r="16" fill="none" stroke="#ffffff" stroke-width="1.6" opacity=".9"/>
-    <circle r="6" fill="#ffffff" class="rd"/>
-  </g>
-
-  <!-- Dusk tint (deep sea twilight) -->
-  <rect width="800" height="280" fill="#0b2250" class="dkD"/>
-  <g class="dkG">
-    <circle cx="400" cy="118" r="140" fill="url(#moonGlow)"/>
+    <rect x="0" y="0" width="4" height="4" fill="url(#orbSea)" class="px"/>
+    <rect x="0" y="0" width="2" height="2" fill="#fff" opacity=".55" class="px"/>
   </g>
 
   <!-- Spirit particles -->
-  <g fill="#e8f8ff">
-    <circle cx="352" cy="214" r="2.2" class="sp1"/>
-    <circle cx="386" cy="220" r="1.6" class="sp2"/>
-    <circle cx="424" cy="212" r="2" class="sp1" style="animation-delay:-1.5s"/>
-    <circle cx="452" cy="220" r="1.5" class="sp2"/>
-    <circle cx="300" cy="220" r="1.4" class="sp1" style="animation-delay:-2.4s"/>
-    <circle cx="500" cy="216" r="1.8" class="sp2" style="animation-delay:-4s"/>
+  <g>
+    <rect x="380" y="180" width="3" height="3" fill="#FFFFFF" class="spR px" style="animation-delay:0s"/>
+    <rect x="405" y="190" width="3" height="3" fill="#D8EEFC" class="spRB px" style="animation-delay:2s"/>
+    <rect x="418" y="175" width="3" height="3" fill="#FFFFFF" class="spR px" style="animation-delay:4s"/>
+    <rect x="392" y="185" width="3" height="3" fill="#B9E1FA" class="spRB px" style="animation-delay:1s"/>
+    <rect x="370" y="195" width="3" height="3" fill="#D8EEFC" class="spR px" style="animation-delay:3s"/>
+    <rect x="428" y="182" width="3" height="3" fill="#B9E1FA" class="spRB px" style="animation-delay:5s"/>
+    <rect x="400" y="170" width="3" height="3" fill="#7FC3EC" class="spR px" style="animation-delay:1.5s"/>
+    <rect x="386" y="188" width="3" height="3" fill="#7FC3EC" class="spRB px" style="animation-delay:3.5s"/>
+    <rect x="412" y="178" width="3" height="3" fill="#9FD3F2" class="spR px" style="animation-delay:5.5s"/>
+    <rect x="396" y="165" width="3" height="3" fill="#fff" class="spR px" style="animation-delay:2.5s; animation-duration:8s"/>
+    <rect x="410" y="192" width="3" height="3" fill="#fff" class="spRB px" style="animation-delay:4.5s; animation-duration:9s"/>
   </g>
 
-  <!-- Sakura petals -->
-  <g fill="#ffd5e2">
-    <ellipse cx="330" cy="120" rx="4" ry="2.2" class="p1"/>
-    <ellipse cx="470" cy="104" rx="3.6" ry="2" class="p2"/>
-    <ellipse cx="370" cy="90" rx="3.8" ry="2" class="p1" style="animation-delay:-3s"/>
-    <ellipse cx="440" cy="130" rx="3.4" ry="2" class="p2" style="animation-delay:-8s"/>
+  <!-- Frost / ice flakes drifting -->
+  <g class="px">
+    <rect x="350" y="100" width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:0s"/>
+    <rect x="420" y="95"  width="3" height="4" fill="#D8EEFC" class="ptl2" style="animation-delay:2s"/>
+    <rect x="380" y="88"  width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:4s; animation-duration:9s"/>
+    <rect x="440" y="105" width="3" height="4" fill="#CFE9FB" class="ptl2" style="animation-delay:1s; animation-duration:10s"/>
+    <rect x="330" y="110" width="4" height="3" fill="#D8EEFC" class="ptl1" style="animation-delay:3s; animation-duration:7s"/>
+    <rect x="460" y="92"  width="3" height="4" fill="#FFFFFF" class="ptl2" style="animation-delay:5s"/>
+    <rect x="395" y="82"  width="4" height="3" fill="#FFFFFF" class="ptl1" style="animation-delay:6s; animation-duration:8s"/>
+    <rect x="365" y="115" width="3" height="3" fill="#CFE9FB" class="ptl2" style="animation-delay:3.5s; animation-duration:11s"/>
   </g>
 
-  <!-- Snow / drift (top, gentle) -->
-  <g fill="#ffffff">
-    <circle cx="40" cy="0" r="1.8" class="sf1"/>
-    <circle cx="120" cy="0" r="1.4" class="sf2"/>
-    <circle cx="205" cy="0" r="2" class="sf1" style="animation-delay:-1.6s"/>
-    <circle cx="290" cy="0" r="1.5" class="sf2"/>
-    <circle cx="360" cy="0" r="2.2" class="sf1" style="animation-delay:-2.9s"/>
-    <circle cx="445" cy="0" r="1.4" class="sf2"/>
-    <circle cx="530" cy="0" r="1.9" class="sf1" style="animation-delay:-3.4s"/>
-    <circle cx="615" cy="0" r="1.5" class="sf2"/>
-    <circle cx="695" cy="0" r="1.8" class="sf1" style="animation-delay:-1.1s"/>
-    <circle cx="765" cy="0" r="1.4" class="sf2"/>
+  <!-- ======================================================== -->
+  <!-- LAYER 4 — SNOW (always visible on top)                   -->
+  <!-- ======================================================== -->
+  <g class="px" fill="#fff">
+    <rect x="20"  width="3" height="3" class="sf" style="animation-delay:0s"/>
+    <rect x="70"  width="4" height="4" class="sf" style="animation-delay:1.2s; animation-duration:6s"/>
+    <rect x="130" width="3" height="3" class="sf" style="animation-delay:2.5s"/>
+    <rect x="185" width="4" height="4" class="sf" style="animation-delay:.5s; animation-duration:7s"/>
+    <rect x="250" width="3" height="3" class="sf" style="animation-delay:3.2s; animation-duration:5.5s"/>
+    <rect x="310" width="4" height="4" class="sf" style="animation-delay:1.8s"/>
+    <rect x="365" width="3" height="3" class="sf" style="animation-delay:4s; animation-duration:6.5s"/>
+    <rect x="420" width="4" height="4" class="sf" style="animation-delay:.8s"/>
+    <rect x="475" width="3" height="3" class="sf" style="animation-delay:2.8s; animation-duration:7s"/>
+    <rect x="530" width="4" height="4" class="sf" style="animation-delay:1.5s; animation-duration:5s"/>
+    <rect x="585" width="3" height="3" class="sf" style="animation-delay:3.5s"/>
+    <rect x="640" width="4" height="4" class="sf" style="animation-delay:.3s; animation-duration:6s"/>
+    <rect x="700" width="3" height="3" class="sf" style="animation-delay:2s"/>
+    <rect x="760" width="4" height="4" class="sf" style="animation-delay:4.2s; animation-duration:5.5s"/>
+    <rect x="50"  width="3" height="3" class="sf" style="animation-delay:3s; animation-duration:7.5s"/>
+    <rect x="160" width="3" height="3" class="sf" style="animation-delay:1s; animation-duration:4.5s"/>
+    <rect x="450" width="4" height="4" class="sf" style="animation-delay:2.2s; animation-duration:6s"/>
+    <rect x="620" width="3" height="3" class="sf" style="animation-delay:3.8s; animation-duration:5s"/>
   </g>
 
-  <!-- Rain during dusk -->
-  <g stroke="#cfe8ff" stroke-width="1" stroke-linecap="round" class="rn" opacity=".5">
-    <path d="M80 0 v14 M150 22 v14 M240 6 v14 M330 30 v14 M430 12 v14 M520 26 v14 M620 4 v14 M710 20 v14"/>
-  </g>
-  <g stroke="#cfe8ff" stroke-width="1" stroke-linecap="round" class="rn2" opacity=".4">
-    <path d="M110 40 v14 M200 16 v14 M290 44 v14 M380 24 v14 M490 40 v14 M580 8 v14 M670 36 v14 M760 14 v14"/>
-  </g>
+  <!-- Subtle vignette to frame the banner -->
+  <rect x="0" y="0" width="800" height="280" fill="url(#vignette)"/>
 
-  <!-- Edge vignette for depth -->
-  <rect width="800" height="280" fill="url(#vig)"/>
 </svg>
